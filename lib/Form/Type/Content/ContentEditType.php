@@ -6,6 +6,7 @@
  */
 namespace EzSystems\RepositoryForms\Form\Type\Content;
 
+use eZ\Publish\API\Repository\Values\Content\ContentStruct;
 use EzSystems\RepositoryForms\Form\EventSubscriber\SuppressValidationSubscriber;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -37,13 +38,13 @@ class ContentEditType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('publish', SubmitType::class, ['label' => 'content.publish_button']);
+            ->add('publish', SubmitType::class, ['label' => 'Publish']);
 
         if ($options['drafts_enabled']) {
             $builder
-                ->add('saveDraft', SubmitType::class, ['label' => 'content.save_button'])
+                ->add('saveDraft', SubmitType::class, ['label' => 'Save draft'])
                 ->add('cancel', SubmitType::class, [
-                    'label' => 'content.cancel_button',
+                    'label' => 'Cancel',
                     'attr' => ['formnovalidate' => 'formnovalidate'],
                 ]);
             $builder->addEventSubscriber(new SuppressValidationSubscriber());
@@ -55,8 +56,8 @@ class ContentEditType extends AbstractType
         $resolver
             ->setDefaults([
                 'drafts_enabled' => false,
-                'data_class' => '\eZ\Publish\API\Repository\Values\Content\ContentStruct',
-                'translation_domain' => 'ezrepoforms_content',
+                'data_class' => ContentStruct::class,
+                'translation_domain' => 'ezplatform_content_forms_content',
                 'intent' => 'update',
             ]);
     }

@@ -41,7 +41,6 @@ class PasswordConstraintCheckboxType extends AbstractType
     {
         $resolver->setDefaults([
             'required' => false,
-            'translation_domain' => 'ezrepoforms_content_type',
         ]);
     }
 
