@@ -6,7 +6,7 @@
  */
 namespace EzSystems\RepositoryForms\Form\ActionDispatcher;
 
-use EzSystems\RepositoryForms\Event\RepositoryFormEvents;
+use EzSystems\RepositoryForms\Event\ContentFormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class UserDispatcher extends AbstractActionDispatcher
@@ -17,6 +17,6 @@ class UserDispatcher extends AbstractActionDispatcher
 
     protected function getActionEventBaseName()
     {
-        return RepositoryFormEvents::USER_EDIT;
+        return ContentFormEvents::USER_EDIT;
     }
 }
