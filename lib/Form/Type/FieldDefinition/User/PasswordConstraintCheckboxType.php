@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace EzSystems\RepositoryForms\Form\Type\FieldDefinition\User;
+namespace EzSystems\EzPlatformContentForms\Form\Type\FieldDefinition\User;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\CallbackTransformer;

@@ -6,11 +6,11 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryForms\Tests\FieldType\DataTransformer;
+namespace EzSystems\EzPlatformContentForms\Tests\FieldType\DataTransformer;
 
 use eZ\Publish\API\Repository\FieldType;
 use eZ\Publish\SPI\FieldType\Value;
-use EzSystems\RepositoryForms\FieldType\DataTransformer\FieldValueTransformer;
+use EzSystems\EzPlatformContentForms\FieldType\DataTransformer\FieldValueTransformer;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 

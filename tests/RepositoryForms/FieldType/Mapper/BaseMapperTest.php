@@ -1,10 +1,10 @@
 <?php
 
-namespace EzSystems\RepositoryForms\Tests\FieldType\Mapper;
+namespace EzSystems\EzPlatformContentForms\Tests\FieldType\Mapper;
 
 use eZ\Publish\API\Repository\FieldType;
 use eZ\Publish\API\Repository\FieldTypeService;
-use EzSystems\RepositoryForms\Data\Content\FieldData;
+use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Form\FormConfigInterface;
 use Symfony\Component\Form\FormFactoryInterface;

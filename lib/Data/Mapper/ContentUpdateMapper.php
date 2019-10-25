@@ -5,12 +5,12 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryForms\Data\Mapper;
+namespace EzSystems\EzPlatformContentForms\Data\Mapper;
 
 use eZ\Publish\API\Repository\Values\ContentType\ContentType;
 use eZ\Publish\API\Repository\Values\ValueObject;
-use EzSystems\RepositoryForms\Data\Content\ContentUpdateData;
-use EzSystems\RepositoryForms\Data\Content\FieldData;
+use EzSystems\EzPlatformContentForms\Data\Content\ContentUpdateData;
+use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ContentUpdateMapper implements FormDataMapperInterface
@@ -21,7 +21,7 @@ class ContentUpdateMapper implements FormDataMapperInterface
      * @param \eZ\Publish\API\Repository\Values\ValueObject|\eZ\Publish\API\Repository\Values\Content\Content $contentDraft
      * @param array $params
      *
-     * @return \EzSystems\RepositoryForms\Data\Content\ContentUpdateData
+     * @return \EzSystems\EzPlatformContentForms\Data\Content\ContentUpdateData
      */
     public function mapToFormData(ValueObject $contentDraft, array $params = [])
     {

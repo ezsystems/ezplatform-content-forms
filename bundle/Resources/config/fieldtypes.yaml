@@ -10,12 +10,12 @@ services:
     # FieldTypes
     #
 
-    EzSystems\RepositoryForms\Form\Type\FieldType\:
+    EzSystems\EzPlatformContentForms\Form\Type\FieldType\:
         resource: '../../../lib/Form/Type/FieldType/*'
         tags:
             - { name: 'form.type' }
 
-    EzSystems\RepositoryForms\Form\Type\FieldType\CountryFieldType:
+    EzSystems\EzPlatformContentForms\Form\Type\FieldType\CountryFieldType:
         arguments:
             $countriesInfo: '%ezpublish.fieldType.ezcountry.data%'
 
@@ -23,108 +23,108 @@ services:
     # FormMappers
     #
 
-    EzSystems\RepositoryForms\FieldType\Mapper\AuthorFormMapper:
+    EzSystems\EzPlatformContentForms\FieldType\Mapper\AuthorFormMapper:
         tags:
             - { name: ezplatform.field_type.form_mapper.value, fieldType: ezauthor }
 
-    EzSystems\RepositoryForms\FieldType\Mapper\BinaryFileFormMapper:
+    EzSystems\EzPlatformContentForms\FieldType\Mapper\BinaryFileFormMapper:
         tags:
             - { name: ezplatform.field_type.form_mapper.value, fieldType: ezbinaryfile }
 
-    EzSystems\RepositoryForms\FieldType\Mapper\CheckboxFormMapper:
+    EzSystems\EzPlatformContentForms\FieldType\Mapper\CheckboxFormMapper:
         tags:
             - { name: ezplatform.field_type.form_mapper.value, fieldType: ezboolean }
 
-    EzSystems\RepositoryForms\FieldType\Mapper\SelectionFormMapper:
+    EzSystems\EzPlatformContentForms\FieldType\Mapper\SelectionFormMapper:
         tags:
             - { name: ezplatform.field_type.form_mapper.value, fieldType: ezselection }
 
-    EzSystems\RepositoryForms\FieldType\Mapper\CountryFormMapper:
+    EzSystems\EzPlatformContentForms\FieldType\Mapper\CountryFormMapper:
         tags:
             - { name: ezplatform.field_type.form_mapper.value, fieldType: ezcountry }
 
-    EzSystems\RepositoryForms\FieldType\Mapper\DateFormMapper:
+    EzSystems\EzPlatformContentForms\FieldType\Mapper\DateFormMapper:
         tags:
             - { name: ezplatform.field_type.form_mapper.value, fieldType: ezdate }
 
-    EzSystems\RepositoryForms\FieldType\Mapper\DateTimeFormMapper:
+    EzSystems\EzPlatformContentForms\FieldType\Mapper\DateTimeFormMapper:
         tags:
             - { name: ezplatform.field_type.form_mapper.value, fieldType: ezdatetime }
 
-    EzSystems\RepositoryForms\FieldType\Mapper\FloatFormMapper:
+    EzSystems\EzPlatformContentForms\FieldType\Mapper\FloatFormMapper:
         tags:
             - { name: ezplatform.field_type.form_mapper.value, fieldType: ezfloat }
 
-    EzSystems\RepositoryForms\FieldType\Mapper\ImageFormMapper:
+    EzSystems\EzPlatformContentForms\FieldType\Mapper\ImageFormMapper:
         tags:
             - { name: ezplatform.field_type.form_mapper.value, fieldType: ezimage }
 
-    EzSystems\RepositoryForms\FieldType\Mapper\IntegerFormMapper:
+    EzSystems\EzPlatformContentForms\FieldType\Mapper\IntegerFormMapper:
         tags:
             - { name: ezplatform.field_type.form_mapper.value, fieldType: ezinteger }
 
-    EzSystems\RepositoryForms\FieldType\Mapper\ISBNFormMapper:
+    EzSystems\EzPlatformContentForms\FieldType\Mapper\ISBNFormMapper:
         tags:
             - { name: ezplatform.field_type.form_mapper.value, fieldType: ezisbn }
 
-    EzSystems\RepositoryForms\FieldType\Mapper\MediaFormMapper:
+    EzSystems\EzPlatformContentForms\FieldType\Mapper\MediaFormMapper:
         tags:
             - { name: ezplatform.field_type.form_mapper.value, fieldType: ezmedia }
 
-    EzSystems\RepositoryForms\FieldType\Mapper\AbstractRelationFormMapper:
+    EzSystems\EzPlatformContentForms\FieldType\Mapper\AbstractRelationFormMapper:
         abstract: true
         arguments:
             $contentTypeService: '@ezpublish.api.service.content_type'
 
-    EzSystems\RepositoryForms\FieldType\Mapper\RelationFormMapper:
-        parent: EzSystems\RepositoryForms\FieldType\Mapper\AbstractRelationFormMapper
+    EzSystems\EzPlatformContentForms\FieldType\Mapper\RelationFormMapper:
+        parent: EzSystems\EzPlatformContentForms\FieldType\Mapper\AbstractRelationFormMapper
         autowire: true
         autoconfigure: false
         public: false
         tags:
             - { name: ezplatform.field_type.form_mapper.value, fieldType: ezobjectrelation }
 
-    EzSystems\RepositoryForms\FieldType\Mapper\RelationListFormMapper:
-        parent: EzSystems\RepositoryForms\FieldType\Mapper\AbstractRelationFormMapper
+    EzSystems\EzPlatformContentForms\FieldType\Mapper\RelationListFormMapper:
+        parent: EzSystems\EzPlatformContentForms\FieldType\Mapper\AbstractRelationFormMapper
         autowire: true
         autoconfigure: false
         public: false
         tags:
             - { name: ezplatform.field_type.form_mapper.value, fieldType: ezobjectrelationlist }
 
-    EzSystems\RepositoryForms\FieldType\Mapper\TextLineFormMapper:
+    EzSystems\EzPlatformContentForms\FieldType\Mapper\TextLineFormMapper:
         tags:
             - { name: ezplatform.field_type.form_mapper.value, fieldType: ezstring }
 
-    EzSystems\RepositoryForms\FieldType\Mapper\TextBlockFormMapper:
+    EzSystems\EzPlatformContentForms\FieldType\Mapper\TextBlockFormMapper:
         tags:
             - { name: ezplatform.field_type.form_mapper.value, fieldType: eztext }
 
-    EzSystems\RepositoryForms\FieldType\Mapper\TimeFormMapper:
+    EzSystems\EzPlatformContentForms\FieldType\Mapper\TimeFormMapper:
         tags:
             - { name: ezplatform.field_type.form_mapper.value, fieldType: eztime }
 
-    EzSystems\RepositoryForms\FieldType\Mapper\FormTypeBasedFieldValueFormMapper:
+    EzSystems\EzPlatformContentForms\FieldType\Mapper\FormTypeBasedFieldValueFormMapper:
         abstract: true
 
-    EzSystems\RepositoryForms\FieldType\Mapper\UserAccountFieldValueFormMapper:
+    EzSystems\EzPlatformContentForms\FieldType\Mapper\UserAccountFieldValueFormMapper:
         tags:
             - { name: ezplatform.field_type.form_mapper.value, fieldType: ezuser }
 
-    EzSystems\RepositoryForms\FieldType\Mapper\UrlFormMapper:
+    EzSystems\EzPlatformContentForms\FieldType\Mapper\UrlFormMapper:
         tags:
             - { name: ezplatform.field_type.form_mapper.value, fieldType: ezurl }
 
-    EzSystems\RepositoryForms\FieldType\Mapper\MapLocationFormMapper:
+    EzSystems\EzPlatformContentForms\FieldType\Mapper\MapLocationFormMapper:
         tags:
             - { name: ezplatform.field_type.form_mapper.value, fieldType: ezgmaplocation }
 
-    EzSystems\RepositoryForms\FieldType\Mapper\KeywordFormMapper:
+    EzSystems\EzPlatformContentForms\FieldType\Mapper\KeywordFormMapper:
         tags:
             - { name: ezplatform.field_type.form_mapper.value, fieldType: ezkeyword }
 
     ezplatform.content_forms.field_type.form_mapper.ezemail:
-        parent: EzSystems\RepositoryForms\FieldType\Mapper\FormTypeBasedFieldValueFormMapper
+        parent: EzSystems\EzPlatformContentForms\FieldType\Mapper\FormTypeBasedFieldValueFormMapper
         autowire: true
         autoconfigure: false
         public: false
@@ -133,6 +133,6 @@ services:
         calls:
             - [setFormType, ['Symfony\Component\Form\Extension\Core\Type\EmailType']]
 
-    EzSystems\RepositoryForms\FieldType\Mapper\ImageAssetFormMapper:
+    EzSystems\EzPlatformContentForms\FieldType\Mapper\ImageAssetFormMapper:
         tags:
             - { name: ezplatform.field_type.form_mapper.value, fieldType: ezimageasset }

@@ -5,10 +5,10 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryForms\Form\Type\FieldType;
+namespace EzSystems\EzPlatformContentForms\Form\Type\FieldType;
 
-use EzSystems\RepositoryForms\Data\User\UserAccountFieldData;
-use EzSystems\RepositoryForms\Form\Type\SwitcherType;
+use EzSystems\EzPlatformContentForms\Data\User\UserAccountFieldData;
+use EzSystems\EzPlatformContentForms\Form\Type\SwitcherType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;

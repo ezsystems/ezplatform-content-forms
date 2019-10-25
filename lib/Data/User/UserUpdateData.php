@@ -6,14 +6,14 @@
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  * @version //autogentag//
  */
-namespace EzSystems\RepositoryForms\Data\User;
+namespace EzSystems\EzPlatformContentForms\Data\User;
 
 use eZ\Publish\API\Repository\Values\User\UserUpdateStruct;
-use EzSystems\RepositoryForms\Data\Content\ContentData;
-use EzSystems\RepositoryForms\Data\NewnessCheckable;
+use EzSystems\EzPlatformContentForms\Data\Content\ContentData;
+use EzSystems\EzPlatformContentForms\Data\NewnessCheckable;
 
 /**
- * @property-read \EzSystems\RepositoryForms\Data\Content\FieldData[] $fieldsData
+ * @property-read \EzSystems\EzPlatformContentForms\Data\Content\FieldData[] $fieldsData
  * @property-read \eZ\Publish\API\Repository\Values\User\User $user
  */
 class UserUpdateData extends UserUpdateStruct implements NewnessCheckable

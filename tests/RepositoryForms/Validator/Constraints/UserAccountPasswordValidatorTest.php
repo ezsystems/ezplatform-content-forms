@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace EzSystems\RepositoryForms\Tests\Validator\Constraints;
+namespace EzSystems\EzPlatformContentForms\Tests\Validator\Constraints;
 
 use eZ\Publish\API\Repository\UserService;
 use eZ\Publish\API\Repository\Values\ContentType\ContentType;
 use eZ\Publish\API\Repository\Values\User\PasswordValidationContext;
 use eZ\Publish\Core\FieldType\ValidationError;
-use EzSystems\RepositoryForms\Data\User\UserAccountFieldData;
-use EzSystems\RepositoryForms\Validator\Constraints\UserAccountPassword;
-use EzSystems\RepositoryForms\Validator\Constraints\UserAccountPasswordValidator;
+use EzSystems\EzPlatformContentForms\Data\User\UserAccountFieldData;
+use EzSystems\EzPlatformContentForms\Validator\Constraints\UserAccountPassword;
+use EzSystems\EzPlatformContentForms\Validator\Constraints\UserAccountPasswordValidator;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 use Symfony\Component\Validator\Violation\ConstraintViolationBuilderInterface;
@@ -23,7 +23,7 @@ class UserAccountPasswordValidatorTest extends TestCase
     /** @var \Symfony\Component\Validator\Context\ExecutionContextInterface|\PHPUnit\Framework\MockObject\MockObject */
     private $executionContext;
 
-    /** @var \EzSystems\RepositoryForms\Validator\Constraints\UserAccountPasswordValidator */
+    /** @var \EzSystems\EzPlatformContentForms\Validator\Constraints\UserAccountPasswordValidator */
     private $validator;
 
     /**

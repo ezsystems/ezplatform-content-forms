@@ -7,13 +7,13 @@
  *
  * @version //autogentag//
  */
-namespace EzSystems\RepositoryForms\Form\Processor\User;
+namespace EzSystems\EzPlatformContentForms\Form\Processor\User;
 
 use eZ\Publish\API\Repository\ContentService;
 use eZ\Publish\API\Repository\UserService;
-use EzSystems\RepositoryForms\Data\User\UserUpdateData;
-use EzSystems\RepositoryForms\Event\ContentFormEvents;
-use EzSystems\RepositoryForms\Event\FormActionEvent;
+use EzSystems\EzPlatformContentForms\Data\User\UserUpdateData;
+use EzSystems\EzPlatformContentForms\Event\ContentFormEvents;
+use EzSystems\EzPlatformContentForms\Event\FormActionEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;

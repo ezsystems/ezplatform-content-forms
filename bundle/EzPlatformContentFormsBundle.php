@@ -6,21 +6,21 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryFormsBundle;
+namespace EzSystems\EzPlatformContentFormsBundle;
 
-use EzSystems\RepositoryFormsBundle\DependencyInjection\Compiler\FieldTypeFormMapperDispatcherPass;
-use EzSystems\RepositoryFormsBundle\DependencyInjection\Compiler\LimitationFormMapperPass;
-use EzSystems\RepositoryFormsBundle\DependencyInjection\Compiler\LimitationValueMapperPass;
-use EzSystems\RepositoryFormsBundle\DependencyInjection\Compiler\ViewBuilderRegistryPass;
-use EzSystems\RepositoryFormsBundle\DependencyInjection\Configuration\Parser\ContentCreateView;
-use EzSystems\RepositoryFormsBundle\DependencyInjection\Configuration\Parser\ContentEdit;
-use EzSystems\RepositoryFormsBundle\DependencyInjection\Configuration\Parser\ContentEditView;
-use EzSystems\RepositoryFormsBundle\DependencyInjection\Configuration\Parser\LimitationValueTemplates;
-use EzSystems\RepositoryFormsBundle\DependencyInjection\Configuration\Parser\UserEdit;
+use EzSystems\EzPlatformContentFormsBundle\DependencyInjection\Compiler\FieldTypeFormMapperDispatcherPass;
+use EzSystems\EzPlatformContentFormsBundle\DependencyInjection\Compiler\LimitationFormMapperPass;
+use EzSystems\EzPlatformContentFormsBundle\DependencyInjection\Compiler\LimitationValueMapperPass;
+use EzSystems\EzPlatformContentFormsBundle\DependencyInjection\Compiler\ViewBuilderRegistryPass;
+use EzSystems\EzPlatformContentFormsBundle\DependencyInjection\Configuration\Parser\ContentCreateView;
+use EzSystems\EzPlatformContentFormsBundle\DependencyInjection\Configuration\Parser\ContentEdit;
+use EzSystems\EzPlatformContentFormsBundle\DependencyInjection\Configuration\Parser\ContentEditView;
+use EzSystems\EzPlatformContentFormsBundle\DependencyInjection\Configuration\Parser\LimitationValueTemplates;
+use EzSystems\EzPlatformContentFormsBundle\DependencyInjection\Configuration\Parser\UserEdit;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class EzSystemsRepositoryFormsBundle extends Bundle
+class EzPlatformContentFormsBundle extends Bundle
 {
     public function build(ContainerBuilder $container)
     {

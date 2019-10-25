@@ -7,7 +7,7 @@
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  * @version //autogentag//
  */
-namespace EzSystems\RepositoryForms\FieldType\DataTransformer;
+namespace EzSystems\EzPlatformContentForms\FieldType\DataTransformer;
 
 use eZ\Publish\Core\FieldType\RelationList\Value;
 use Symfony\Component\Form\DataTransformerInterface;

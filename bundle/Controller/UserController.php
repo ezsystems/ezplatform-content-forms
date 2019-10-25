@@ -6,7 +6,7 @@
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  * @version //autogentag//
  */
-namespace EzSystems\RepositoryFormsBundle\Controller;
+namespace EzSystems\EzPlatformContentFormsBundle\Controller;
 
 use eZ\Bundle\EzPublishCoreBundle\Controller;
 use eZ\Publish\API\Repository\ContentTypeService;
@@ -19,13 +19,13 @@ use eZ\Publish\API\Repository\UserService;
 use eZ\Publish\Core\Base\Exceptions\BadStateException;
 use eZ\Publish\Core\Base\Exceptions\InvalidArgumentException;
 use eZ\Publish\Core\Base\Exceptions\InvalidArgumentType;
-use EzSystems\RepositoryForms\Data\Mapper\UserCreateMapper;
-use EzSystems\RepositoryForms\Data\Mapper\UserUpdateMapper;
-use EzSystems\RepositoryForms\Form\ActionDispatcher\ActionDispatcherInterface;
-use EzSystems\RepositoryForms\Form\Type\User\UserCreateType;
-use EzSystems\RepositoryForms\Form\Type\User\UserUpdateType;
-use EzSystems\RepositoryForms\User\View\UserCreateView;
-use EzSystems\RepositoryForms\User\View\UserUpdateView;
+use EzSystems\EzPlatformContentForms\Data\Mapper\UserCreateMapper;
+use EzSystems\EzPlatformContentForms\Data\Mapper\UserUpdateMapper;
+use EzSystems\EzPlatformContentForms\Form\ActionDispatcher\ActionDispatcherInterface;
+use EzSystems\EzPlatformContentForms\Form\Type\User\UserCreateType;
+use EzSystems\EzPlatformContentForms\Form\Type\User\UserUpdateType;
+use EzSystems\EzPlatformContentForms\User\View\UserCreateView;
+use EzSystems\EzPlatformContentForms\User\View\UserUpdateView;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\OptionsResolver\Exception\AccessException;

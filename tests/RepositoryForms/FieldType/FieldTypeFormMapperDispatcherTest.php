@@ -6,17 +6,17 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryForms\Tests\FieldType;
+namespace EzSystems\EzPlatformContentForms\Tests\FieldType;
 
 use eZ\Publish\API\Repository\Values\Content\Field;
 use eZ\Publish\Core\Repository\Values\ContentType\FieldDefinition;
-use EzSystems\RepositoryForms\Data\Content\FieldData;
-use EzSystems\RepositoryForms\Data\ContentTypeData;
-use EzSystems\RepositoryForms\Data\FieldDefinitionData;
-use EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface;
-use EzSystems\RepositoryForms\FieldType\FieldTypeFormMapperDispatcher;
-use EzSystems\RepositoryForms\FieldType\FieldTypeFormMapperDispatcherInterface;
-use EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface;
+use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
+use EzSystems\EzPlatformContentForms\Data\ContentTypeData;
+use EzSystems\EzPlatformContentForms\Data\FieldDefinitionData;
+use EzSystems\EzPlatformContentForms\FieldType\FieldDefinitionFormMapperInterface;
+use EzSystems\EzPlatformContentForms\FieldType\FieldTypeFormMapperDispatcher;
+use EzSystems\EzPlatformContentForms\FieldType\FieldTypeFormMapperDispatcherInterface;
+use EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Form\FormInterface;
 
@@ -28,7 +28,7 @@ class FieldTypeFormMapperDispatcherTest extends TestCase
     private $dispatcher;
 
     /**
-     * @var \EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface|\PHPUnit\Framework\MockObject\MockObject
+     * @var \EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface|\PHPUnit\Framework\MockObject\MockObject
      */
     private $fieldValueMapperMock;
 

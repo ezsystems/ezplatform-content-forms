@@ -6,13 +6,13 @@
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  * @version //autogentag//
  */
-namespace EzSystems\RepositoryForms\Data\Content;
+namespace EzSystems\EzPlatformContentForms\Data\Content;
 
 use eZ\Publish\Core\Repository\Values\Content\ContentUpdateStruct;
-use EzSystems\RepositoryForms\Data\NewnessCheckable;
+use EzSystems\EzPlatformContentForms\Data\NewnessCheckable;
 
 /**
- * @property-read \EzSystems\RepositoryForms\Data\Content\FieldData[] $fieldsData
+ * @property-read \EzSystems\EzPlatformContentForms\Data\Content\FieldData[] $fieldsData
  * @property-read \eZ\Publish\API\Repository\Values\Content\Content $contentDraft
  */
 class ContentUpdateData extends ContentUpdateStruct implements NewnessCheckable

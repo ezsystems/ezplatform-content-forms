@@ -8,10 +8,10 @@
  *
  * @version //autogentag//
  */
-namespace EzSystems\RepositoryForms\Tests\FieldType\DataTransformer;
+namespace EzSystems\EzPlatformContentForms\Tests\FieldType\DataTransformer;
 
 use eZ\Publish\Core\FieldType\Country\Value;
-use EzSystems\RepositoryForms\FieldType\DataTransformer\MultipleCountryValueTransformer;
+use EzSystems\EzPlatformContentForms\FieldType\DataTransformer\MultipleCountryValueTransformer;
 use PHPUnit\Framework\TestCase;
 
 class MultipleCountryValueTransformerTest extends TestCase

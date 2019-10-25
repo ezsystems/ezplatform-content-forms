@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace EzSystems\RepositoryForms\Tests\Validator\Constraints;
+namespace EzSystems\EzPlatformContentForms\Tests\Validator\Constraints;
 
 use eZ\Publish\API\Repository\UserService;
 use eZ\Publish\API\Repository\Values\ContentType\ContentType;
 use eZ\Publish\API\Repository\Values\User\PasswordValidationContext;
 use eZ\Publish\Core\FieldType\ValidationError;
-use EzSystems\RepositoryForms\Validator\Constraints\Password;
-use EzSystems\RepositoryForms\Validator\Constraints\PasswordValidator;
+use EzSystems\EzPlatformContentForms\Validator\Constraints\Password;
+use EzSystems\EzPlatformContentForms\Validator\Constraints\PasswordValidator;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 use Symfony\Component\Validator\Violation\ConstraintViolationBuilderInterface;
@@ -22,7 +22,7 @@ class PasswordValidatorTest extends TestCase
     /** @var \Symfony\Component\Validator\Context\ExecutionContextInterface|\PHPUnit\Framework\MockObject\MockObject */
     private $executionContext;
 
-    /** @var \EzSystems\RepositoryForms\Validator\Constraints\PasswordValidator */
+    /** @var \EzSystems\EzPlatformContentForms\Validator\Constraints\PasswordValidator */
     private $validator;
 
     protected function setUp(): void

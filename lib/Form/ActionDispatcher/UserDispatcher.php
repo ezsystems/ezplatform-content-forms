@@ -6,9 +6,9 @@
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  * @version //autogentag//
  */
-namespace EzSystems\RepositoryForms\Form\ActionDispatcher;
+namespace EzSystems\EzPlatformContentForms\Form\ActionDispatcher;
 
-use EzSystems\RepositoryForms\Event\ContentFormEvents;
+use EzSystems\EzPlatformContentForms\Event\ContentFormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class UserDispatcher extends AbstractActionDispatcher

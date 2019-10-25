@@ -3,10 +3,10 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryForms\Form\Type\FieldType;
+namespace EzSystems\EzPlatformContentForms\Form\Type\FieldType;
 
 use eZ\Publish\API\Repository\FieldTypeService;
-use EzSystems\RepositoryForms\FieldType\DataTransformer\FieldValueTransformer;
+use EzSystems\EzPlatformContentForms\FieldType\DataTransformer\FieldValueTransformer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;

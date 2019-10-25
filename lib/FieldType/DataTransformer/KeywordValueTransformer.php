@@ -8,7 +8,7 @@
  *
  * @version //autogentag//
  */
-namespace EzSystems\RepositoryForms\FieldType\DataTransformer;
+namespace EzSystems\EzPlatformContentForms\FieldType\DataTransformer;
 
 use eZ\Publish\Core\FieldType\Keyword\Value;
 use Symfony\Component\Form\DataTransformerInterface;

@@ -2,7 +2,7 @@
 /**
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryForms\Behat\Context;
+namespace EzSystems\EzPlatformContentForms\Behat\Context;
 
 use Behat\Behat\Context\Context;
 use Behat\Behat\Context\SnippetAcceptingContext;
@@ -19,7 +19,7 @@ final class ContentEditContext extends MinkContext implements Context, SnippetAc
     private $createdContentName;
 
     /**
-     * @var \EzSystems\RepositoryForms\Behat\Context\ContentTypeContext
+     * @var \EzSystems\EzPlatformContentForms\Behat\Context\ContentTypeContext
      */
     private $contentTypeContext;
 
@@ -34,7 +34,7 @@ final class ContentEditContext extends MinkContext implements Context, SnippetAc
     {
         $environment = $scope->getEnvironment();
 
-        $this->contentTypeContext = $environment->getContext('EzSystems\RepositoryForms\Behat\Context\ContentTypeContext');
+        $this->contentTypeContext = $environment->getContext('EzSystems\EzPlatformContentForms\Behat\Context\ContentTypeContext');
     }
 
     /**

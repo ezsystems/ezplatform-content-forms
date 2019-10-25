@@ -5,11 +5,11 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryForms\Form\Type\User;
+namespace EzSystems\EzPlatformContentForms\Form\Type\User;
 
-use EzSystems\RepositoryForms\Form\EventSubscriber\SuppressValidationSubscriber;
-use EzSystems\RepositoryForms\Form\EventSubscriber\UserFieldsSubscriber;
-use EzSystems\RepositoryForms\Form\Type\Content\BaseContentType;
+use EzSystems\EzPlatformContentForms\Form\EventSubscriber\SuppressValidationSubscriber;
+use EzSystems\EzPlatformContentForms\Form\EventSubscriber\UserFieldsSubscriber;
+use EzSystems\EzPlatformContentForms\Form\Type\Content\BaseContentType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,7 +17,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * Form type for content edition (create/update).
- * Underlying data will be either \EzSystems\RepositoryForms\Data\Content\ContentCreateData or \EzSystems\RepositoryForms\Data\Content\ContentUpdateData
+ * Underlying data will be either \EzSystems\EzPlatformContentForms\Data\Content\ContentCreateData or \EzSystems\EzPlatformContentForms\Data\Content\ContentUpdateData
  * depending on the context (create or update).
  */
 class BaseUserType extends AbstractType

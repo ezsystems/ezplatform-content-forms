@@ -6,7 +6,7 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryForms\Data;
+namespace EzSystems\EzPlatformContentForms\Data;
 
 /**
  * Trait for repository data objects, provides a test for if they are newly created, based on identifier.

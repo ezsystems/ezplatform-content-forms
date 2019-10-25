@@ -4,16 +4,16 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryForms\FieldType\Mapper;
+namespace EzSystems\EzPlatformContentForms\FieldType\Mapper;
 
 use eZ\Publish\API\Repository\FieldTypeService;
 use eZ\Publish\Core\FieldType\Media\Type;
 use eZ\Publish\Core\FieldType\Media\Value;
-use EzSystems\RepositoryForms\Data\Content\FieldData;
-use EzSystems\RepositoryForms\FieldType\DataTransformer\MediaValueTransformer;
-use EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface;
-use EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface;
-use EzSystems\RepositoryForms\Form\Type\FieldType\MediaFieldType;
+use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
+use EzSystems\EzPlatformContentForms\FieldType\DataTransformer\MediaValueTransformer;
+use EzSystems\EzPlatformContentForms\FieldType\FieldDefinitionFormMapperInterface;
+use EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface;
+use EzSystems\EzPlatformContentForms\Form\Type\FieldType\MediaFieldType;
 use Symfony\Component\Form\FormInterface;
 
 class MediaFormMapper implements FieldValueFormMapperInterface

@@ -5,10 +5,10 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryFormsBundle\DependencyInjection\Compiler;
+namespace EzSystems\EzPlatformContentFormsBundle\DependencyInjection\Compiler;
 
-use EzSystems\RepositoryForms\Content\View\Builder\ContentCreateViewBuilder;
-use EzSystems\RepositoryForms\Content\View\Builder\ContentEditViewBuilder;
+use EzSystems\EzPlatformContentForms\Content\View\Builder\ContentCreateViewBuilder;
+use EzSystems\EzPlatformContentForms\Content\View\Builder\ContentEditViewBuilder;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 

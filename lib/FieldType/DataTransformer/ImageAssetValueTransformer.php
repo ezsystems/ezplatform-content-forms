@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\RepositoryForms\FieldType\DataTransformer;
+namespace EzSystems\EzPlatformContentForms\FieldType\DataTransformer;
 
 use eZ\Publish\Core\FieldType\ImageAsset\Value;
 use Symfony\Component\Form\DataTransformerInterface;

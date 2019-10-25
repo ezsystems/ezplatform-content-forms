@@ -6,10 +6,10 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryForms\Tests\FieldType\DataTransformer;
+namespace EzSystems\EzPlatformContentForms\Tests\FieldType\DataTransformer;
 
 use eZ\Publish\Core\FieldType\Selection\Value;
-use EzSystems\RepositoryForms\FieldType\DataTransformer\MultiSelectionValueTransformer;
+use EzSystems\EzPlatformContentForms\FieldType\DataTransformer\MultiSelectionValueTransformer;
 use PHPUnit\Framework\TestCase;
 
 class MultiSelectionValueTransformerTest extends TestCase

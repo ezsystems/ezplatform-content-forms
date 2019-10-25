@@ -6,9 +6,9 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryForms\FieldType;
+namespace EzSystems\EzPlatformContentForms\FieldType;
 
-use EzSystems\RepositoryForms\Data\Content\FieldData;
+use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
 use Symfony\Component\Form\FormInterface;
 
 /**
@@ -21,14 +21,14 @@ class FieldTypeFormMapperDispatcher implements FieldTypeFormMapperDispatcherInte
     /**
      * FieldType form mappers, indexed by FieldType identifier.
      *
-     * @var \EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface[]
+     * @var \EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface[]
      */
     private $mappers;
 
     /**
      * FieldTypeFormMapperDispatcher constructor.
      *
-     * @param \EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface[] $mappers
+     * @param \EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface[] $mappers
      */
     public function __construct(array $mappers = [])
     {

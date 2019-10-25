@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\RepositoryForms\Content\View\Builder;
+namespace EzSystems\EzPlatformContentForms\Content\View\Builder;
 
 use eZ\Publish\API\Repository\Repository;
 use eZ\Publish\API\Repository\Values\Content\Language;
@@ -17,9 +17,9 @@ use eZ\Publish\Core\MVC\Symfony\Locale\UserLanguagePreferenceProviderInterface;
 use eZ\Publish\Core\MVC\Symfony\View\Builder\ViewBuilder;
 use eZ\Publish\Core\MVC\Symfony\View\Configurator;
 use eZ\Publish\Core\MVC\Symfony\View\ParametersInjector;
-use EzSystems\RepositoryForms\Content\View\ContentCreateSuccessView;
-use EzSystems\RepositoryForms\Content\View\ContentCreateView;
-use EzSystems\RepositoryForms\Form\ActionDispatcher\ActionDispatcherInterface;
+use EzSystems\EzPlatformContentForms\Content\View\ContentCreateSuccessView;
+use EzSystems\EzPlatformContentForms\Content\View\ContentCreateView;
+use EzSystems\EzPlatformContentForms\Form\ActionDispatcher\ActionDispatcherInterface;
 
 /**
  * Builds ContentCreateView objects.
@@ -51,7 +51,7 @@ class ContentCreateViewBuilder implements ViewBuilder
      * @param \eZ\Publish\Core\MVC\Symfony\View\Configurator $viewConfigurator
      * @param \eZ\Publish\Core\MVC\Symfony\View\ParametersInjector $viewParametersInjector
      * @param $defaultTemplate
-     * @param \EzSystems\RepositoryForms\Form\ActionDispatcher\ActionDispatcherInterface $contentActionDispatcher
+     * @param \EzSystems\EzPlatformContentForms\Form\ActionDispatcher\ActionDispatcherInterface $contentActionDispatcher
      * @param \eZ\Publish\Core\MVC\Symfony\Locale\UserLanguagePreferenceProviderInterface $languagePreferenceProvider
      */
     public function __construct(
@@ -78,7 +78,7 @@ class ContentCreateViewBuilder implements ViewBuilder
     /**
      * @param array $parameters
      *
-     * @return \EzSystems\RepositoryForms\Content\View\ContentCreateSuccessView|\EzSystems\RepositoryForms\Content\View\ContentCreateView
+     * @return \EzSystems\EzPlatformContentForms\Content\View\ContentCreateSuccessView|\EzSystems\EzPlatformContentForms\Content\View\ContentCreateView
      *
      * @throws \eZ\Publish\API\Repository\Exceptions\UnauthorizedException
      * @throws \eZ\Publish\API\Repository\Exceptions\NotFoundException

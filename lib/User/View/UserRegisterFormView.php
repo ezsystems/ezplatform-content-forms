@@ -3,7 +3,7 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryForms\User\View;
+namespace EzSystems\EzPlatformContentForms\User\View;
 
 use EzSystems\EzPlatformUser\View\Register\FormView as BaseUserRegisterFormView;
 

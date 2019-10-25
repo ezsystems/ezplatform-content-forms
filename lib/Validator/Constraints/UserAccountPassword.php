@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace EzSystems\RepositoryForms\Validator\Constraints;
+namespace EzSystems\EzPlatformContentForms\Validator\Constraints;
 
 class UserAccountPassword extends Password
 {

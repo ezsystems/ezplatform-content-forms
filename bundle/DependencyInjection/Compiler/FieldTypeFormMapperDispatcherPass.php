@@ -6,7 +6,7 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryFormsBundle\DependencyInjection\Compiler;
+namespace EzSystems\EzPlatformContentFormsBundle\DependencyInjection\Compiler;
 
 use LogicException;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;

@@ -4,24 +4,24 @@ imports:
     - {resource: views.yaml}
 
 parameters:
-    ezplatform.content_forms.field_type_form_mapper.dispatcher.class: EzSystems\RepositoryForms\FieldType\FieldTypeFormMapperDispatcher
-    ezplatform.content_forms.field.form_type.class: EzSystems\RepositoryForms\Form\Type\Content\ContentFieldType
+    ezplatform.content_forms.field_type_form_mapper.dispatcher.class: EzSystems\EzPlatformContentForms\FieldType\FieldTypeFormMapperDispatcher
+    ezplatform.content_forms.field.form_type.class: EzSystems\EzPlatformContentForms\Form\Type\Content\ContentFieldType
 
-    ezplatform.content_forms.validator.field_value.class: EzSystems\RepositoryForms\Validator\Constraints\FieldValueValidator
+    ezplatform.content_forms.validator.field_value.class: EzSystems\EzPlatformContentForms\Validator\Constraints\FieldValueValidator
 
-    ezplatform.content_forms.action_dispatcher.base.class: EzSystems\RepositoryForms\Form\ActionDispatcher\AbstractActionDispatcher
-    ezplatform.content_forms.action_dispatcher.content.class: EzSystems\RepositoryForms\Form\ActionDispatcher\ContentDispatcher
-    ezplatform.content_forms.action_dispatcher.user.class: EzSystems\RepositoryForms\Form\ActionDispatcher\UserDispatcher
-    ezplatform.content_forms.form_processor.content.class: EzSystems\RepositoryForms\Form\Processor\ContentFormProcessor
-    ezplatform.content_forms.form_processor.user_create.class: EzSystems\RepositoryForms\Form\Processor\User\UserCreateFormProcessor
-    ezplatform.content_forms.form_processor.user_update.class: EzSystems\RepositoryForms\Form\Processor\User\UserUpdateFormProcessor
-    ezplatform.content_forms.form_processor.user_cancel.class: EzSystems\RepositoryForms\Form\Processor\User\UserCancelFormProcessor
+    ezplatform.content_forms.action_dispatcher.base.class: EzSystems\EzPlatformContentForms\Form\ActionDispatcher\AbstractActionDispatcher
+    ezplatform.content_forms.action_dispatcher.content.class: EzSystems\EzPlatformContentForms\Form\ActionDispatcher\ContentDispatcher
+    ezplatform.content_forms.action_dispatcher.user.class: EzSystems\EzPlatformContentForms\Form\ActionDispatcher\UserDispatcher
+    ezplatform.content_forms.form_processor.content.class: EzSystems\EzPlatformContentForms\Form\Processor\ContentFormProcessor
+    ezplatform.content_forms.form_processor.user_create.class: EzSystems\EzPlatformContentForms\Form\Processor\User\UserCreateFormProcessor
+    ezplatform.content_forms.form_processor.user_update.class: EzSystems\EzPlatformContentForms\Form\Processor\User\UserUpdateFormProcessor
+    ezplatform.content_forms.form_processor.user_cancel.class: EzSystems\EzPlatformContentForms\Form\Processor\User\UserCancelFormProcessor
 
-    ezplatform.content_forms.controller.content_edit.class: EzSystems\RepositoryFormsBundle\Controller\ContentEditController
-    ezplatform.content_forms.controller.user_register.class: EzSystems\RepositoryFormsBundle\Controller\UserRegisterController
-    ezplatform.content_forms.controller.user.class: EzSystems\RepositoryFormsBundle\Controller\UserController
+    ezplatform.content_forms.controller.content_edit.class: EzSystems\EzPlatformContentFormsBundle\Controller\ContentEditController
+    ezplatform.content_forms.controller.user_register.class: EzSystems\EzPlatformContentFormsBundle\Controller\UserRegisterController
+    ezplatform.content_forms.controller.user.class: EzSystems\EzPlatformContentFormsBundle\Controller\UserController
 
-    ezplatform.content_forms.view_templates_listener.class: EzSystems\RepositoryForms\EventListener\ViewTemplatesListener
+    ezplatform.content_forms.view_templates_listener.class: EzSystems\EzPlatformContentForms\EventListener\ViewTemplatesListener
 
     ezplatform.content_forms.user_content_type_identifier: "user"
 
@@ -37,17 +37,17 @@ services:
 
     # Validators
     ezplatform.content_forms.validator.field_type.abstract:
-        class: EzSystems\RepositoryForms\Validator\Constraints\FieldTypeValidator
+        class: EzSystems\EzPlatformContentForms\Validator\Constraints\FieldTypeValidator
         arguments: ["@ezpublish.api.service.field_type"]
         abstract: true
 
-    EzSystems\RepositoryForms\Validator\Constraints\PasswordValidator:
+    EzSystems\EzPlatformContentForms\Validator\Constraints\PasswordValidator:
         arguments:
             $userService: '@ezpublish.api.service.user'
         tags:
             - { name: validator.constraint_validator }
 
-    EzSystems\RepositoryForms\Validator\Constraints\UserAccountPasswordValidator:
+    EzSystems\EzPlatformContentForms\Validator\Constraints\UserAccountPasswordValidator:
         arguments:
             $userService: '@ezpublish.api.service.user'
         tags:
@@ -108,7 +108,7 @@ services:
         tags:
             - { name: kernel.event_subscriber }
 
-    EzSystems\RepositoryForms\Form\Processor\SystemUrlRedirectProcessor:
+    EzSystems\EzPlatformContentForms\Form\Processor\SystemUrlRedirectProcessor:
         autowire: true
         autoconfigure: true
 
@@ -146,9 +146,9 @@ services:
         tags:
             - { name: kernel.event_subscriber }
         calls:
-            - [setViewTemplate, ['EzSystems\RepositoryForms\User\View\UserCreateView', "$user_edit.templates.create$"]]
-            - [setViewTemplate, ['EzSystems\RepositoryForms\User\View\UserUpdateView', "$user_edit.templates.update$"]]
-            - [setViewTemplate, ['EzSystems\RepositoryForms\Content\View\ContentCreateDraftView', "$content_edit.templates.create_draft$"]]
+            - [setViewTemplate, ['EzSystems\EzPlatformContentForms\User\View\UserCreateView', "$user_edit.templates.create$"]]
+            - [setViewTemplate, ['EzSystems\EzPlatformContentForms\User\View\UserUpdateView', "$user_edit.templates.update$"]]
+            - [setViewTemplate, ['EzSystems\EzPlatformContentForms\Content\View\ContentCreateDraftView', "$content_edit.templates.create_draft$"]]
             - [setPagelayout, ["$pagelayout$"]]
 
-    EzSystems\RepositoryForms\ConfigResolver\MaxUploadSize: ~
+    EzSystems\EzPlatformContentForms\ConfigResolver\MaxUploadSize: ~

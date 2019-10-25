@@ -6,17 +6,17 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryForms\FieldType\Mapper;
+namespace EzSystems\EzPlatformContentForms\FieldType\Mapper;
 
 use eZ\Publish\API\Repository\Values\ContentType\FieldDefinition;
 use eZ\Publish\Core\FieldType\User\Value as ApiUserValue;
-use EzSystems\RepositoryForms\Data\Content\FieldData;
-use EzSystems\RepositoryForms\Data\ContentTranslationData;
-use EzSystems\RepositoryForms\Data\User\UserAccountFieldData;
-use EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface;
-use EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface;
-use EzSystems\RepositoryForms\Form\Type\FieldType\UserAccountFieldType;
-use EzSystems\RepositoryForms\Validator\Constraints\UserAccountPassword;
+use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
+use EzSystems\EzPlatformContentForms\Data\ContentTranslationData;
+use EzSystems\EzPlatformContentForms\Data\User\UserAccountFieldData;
+use EzSystems\EzPlatformContentForms\FieldType\FieldDefinitionFormMapperInterface;
+use EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface;
+use EzSystems\EzPlatformContentForms\Form\Type\FieldType\UserAccountFieldType;
+use EzSystems\EzPlatformContentForms\Validator\Constraints\UserAccountPassword;
 use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Exception\AlreadySubmittedException;
 use Symfony\Component\Form\Exception\LogicException;

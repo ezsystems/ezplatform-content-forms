@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace EzSystems\RepositoryForms\Validator\Constraints;
+namespace EzSystems\EzPlatformContentForms\Validator\Constraints;
 
 use eZ\Publish\API\Repository\UserService;
 use eZ\Publish\API\Repository\Values\User\PasswordValidationContext;
-use EzSystems\RepositoryForms\Validator\ValidationErrorsProcessor;
+use EzSystems\EzPlatformContentForms\Validator\ValidationErrorsProcessor;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
@@ -44,7 +44,7 @@ class PasswordValidator extends ConstraintValidator
     }
 
     /**
-     * @return \EzSystems\RepositoryForms\Validator\ValidationErrorsProcessor
+     * @return \EzSystems\EzPlatformContentForms\Validator\ValidationErrorsProcessor
      */
     protected function createValidationErrorsProcessor(): ValidationErrorsProcessor
     {

@@ -8,12 +8,12 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\RepositoryForms\Data;
+namespace EzSystems\EzPlatformContentForms\Data;
 
 use eZ\Publish\Core\Repository\Values\Content\ContentUpdateStruct;
 
 /**
- * @property \EzSystems\RepositoryForms\Data\Content\FieldData[] $fieldsData
+ * @property \EzSystems\EzPlatformContentForms\Data\Content\FieldData[] $fieldsData
  * @property \eZ\Publish\API\Repository\Values\Content\Content $content
  */
 class ContentTranslationData extends ContentUpdateStruct implements NewnessCheckable

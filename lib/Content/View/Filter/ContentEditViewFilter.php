@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\RepositoryForms\Content\View\Filter;
+namespace EzSystems\EzPlatformContentForms\Content\View\Filter;
 
 use eZ\Publish\API\Repository\ContentService;
 use eZ\Publish\API\Repository\ContentTypeService;
@@ -15,9 +15,9 @@ use eZ\Publish\API\Repository\Values\ContentType\ContentType;
 use eZ\Publish\Core\MVC\Symfony\Locale\UserLanguagePreferenceProviderInterface;
 use eZ\Publish\Core\MVC\Symfony\View\Event\FilterViewBuilderParametersEvent;
 use eZ\Publish\Core\MVC\Symfony\View\ViewEvents;
-use EzSystems\RepositoryForms\Data\Content\ContentUpdateData;
-use EzSystems\RepositoryForms\Data\Mapper\ContentUpdateMapper;
-use EzSystems\RepositoryForms\Form\Type\Content\ContentEditType;
+use EzSystems\EzPlatformContentForms\Data\Content\ContentUpdateData;
+use EzSystems\EzPlatformContentForms\Data\Mapper\ContentUpdateMapper;
+use EzSystems\EzPlatformContentForms\Form\Type\Content\ContentEditType;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
@@ -100,7 +100,7 @@ class ContentEditViewFilter implements EventSubscriberInterface
      * @param string $languageCode
      * @param \eZ\Publish\API\Repository\Values\ContentType\ContentType $contentType
      *
-     * @return \EzSystems\RepositoryForms\Data\Content\ContentUpdateData
+     * @return \EzSystems\EzPlatformContentForms\Data\Content\ContentUpdateData
      */
     private function resolveContentEditData(
         Content $content,
@@ -116,7 +116,7 @@ class ContentEditViewFilter implements EventSubscriberInterface
     }
 
     /**
-     * @param \EzSystems\RepositoryForms\Data\Content\ContentUpdateData $contentUpdate
+     * @param \EzSystems\EzPlatformContentForms\Data\Content\ContentUpdateData $contentUpdate
      * @param string $languageCode
      * @param \eZ\Publish\API\Repository\Values\Content\Content $content
      *

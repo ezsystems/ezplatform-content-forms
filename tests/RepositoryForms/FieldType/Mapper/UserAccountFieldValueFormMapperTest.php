@@ -5,12 +5,12 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryForms\Tests\FieldType\Mapper;
+namespace EzSystems\EzPlatformContentForms\Tests\FieldType\Mapper;
 
 use eZ\Publish\API\Repository\Values\ContentType\ContentType;
 use eZ\Publish\Core\Repository\Values\ContentType\FieldDefinition;
-use EzSystems\RepositoryForms\Data\User\UserCreateData;
-use EzSystems\RepositoryForms\FieldType\Mapper\UserAccountFieldValueFormMapper;
+use EzSystems\EzPlatformContentForms\Data\User\UserCreateData;
+use EzSystems\EzPlatformContentForms\FieldType\Mapper\UserAccountFieldValueFormMapper;
 use Symfony\Component\Form\FormConfigInterface;
 use Symfony\Component\Form\FormInterface;
 

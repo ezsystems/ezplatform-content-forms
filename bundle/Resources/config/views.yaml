@@ -5,7 +5,7 @@ services:
         autoconfigure: true
 
     # ContentEditView
-    EzSystems\RepositoryForms\Content\View\Builder\ContentEditViewBuilder:
+    EzSystems\EzPlatformContentForms\Content\View\Builder\ContentEditViewBuilder:
         arguments:
             - '@ezpublish.api.repository'
             - '@ezpublish.view.configurator'
@@ -13,11 +13,11 @@ services:
             - '$content_edit.templates.edit$'
             - '@ezplatform.content_forms.action_dispatcher.content'
 
-    EzSystems\RepositoryForms\Content\View\Provider\ContentEditView\Configured:
+    EzSystems\EzPlatformContentForms\Content\View\Provider\ContentEditView\Configured:
         arguments:
             - '@ezplatform.repository_forms.content_edit_view.matcher_factory'
         tags:
-            - { name: ezpublish.view_provider, type: EzSystems\RepositoryForms\Content\View\ContentEditView, priority: 10 }
+            - { name: ezpublish.view_provider, type: EzSystems\EzPlatformContentForms\Content\View\ContentEditView, priority: 10 }
 
     ezplatform.repository_forms.content_edit_view.matcher_factory:
         class: '%ezpublish.view.matcher_factory.class%'
@@ -28,7 +28,7 @@ services:
         calls:
             - [setMatchConfig, ['$content_edit_view$']]
 
-    EzSystems\RepositoryForms\Content\View\Filter\ContentEditViewFilter:
+    EzSystems\EzPlatformContentForms\Content\View\Filter\ContentEditViewFilter:
         arguments:
             - '@ezpublish.api.service.content'
             - '@ezpublish.api.service.content_type'
@@ -36,7 +36,7 @@ services:
             - { name: kernel.event_subscriber }
 
     # ContentCreateView
-    EzSystems\RepositoryForms\Content\View\Builder\ContentCreateViewBuilder:
+    EzSystems\EzPlatformContentForms\Content\View\Builder\ContentCreateViewBuilder:
         arguments:
             - '@ezpublish.api.repository'
             - '@ezpublish.view.configurator'
@@ -44,11 +44,11 @@ services:
             - '$content_edit.templates.create$'
             - '@ezplatform.content_forms.action_dispatcher.content'
 
-    EzSystems\RepositoryForms\Content\View\Provider\ContentCreateView\Configured:
+    EzSystems\EzPlatformContentForms\Content\View\Provider\ContentCreateView\Configured:
         arguments:
             - '@ezplatform.repository_forms.content_create_view.matcher_factory'
         tags:
-            - {name: ezpublish.view_provider, type: 'EzSystems\RepositoryForms\Content\View\ContentCreateView', priority: 10}
+            - {name: ezpublish.view_provider, type: 'EzSystems\EzPlatformContentForms\Content\View\ContentCreateView', priority: 10}
 
     ezplatform.repository_forms.content_create_view.matcher_factory:
         class: '%ezpublish.view.matcher_factory.class%'
@@ -59,7 +59,7 @@ services:
         calls:
             - [setMatchConfig, ['$content_create_view$']]
 
-    EzSystems\RepositoryForms\Content\View\Filter\ContentCreateViewFilter:
+    EzSystems\EzPlatformContentForms\Content\View\Filter\ContentCreateViewFilter:
         arguments:
             - '@ezpublish.api.service.location'
             - '@ezpublish.api.service.content_type'
