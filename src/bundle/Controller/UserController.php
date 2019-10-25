@@ -4,6 +4,8 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
+
 namespace EzSystems\EzPlatformContentFormsBundle\Controller;
 
 use eZ\Bundle\EzPublishCoreBundle\Controller;
@@ -78,7 +80,7 @@ class UserController extends Controller
      * @param int $parentLocationId Location the content should be a child of
      * @param Request $request
      *
-     * @return UserCreateView|Response
+     * @return Response|UserCreateView
      *
      * @throws InvalidArgumentType
      * @throws InvalidArgumentException
@@ -134,7 +136,7 @@ class UserController extends Controller
      * @param string|null $language Language code to create the version in (eng-GB, ger-DE, ...))
      * @param Request $request
      *
-     * @return UserUpdateView|Response
+     * @return Response|UserUpdateView
      *
      * @throws \Symfony\Component\OptionsResolver\Exception\UndefinedOptionsException
      * @throws \Symfony\Component\OptionsResolver\Exception\OptionDefinitionException
@@ -145,7 +147,7 @@ class UserController extends Controller
      * @throws InvalidArgumentType
      * @throws UnauthorizedException
      * @throws NotFoundException
-     * @throws BadStateException If the version isn't editable, or if there is no editable version.
+     * @throws BadStateException if the version isn't editable, or if there is no editable version
      */
     public function editAction(
         int $contentId,

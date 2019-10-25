@@ -4,6 +4,8 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
+
 namespace EzSystems\EzPlatformContentForms\Form\Processor;
 
 use eZ\Publish\API\Repository\ContentService;
@@ -243,7 +245,7 @@ class ContentFormProcessor implements EventSubscriberInterface
     }
 
     /**
-     * @param \EzSystems\EzPlatformContentForms\Data\Content\ContentUpdateData|\EzSystems\EzPlatformContentForms\Data\Content\ContentCreateData $data
+     * @param \EzSystems\EzPlatformContentForms\Data\Content\ContentCreateData|\EzSystems\EzPlatformContentForms\Data\Content\ContentUpdateData $data
      *
      * @return string
      *

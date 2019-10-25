@@ -4,6 +4,8 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
+
 namespace EzSystems\EzPlatformContentForms\Data\Content;
 
 use eZ\Publish\API\Repository\Values\Content\LocationCreateStruct;
@@ -11,7 +13,7 @@ use eZ\Publish\Core\Repository\Values\Content\ContentCreateStruct;
 use EzSystems\EzPlatformContentForms\Data\NewnessCheckable;
 
 /**
- * @property-read \EzSystems\EzPlatformContentForms\Data\Content\FieldData[] $fieldsData
+ * @property \EzSystems\EzPlatformContentForms\Data\Content\FieldData[] $fieldsData
  */
 class ContentCreateData extends ContentCreateStruct implements NewnessCheckable
 {

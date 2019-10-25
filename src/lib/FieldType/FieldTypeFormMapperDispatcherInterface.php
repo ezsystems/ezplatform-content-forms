@@ -4,6 +4,8 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
+
 namespace EzSystems\EzPlatformContentForms\FieldType;
 
 use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
@@ -18,7 +20,7 @@ interface FieldTypeFormMapperDispatcherInterface
      * Adds a new Field mapper for a fieldtype identifier.
      *
      * @param \EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface
-     * @param string $fieldTypeIdentifier FieldType identifier this mapper is for.
+     * @param string $fieldTypeIdentifier fieldType identifier this mapper is for
      *
      * @return mixed
      */

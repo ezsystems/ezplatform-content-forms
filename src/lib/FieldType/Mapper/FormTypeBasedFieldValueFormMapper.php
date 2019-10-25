@@ -4,6 +4,8 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
+
 namespace EzSystems\EzPlatformContentForms\FieldType\Mapper;
 
 use eZ\Publish\API\Repository\FieldTypeService;
@@ -55,8 +57,8 @@ final class FormTypeBasedFieldValueFormMapper implements FieldValueFormMapperInt
     /**
      * Maps Field form to current FieldType based on the configured form type (self::$formType).
      *
-     * @param FormInterface $fieldForm Form for the current Field.
-     * @param FieldData $data Underlying data for current Field form.
+     * @param FormInterface $fieldForm form for the current Field
+     * @param FieldData $data underlying data for current Field form
      */
     public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data)
     {

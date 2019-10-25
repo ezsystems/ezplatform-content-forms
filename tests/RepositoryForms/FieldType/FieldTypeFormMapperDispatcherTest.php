@@ -4,14 +4,14 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
+
+
 namespace EzSystems\EzPlatformContentForms\Tests\FieldType;
 
 use eZ\Publish\API\Repository\Values\Content\Field;
 use eZ\Publish\Core\Repository\Values\ContentType\FieldDefinition;
 use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
-use EzSystems\EzPlatformContentForms\Data\ContentTypeData;
-use EzSystems\EzPlatformContentForms\Data\FieldDefinitionData;
-use EzSystems\EzPlatformContentForms\FieldType\FieldDefinitionFormMapperInterface;
 use EzSystems\EzPlatformContentForms\FieldType\FieldTypeFormMapperDispatcher;
 use EzSystems\EzPlatformContentForms\FieldType\FieldTypeFormMapperDispatcherInterface;
 use EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface;

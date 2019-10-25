@@ -4,6 +4,8 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
+
 namespace EzSystems\EzPlatformContentForms\Data\User;
 
 use eZ\Publish\API\Repository\Values\User\UserGroup;
@@ -13,7 +15,7 @@ use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
 use EzSystems\EzPlatformContentForms\Data\NewnessCheckable;
 
 /**
- * @property-read FieldData[] $fieldsData
+ * @property FieldData[] $fieldsData
  */
 class UserCreateData extends UserCreateStruct implements NewnessCheckable
 {
