@@ -208,7 +208,7 @@ class UserRegistrationContext extends RawMinkContext implements Context, Snippet
     public function iCanSeeTheRegistrationForm()
     {
         $this->assertSession()->pageTextNotContains('You are not allowed to register a new account');
-        $this->assertSession()->elementExists('css', 'form[name=ezrepoforms_user_register]');
+        $this->assertSession()->elementExists('css', 'form[name=ezplatform_content_forms_user_register]');
     }
 
     /**
@@ -221,7 +221,7 @@ class UserRegistrationContext extends RawMinkContext implements Context, Snippet
             $this->assertSession()->elementExists(
                 'css',
                 sprintf(
-                    '#ezrepoforms_user_register_fieldsData_%s',
+                    '#ezplatform_content_forms_user_register_fieldsData_%s',
                     $fieldDefinition->identifier
                 )
             );
@@ -236,7 +236,7 @@ class UserRegistrationContext extends RawMinkContext implements Context, Snippet
     {
         $this->assertSession()->elementExists(
             'css',
-            'form[name=ezrepoforms_user_register] button[type=submit]'
+            'form[name=ezplatform_content_forms_user_register] button[type=submit]'
         );
     }
 
@@ -249,12 +249,12 @@ class UserRegistrationContext extends RawMinkContext implements Context, Snippet
 
         $this->registrationUsername = uniqid('registration_username_', true);
 
-        $page->fillField('ezrepoforms_user_register[fieldsData][first_name][value]', 'firstname');
-        $page->fillField('ezrepoforms_user_register[fieldsData][last_name][value]', 'firstname');
-        $page->fillField('ezrepoforms_user_register[fieldsData][user_account][value][username]', $this->registrationUsername);
-        $page->fillField('ezrepoforms_user_register[fieldsData][user_account][value][email]', $this->registrationUsername . '@example.com');
-        $page->fillField('ezrepoforms_user_register[fieldsData][user_account][value][password][first]', self::$password);
-        $page->fillField('ezrepoforms_user_register[fieldsData][user_account][value][password][second]', self::$password);
+        $page->fillField('ezplatform_content_forms_user_register[fieldsData][first_name][value]', 'firstname');
+        $page->fillField('ezplatform_content_forms_user_register[fieldsData][last_name][value]', 'firstname');
+        $page->fillField('ezplatform_content_forms_user_register[fieldsData][user_account][value][username]', $this->registrationUsername);
+        $page->fillField('ezplatform_content_forms_user_register[fieldsData][user_account][value][email]', $this->registrationUsername . '@example.com');
+        $page->fillField('ezplatform_content_forms_user_register[fieldsData][user_account][value][password][first]', self::$password);
+        $page->fillField('ezplatform_content_forms_user_register[fieldsData][user_account][value][password][second]', self::$password);
     }
 
     /**
@@ -262,7 +262,7 @@ class UserRegistrationContext extends RawMinkContext implements Context, Snippet
      */
     public function iClickOnTheRegisterButton()
     {
-        $this->getSession()->getPage()->pressButton('ezrepoforms_user_register[register]');
+        $this->getSession()->getPage()->pressButton('ezplatform_content_forms_user_register[register]');
         $this->assertSession()->statusCodeEquals(200);
     }
 
