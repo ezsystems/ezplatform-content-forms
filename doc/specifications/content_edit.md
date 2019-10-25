@@ -1,7 +1,7 @@
-# Symfony forms content edit
+# Symfony Forms content edit
 
 ## Synopsis
-repository-forms supports creating content with and without an intermediate draft. This describes
+EzPlatform Content Forms supports creating content with and without an intermediate draft. This describes
 editing with drafts.
 
 Editing content implies creating a new version of an existing content, rendering a form with the
