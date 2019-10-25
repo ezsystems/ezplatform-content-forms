@@ -1,14 +1,8 @@
 {
-    "name": "ezsystems/repository-forms",
-    "description": "Use Symfony forms with eZ Platform repository objects",
+    "name": "ezsystems/ezplatform-content-forms",
+    "description": "Use Symfony Forms with eZ Platform Content & User objects",
     "license": "GPL-2.0-only",
     "type": "ezplatform-bundle",
-    "authors": [
-        {
-            "name": "Jérôme Vieilledent",
-            "email": "jerome.vieilledent@ez.no"
-        }
-    ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
@@ -36,27 +30,27 @@
     },
     "autoload": {
         "psr-4": {
-            "EzSystems\\RepositoryFormsBundle\\": "bundle",
-            "EzSystems\\RepositoryForms\\": "lib",
-            "EzSystems\\RepositoryForms\\Features\\": "features"
+            "EzSystems\\EzPlatformContentFormsBundle\\": "src/bundle/",
+            "EzSystems\\EzPlatformContentForms\\": "src/lib/",
+            "EzSystems\\EzPlatformContentForms\\Features\\": "src/features/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "EzSystems\\RepositoryForms\\Tests\\": "tests/RepositoryForms",
-            "EzSystems\\RepositoryFormsBundle\\Tests\\": "tests/RepositoryFormsBundle"
+            "EzSystems\\EzPlatformContentForms\\Tests\\": "src/lib/Tests",
+            "EzSystems\\EzPlatformContentFormsBundle\\Tests\\": "src/bundle/Tests",
         }
     },
     "extra": {
         "_ezplatform_branch_for_behat_tests_comment_": "ezplatform branch to use to run Behat tests",
         "_ezplatform_branch_for_behat_tests": "master",
         "branch-alias": {
-            "dev-master": "3.0.x-dev",
-            "dev-tmp_ci_branch": "3.0.x-dev"
+            "dev-master": "1.0.x-dev",
+            "dev-tmp_ci_branch": "1.0.x-dev"
         }
     },
     "scripts": {
-        "fix": "@php bin/php-cs-fixer fix"
+        "fix-cs": "@php ./vendor/bin/php-cs-fixer fix -v --show-progress=estimating"
     },
     "config": {
         "bin-dir": "bin"
