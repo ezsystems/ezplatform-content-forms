@@ -156,6 +156,7 @@ class ContentEditViewBuilder implements ViewBuilder
      * @param int|null $versionNo
      *
      * @return \eZ\Publish\API\Repository\Values\Content\Content
+     *
      * @throws \eZ\Publish\API\Repository\Exceptions\UnauthorizedException
      * @throws \eZ\Publish\API\Repository\Exceptions\NotFoundException
      */
@@ -170,6 +171,7 @@ class ContentEditViewBuilder implements ViewBuilder
      * @param int $locationId
      *
      * @return \eZ\Publish\API\Repository\Values\Content\Location
+     *
      * @throws \eZ\Publish\API\Repository\Exceptions\NotFoundException
      */
     private function loadLocation(int $locationId): Location

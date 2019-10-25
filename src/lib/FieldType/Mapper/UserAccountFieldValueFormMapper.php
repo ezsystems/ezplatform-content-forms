@@ -1,11 +1,11 @@
 <?php
 
 /**
- * This file is part of the eZ RepositoryForms package.
- *
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
+
 namespace EzSystems\EzPlatformContentForms\FieldType\Mapper;
 
 use eZ\Publish\API\Repository\Values\ContentType\FieldDefinition;
@@ -13,7 +13,6 @@ use eZ\Publish\Core\FieldType\User\Value as ApiUserValue;
 use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
 use EzSystems\EzPlatformContentForms\Data\ContentTranslationData;
 use EzSystems\EzPlatformContentForms\Data\User\UserAccountFieldData;
-use EzSystems\EzPlatformContentForms\FieldType\FieldDefinitionFormMapperInterface;
 use EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface;
 use EzSystems\EzPlatformContentForms\Form\Type\FieldType\UserAccountFieldType;
 use EzSystems\EzPlatformContentForms\Validator\Constraints\UserAccountPassword;
@@ -33,8 +32,8 @@ final class UserAccountFieldValueFormMapper implements FieldValueFormMapperInter
     /**
      * Maps Field form to current FieldType based on the configured form type (self::$formType).
      *
-     * @param FormInterface $fieldForm Form for the current Field.
-     * @param FieldData $data Underlying data for current Field form.
+     * @param FormInterface $fieldForm form for the current Field
+     * @param FieldData $data underlying data for current Field form
      *
      * @throws AlreadySubmittedException
      * @throws LogicException

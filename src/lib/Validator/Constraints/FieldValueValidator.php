@@ -1,11 +1,11 @@
 <?php
 
 /**
- * This file is part of the eZ RepositoryForms package.
- *
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
+
 namespace EzSystems\EzPlatformContentForms\Validator\Constraints;
 
 use eZ\Publish\API\Repository\Values\ValueObject;
@@ -57,9 +57,9 @@ class FieldValueValidator extends FieldTypeValidator
     /**
      * Returns the field value to validate.
      *
-     * @param FieldData|ValueObject $value FieldData ValueObject holding the field value to validate.
+     * @param FieldData|ValueObject $value fieldData ValueObject holding the field value to validate
      *
-     * @throws \InvalidArgumentException If field value cannot be retrieved.
+     * @throws \InvalidArgumentException if field value cannot be retrieved
      *
      * @return \eZ\Publish\SPI\FieldType\Value
      */
@@ -74,7 +74,7 @@ class FieldValueValidator extends FieldTypeValidator
      *
      * @param FieldData|ValueObject $value ValueObject holding the field value to validate, e.g. FieldDefinitionData.
      *
-     * @throws \InvalidArgumentException If field definition cannot be retrieved.
+     * @throws \InvalidArgumentException if field definition cannot be retrieved
      *
      * @return \eZ\Publish\API\Repository\Values\ContentType\FieldDefinition
      */
@@ -86,7 +86,7 @@ class FieldValueValidator extends FieldTypeValidator
     /**
      * Returns the fieldTypeIdentifier for the field value to validate.
      *
-     * @param FieldData|ValueObject $value FieldData ValueObject holding the field value to validate.
+     * @param FieldData|ValueObject $value fieldData ValueObject holding the field value to validate
      *
      * @return string
      */

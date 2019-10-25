@@ -1,7 +1,11 @@
 <?php
+
 /**
+ * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
+
 namespace EzSystems\EzPlatformContentForms\Behat\Context;
 
 use Behat\Behat\Context\Context;
@@ -14,6 +18,7 @@ final class ContentEditContext extends MinkContext implements Context, SnippetAc
 {
     /**
      * Name of the content that was created using the edit form. Used to validate that the content was created.
+     *
      * @var string
      */
     private $createdContentName;
@@ -25,6 +30,7 @@ final class ContentEditContext extends MinkContext implements Context, SnippetAc
 
     /**
      * Identifier of the FieldDefinition used to cover validation.
+     *
      * @var string
      */
     private static $constrainedFieldIdentifier = 'constrained_field';

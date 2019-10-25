@@ -1,11 +1,11 @@
 <?php
 
 /**
- * This file is part of the eZ RepositoryForms package.
- *
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
+
 namespace EzSystems\EzPlatformContentForms\Event;
 
 use Symfony\Component\Form\FormEvent;
@@ -75,7 +75,7 @@ class FormActionEvent extends FormEvent
 
     /**
      * @param string $optionName The option name
-     * @param mixed $defaultValue Default value to return if option is not set.
+     * @param mixed $defaultValue default value to return if option is not set
      *
      * @return mixed
      */

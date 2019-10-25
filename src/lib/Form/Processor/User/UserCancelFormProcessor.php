@@ -1,12 +1,11 @@
 <?php
+
 /**
- * This file is part of the eZ RepositoryForms package.
- *
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
- *
- * @version //autogentag//
  */
+declare(strict_types=1);
+
 namespace EzSystems\EzPlatformContentForms\Form\Processor\User;
 
 use EzSystems\EzPlatformContentForms\Data\User\UserCreateData;
@@ -43,7 +42,7 @@ class UserCancelFormProcessor implements EventSubscriberInterface
 
     public function processCancel(FormActionEvent $event)
     {
-        /** @var UserUpdateData|UserCreateData $data */
+        /** @var UserCreateData|UserUpdateData $data */
         $data = $event->getData();
 
         $locationId = $data->isNew()

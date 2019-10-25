@@ -1,10 +1,11 @@
 <?php
+
 /**
- * This file is part of the eZ RepositoryForms package.
- *
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+declare(strict_types=1);
+
 namespace EzSystems\EzPlatformContentForms\Data\Mapper;
 
 use eZ\Publish\API\Repository\Values\ContentType\ContentType;
@@ -18,7 +19,7 @@ class ContentUpdateMapper implements FormDataMapperInterface
     /**
      * Maps a ValueObject from eZ content repository to a data usable as underlying form data (e.g. create/update struct).
      *
-     * @param \eZ\Publish\API\Repository\Values\ValueObject|\eZ\Publish\API\Repository\Values\Content\Content $contentDraft
+     * @param \eZ\Publish\API\Repository\Values\Content\Content|\eZ\Publish\API\Repository\Values\ValueObject $contentDraft
      * @param array $params
      *
      * @return \EzSystems\EzPlatformContentForms\Data\Content\ContentUpdateData
