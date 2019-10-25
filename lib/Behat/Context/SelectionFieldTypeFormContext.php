@@ -4,7 +4,7 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryForms\Behat\Context;
+namespace EzSystems\EzPlatformContentForms\Behat\Context;
 
 use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
@@ -16,7 +16,7 @@ final class SelectionFieldTypeFormContext extends RawMinkContext implements Snip
     private static $fieldIdentifier = 'field';
 
     /**
-     * @var \EzSystems\RepositoryForms\Behat\Context\FieldTypeFormContext
+     * @var \EzSystems\EzPlatformContentForms\Behat\Context\FieldTypeFormContext
      */
     private $fieldTypeFormContext;
 
@@ -24,7 +24,7 @@ final class SelectionFieldTypeFormContext extends RawMinkContext implements Snip
     public function gatherContexts(BeforeScenarioScope $scope)
     {
         $this->fieldTypeFormContext = $scope->getEnvironment()->getContext(
-            'EzSystems\RepositoryForms\Behat\Context\FieldTypeFormContext'
+            'EzSystems\EzPlatformContentForms\Behat\Context\FieldTypeFormContext'
         );
     }
 

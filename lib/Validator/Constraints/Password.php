@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\RepositoryForms\Validator\Constraints;
+namespace EzSystems\EzPlatformContentForms\Validator\Constraints;
 
 use Symfony\Component\Validator\Constraint;
 

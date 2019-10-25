@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\RepositoryForms\Content\View\Builder;
+namespace EzSystems\EzPlatformContentForms\Content\View\Builder;
 
 use eZ\Publish\API\Repository\Repository;
 use eZ\Publish\API\Repository\Values\Content\Content;
@@ -18,9 +18,9 @@ use eZ\Publish\Core\MVC\Symfony\Locale\UserLanguagePreferenceProviderInterface;
 use eZ\Publish\Core\MVC\Symfony\View\Builder\ViewBuilder;
 use eZ\Publish\Core\MVC\Symfony\View\Configurator;
 use eZ\Publish\Core\MVC\Symfony\View\ParametersInjector;
-use EzSystems\RepositoryForms\Content\View\ContentEditSuccessView;
-use EzSystems\RepositoryForms\Content\View\ContentEditView;
-use EzSystems\RepositoryForms\Form\ActionDispatcher\ActionDispatcherInterface;
+use EzSystems\EzPlatformContentForms\Content\View\ContentEditSuccessView;
+use EzSystems\EzPlatformContentForms\Content\View\ContentEditView;
+use EzSystems\EzPlatformContentForms\Form\ActionDispatcher\ActionDispatcherInterface;
 
 /**
  * Builds ContentEditView objects.
@@ -41,7 +41,7 @@ class ContentEditViewBuilder implements ViewBuilder
     /** @var string */
     private $defaultTemplate;
 
-    /** @var \EzSystems\RepositoryForms\Form\ActionDispatcher\ActionDispatcherInterface */
+    /** @var \EzSystems\EzPlatformContentForms\Form\ActionDispatcher\ActionDispatcherInterface */
     private $contentActionDispatcher;
 
     /** @var \eZ\Publish\Core\MVC\Symfony\Locale\UserLanguagePreferenceProviderInterface */
@@ -52,7 +52,7 @@ class ContentEditViewBuilder implements ViewBuilder
      * @param \eZ\Publish\Core\MVC\Symfony\View\Configurator $viewConfigurator
      * @param \eZ\Publish\Core\MVC\Symfony\View\ParametersInjector $viewParametersInjector
      * @param string $defaultTemplate
-     * @param \EzSystems\RepositoryForms\Form\ActionDispatcher\ActionDispatcherInterface $contentActionDispatcher
+     * @param \EzSystems\EzPlatformContentForms\Form\ActionDispatcher\ActionDispatcherInterface $contentActionDispatcher
      * @param \eZ\Publish\Core\MVC\Symfony\Locale\UserLanguagePreferenceProviderInterface $languagePreferenceProvider
      */
     public function __construct(

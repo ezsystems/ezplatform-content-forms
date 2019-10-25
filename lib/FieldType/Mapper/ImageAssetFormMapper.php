@@ -6,14 +6,14 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\RepositoryForms\FieldType\Mapper;
+namespace EzSystems\EzPlatformContentForms\FieldType\Mapper;
 
 use eZ\Publish\API\Repository\FieldTypeService;
 use eZ\Publish\Core\FieldType\ImageAsset\Value;
-use EzSystems\RepositoryForms\Data\Content\FieldData;
-use EzSystems\RepositoryForms\FieldType\DataTransformer\ImageAssetValueTransformer;
-use EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface;
-use EzSystems\RepositoryForms\Form\Type\FieldType\ImageAssetFieldType;
+use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
+use EzSystems\EzPlatformContentForms\FieldType\DataTransformer\ImageAssetValueTransformer;
+use EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface;
+use EzSystems\EzPlatformContentForms\Form\Type\FieldType\ImageAssetFieldType;
 use Symfony\Component\Form\FormInterface;
 
 class ImageAssetFormMapper implements FieldValueFormMapperInterface
@@ -31,7 +31,7 @@ class ImageAssetFormMapper implements FieldValueFormMapperInterface
 
     /**
      * @param \Symfony\Component\Form\FormInterface $fieldForm
-     * @param \EzSystems\RepositoryForms\Data\Content\FieldData $data
+     * @param \EzSystems\EzPlatformContentForms\Data\Content\FieldData $data
      */
     public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data): void
     {

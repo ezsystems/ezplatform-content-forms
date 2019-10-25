@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\RepositoryForms\Validator;
+namespace EzSystems\EzPlatformContentForms\Validator;
 
 use eZ\Publish\API\Repository\Values\Translation\Plural;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;

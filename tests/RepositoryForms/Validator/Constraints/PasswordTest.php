@@ -6,15 +6,15 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\RepositoryForms\Tests\Validator\Constraints;
+namespace EzSystems\EzPlatformContentForms\Tests\Validator\Constraints;
 
-use EzSystems\RepositoryForms\Validator\Constraints\Password;
-use EzSystems\RepositoryForms\Validator\Constraints\PasswordValidator;
+use EzSystems\EzPlatformContentForms\Validator\Constraints\Password;
+use EzSystems\EzPlatformContentForms\Validator\Constraints\PasswordValidator;
 use PHPUnit\Framework\TestCase;
 
 class PasswordTest extends TestCase
 {
-    /** @var \EzSystems\RepositoryForms\Validator\Constraints\Password */
+    /** @var \EzSystems\EzPlatformContentForms\Validator\Constraints\Password */
     private $constraint;
 
     protected function setUp(): void

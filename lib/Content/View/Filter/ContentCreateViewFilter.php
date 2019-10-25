@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\RepositoryForms\Content\View\Filter;
+namespace EzSystems\EzPlatformContentForms\Content\View\Filter;
 
 use eZ\Publish\API\Repository\ContentTypeService;
 use eZ\Publish\API\Repository\LocationService;
@@ -15,9 +15,9 @@ use eZ\Publish\API\Repository\Values\ContentType\ContentType;
 use eZ\Publish\Core\MVC\Symfony\Locale\UserLanguagePreferenceProviderInterface;
 use eZ\Publish\Core\MVC\Symfony\View\Event\FilterViewBuilderParametersEvent;
 use eZ\Publish\Core\MVC\Symfony\View\ViewEvents;
-use EzSystems\RepositoryForms\Data\Content\ContentCreateData;
-use EzSystems\RepositoryForms\Data\Mapper\ContentCreateMapper;
-use EzSystems\RepositoryForms\Form\Type\Content\ContentEditType;
+use EzSystems\EzPlatformContentForms\Data\Content\ContentCreateData;
+use EzSystems\EzPlatformContentForms\Data\Mapper\ContentCreateMapper;
+use EzSystems\EzPlatformContentForms\Form\Type\Content\ContentEditType;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
@@ -95,7 +95,7 @@ class ContentCreateViewFilter implements EventSubscriberInterface
      * @param \eZ\Publish\API\Repository\Values\Content\Location $location
      * @param string $languageCode
      *
-     * @return \EzSystems\RepositoryForms\Data\Content\ContentCreateData
+     * @return \EzSystems\EzPlatformContentForms\Data\Content\ContentCreateData
      */
     private function resolveContentCreateData(
         ContentType $contentType,
@@ -114,7 +114,7 @@ class ContentCreateViewFilter implements EventSubscriberInterface
     }
 
     /**
-     * @param \EzSystems\RepositoryForms\Data\Content\ContentCreateData $contentCreateData
+     * @param \EzSystems\EzPlatformContentForms\Data\Content\ContentCreateData $contentCreateData
      * @param string $languageCode
      *
      * @return \Symfony\Component\Form\FormInterface

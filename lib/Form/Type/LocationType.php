@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\RepositoryForms\Form\Type;
+namespace EzSystems\EzPlatformContentForms\Form\Type;
 
 use eZ\Publish\API\Repository\Exceptions\NotFoundException;
 use eZ\Publish\API\Repository\Exceptions\UnauthorizedException;

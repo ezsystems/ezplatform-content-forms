@@ -6,12 +6,12 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\RepositoryForms\Content\View\Provider\ContentEditView;
+namespace EzSystems\EzPlatformContentForms\Content\View\Provider\ContentEditView;
 
 use eZ\Publish\Core\MVC\Symfony\Matcher\MatcherFactoryInterface;
 use eZ\Publish\Core\MVC\Symfony\View\View;
 use eZ\Publish\Core\MVC\Symfony\View\ViewProvider;
-use EzSystems\RepositoryForms\Content\View\ContentEditView;
+use EzSystems\EzPlatformContentForms\Content\View\ContentEditView;
 use Symfony\Component\HttpKernel\Controller\ControllerReference;
 
 /**
@@ -46,7 +46,7 @@ class Configured implements ViewProvider
      *
      * @param array $viewConfig
      *
-     * @return \EzSystems\RepositoryForms\Content\View\ContentEditView
+     * @return \EzSystems\EzPlatformContentForms\Content\View\ContentEditView
      */
     protected function buildContentEditView(array $viewConfig): ContentEditView
     {

@@ -4,9 +4,9 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryForms\Tests\Event;
+namespace EzSystems\EzPlatformContentForms\Tests\Event;
 
-use EzSystems\RepositoryForms\Event\FormActionEvent;
+use EzSystems\EzPlatformContentForms\Event\FormActionEvent;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 use Symfony\Component\HttpFoundation\Response;

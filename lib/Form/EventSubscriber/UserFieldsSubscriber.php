@@ -4,12 +4,12 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryForms\Form\EventSubscriber;
+namespace EzSystems\EzPlatformContentForms\Form\EventSubscriber;
 
 use eZ\Publish\Core\FieldType\User\Value;
-use EzSystems\RepositoryForms\Data\User\UserAccountFieldData;
-use EzSystems\RepositoryForms\Data\User\UserCreateData;
-use EzSystems\RepositoryForms\Data\User\UserUpdateData;
+use EzSystems\EzPlatformContentForms\Data\User\UserAccountFieldData;
+use EzSystems\EzPlatformContentForms\Data\User\UserCreateData;
+use EzSystems\EzPlatformContentForms\Data\User\UserUpdateData;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;

@@ -4,10 +4,10 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryForms\FieldType\Mapper;
+namespace EzSystems\EzPlatformContentForms\FieldType\Mapper;
 
-use EzSystems\RepositoryForms\Data\Content\FieldData;
-use EzSystems\RepositoryForms\Form\Type\FieldType\RelationListFieldType;
+use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
+use EzSystems\EzPlatformContentForms\Form\Type\FieldType\RelationListFieldType;
 use Symfony\Component\Form\FormInterface;
 
 class RelationListFormMapper extends AbstractRelationFormMapper

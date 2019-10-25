@@ -4,10 +4,10 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryForms\Validator\Constraints;
+namespace EzSystems\EzPlatformContentForms\Validator\Constraints;
 
 use eZ\Publish\API\Repository\FieldTypeService;
-use EzSystems\RepositoryForms\Validator\ValidationErrorsProcessor;
+use EzSystems\EzPlatformContentForms\Validator\ValidationErrorsProcessor;
 use Symfony\Component\Validator\ConstraintValidator;
 
 abstract class FieldTypeValidator extends ConstraintValidator
@@ -49,7 +49,7 @@ abstract class FieldTypeValidator extends ConstraintValidator
     }
 
     /**
-     * @return \EzSystems\RepositoryForms\Validator\ValidationErrorsProcessor
+     * @return \EzSystems\EzPlatformContentForms\Validator\ValidationErrorsProcessor
      */
     private function createValidationErrorProcessor(): ValidationErrorsProcessor
     {

@@ -4,8 +4,8 @@ services:
         autoconfigure: true
         public: false
 
-    EzSystems\RepositoryForms\Form\Type\SwitcherType: ~
+    EzSystems\EzPlatformContentForms\Form\Type\SwitcherType: ~
 
-    EzSystems\RepositoryForms\Form\Type\FieldType\BinaryBaseFieldType: ~
+    EzSystems\EzPlatformContentForms\Form\Type\FieldType\BinaryBaseFieldType: ~
 
-    EzSystems\RepositoryForms\Form\Type\LocationType: ~
+    EzSystems\EzPlatformContentForms\Form\Type\LocationType: ~

@@ -4,15 +4,15 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryForms\FieldType\Mapper;
+namespace EzSystems\EzPlatformContentForms\FieldType\Mapper;
 
 use eZ\Publish\API\Repository\ContentTypeService;
 use eZ\Publish\API\Repository\Exceptions\NotFoundException;
 use eZ\Publish\API\Repository\Exceptions\UnauthorizedException;
 use eZ\Publish\API\Repository\LocationService;
 use eZ\Publish\API\Repository\Values\Content\Location;
-use EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface;
-use EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface;
+use EzSystems\EzPlatformContentForms\FieldType\FieldDefinitionFormMapperInterface;
+use EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface;
 
 abstract class AbstractRelationFormMapper implements FieldValueFormMapperInterface
 {

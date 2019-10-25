@@ -4,9 +4,9 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryForms\Tests\Validator\Constraints;
+namespace EzSystems\EzPlatformContentForms\Tests\Validator\Constraints;
 
-use EzSystems\RepositoryForms\Validator\Constraints\FieldValue;
+use EzSystems\EzPlatformContentForms\Validator\Constraints\FieldValue;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Validator\Constraint;
 

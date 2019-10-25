@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\RepositoryForms\Content\View;
+namespace EzSystems\EzPlatformContentForms\Content\View;
 
 use eZ\Publish\API\Repository\Values\Content\Location;
 use eZ\Publish\Core\MVC\Symfony\View\BaseView;
@@ -26,7 +26,7 @@ class ContentEditSuccessView extends BaseView implements LocationValueView
      */
     public function __construct(Response $response)
     {
-        parent::__construct('@EzSystemsRepositoryForms/http/302_empty_content.html.twig');
+        parent::__construct('@EzPlatformContentForms/http/302_empty_content.html.twig');
 
         $this->setResponse($response);
         $this->setControllerReference(new ControllerReference('ez_content_edit:editVersionDraftSuccessAction'));

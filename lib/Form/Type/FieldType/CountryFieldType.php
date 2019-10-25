@@ -4,10 +4,10 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryForms\Form\Type\FieldType;
+namespace EzSystems\EzPlatformContentForms\Form\Type\FieldType;
 
-use EzSystems\RepositoryForms\FieldType\DataTransformer\MultipleCountryValueTransformer;
-use EzSystems\RepositoryForms\FieldType\DataTransformer\SingleCountryValueTransformer;
+use EzSystems\EzPlatformContentForms\FieldType\DataTransformer\MultipleCountryValueTransformer;
+use EzSystems\EzPlatformContentForms\FieldType\DataTransformer\SingleCountryValueTransformer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;

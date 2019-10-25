@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\RepositoryForms\Form\EventListener;
+namespace EzSystems\EzPlatformContentForms\Form\EventListener;
 
 use Symfony\Component\Form\FormEvent;
 

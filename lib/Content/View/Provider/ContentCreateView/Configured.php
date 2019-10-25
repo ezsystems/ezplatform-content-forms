@@ -6,12 +6,12 @@
  */
 declare(strict_types=1);
 
-namespace EzSystems\RepositoryForms\Content\View\Provider\ContentCreateView;
+namespace EzSystems\EzPlatformContentForms\Content\View\Provider\ContentCreateView;
 
 use eZ\Publish\Core\MVC\Symfony\Matcher\MatcherFactoryInterface;
 use eZ\Publish\Core\MVC\Symfony\View\View;
 use eZ\Publish\Core\MVC\Symfony\View\ViewProvider;
-use EzSystems\RepositoryForms\Content\View\ContentCreateView;
+use EzSystems\EzPlatformContentForms\Content\View\ContentCreateView;
 use Symfony\Component\HttpKernel\Controller\ControllerReference;
 
 /**
@@ -46,7 +46,7 @@ class Configured implements ViewProvider
      *
      * @param array $viewConfig
      *
-     * @return \EzSystems\RepositoryForms\Content\View\ContentCreateView
+     * @return \EzSystems\EzPlatformContentForms\Content\View\ContentCreateView
      */
     protected function buildContentCreateView(array $viewConfig): ContentCreateView
     {

@@ -4,12 +4,12 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryForms\Form\Processor\User;
+namespace EzSystems\EzPlatformContentForms\Form\Processor\User;
 
 use eZ\Publish\API\Repository\UserService;
-use EzSystems\RepositoryForms\Data\User\UserCreateData;
-use EzSystems\RepositoryForms\Event\ContentFormEvents;
-use EzSystems\RepositoryForms\Event\FormActionEvent;
+use EzSystems\EzPlatformContentForms\Data\User\UserCreateData;
+use EzSystems\EzPlatformContentForms\Event\ContentFormEvents;
+use EzSystems\EzPlatformContentForms\Event\FormActionEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;

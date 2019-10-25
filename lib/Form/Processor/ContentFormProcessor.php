@@ -4,7 +4,7 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryForms\Form\Processor;
+namespace EzSystems\EzPlatformContentForms\Form\Processor;
 
 use eZ\Publish\API\Repository\ContentService;
 use eZ\Publish\API\Repository\LocationService;
@@ -12,11 +12,11 @@ use eZ\Publish\API\Repository\Values\Content\Content;
 use eZ\Publish\API\Repository\Values\Content\ContentStruct;
 use eZ\Publish\API\Repository\Values\Content\Location;
 use eZ\Publish\Core\Base\Exceptions\InvalidArgumentException;
-use EzSystems\RepositoryForms\Data\Content\ContentCreateData;
-use EzSystems\RepositoryForms\Data\Content\ContentUpdateData;
-use EzSystems\RepositoryForms\Data\NewnessCheckable;
-use EzSystems\RepositoryForms\Event\ContentFormEvents;
-use EzSystems\RepositoryForms\Event\FormActionEvent;
+use EzSystems\EzPlatformContentForms\Data\Content\ContentCreateData;
+use EzSystems\EzPlatformContentForms\Data\Content\ContentUpdateData;
+use EzSystems\EzPlatformContentForms\Data\NewnessCheckable;
+use EzSystems\EzPlatformContentForms\Event\ContentFormEvents;
+use EzSystems\EzPlatformContentForms\Event\FormActionEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -66,7 +66,7 @@ class ContentFormProcessor implements EventSubscriberInterface
     }
 
     /**
-     * @param \EzSystems\RepositoryForms\Event\FormActionEvent $event
+     * @param \EzSystems\EzPlatformContentForms\Event\FormActionEvent $event
      *
      * @throws \eZ\Publish\API\Repository\Exceptions\BadStateException
      * @throws \eZ\Publish\API\Repository\Exceptions\ContentFieldValidationException
@@ -78,7 +78,7 @@ class ContentFormProcessor implements EventSubscriberInterface
      */
     public function processSaveDraft(FormActionEvent $event)
     {
-        /** @var \EzSystems\RepositoryForms\Data\Content\ContentCreateData|\EzSystems\RepositoryForms\Data\Content\ContentUpdateData $data */
+        /** @var \EzSystems\EzPlatformContentForms\Data\Content\ContentCreateData|\EzSystems\EzPlatformContentForms\Data\Content\ContentUpdateData $data */
         $data = $event->getData();
         $form = $event->getForm();
 
@@ -101,7 +101,7 @@ class ContentFormProcessor implements EventSubscriberInterface
     }
 
     /**
-     * @param \EzSystems\RepositoryForms\Event\FormActionEvent $event
+     * @param \EzSystems\EzPlatformContentForms\Event\FormActionEvent $event
      *
      * @throws \eZ\Publish\API\Repository\Exceptions\BadStateException
      * @throws \eZ\Publish\API\Repository\Exceptions\ContentFieldValidationException
@@ -112,7 +112,7 @@ class ContentFormProcessor implements EventSubscriberInterface
      */
     public function processPublish(FormActionEvent $event)
     {
-        /** @var \EzSystems\RepositoryForms\Data\Content\ContentCreateData|\EzSystems\RepositoryForms\Data\Content\ContentUpdateData $data */
+        /** @var \EzSystems\EzPlatformContentForms\Data\Content\ContentCreateData|\EzSystems\EzPlatformContentForms\Data\Content\ContentUpdateData $data */
         $data = $event->getData();
         $form = $event->getForm();
 
@@ -133,14 +133,14 @@ class ContentFormProcessor implements EventSubscriberInterface
     }
 
     /**
-     * @param \EzSystems\RepositoryForms\Event\FormActionEvent $event
+     * @param \EzSystems\EzPlatformContentForms\Event\FormActionEvent $event
      *
      * @throws \eZ\Publish\API\Repository\Exceptions\BadStateException
      * @throws \eZ\Publish\API\Repository\Exceptions\UnauthorizedException
      */
     public function processCancel(FormActionEvent $event)
     {
-        /** @var \EzSystems\RepositoryForms\Data\Content\ContentCreateData|\EzSystems\RepositoryForms\Data\Content\ContentUpdateData $data */
+        /** @var \EzSystems\EzPlatformContentForms\Data\Content\ContentCreateData|\EzSystems\EzPlatformContentForms\Data\Content\ContentUpdateData $data */
         $data = $event->getData();
 
         if ($data->isNew()) {
@@ -179,14 +179,14 @@ class ContentFormProcessor implements EventSubscriberInterface
     }
 
     /**
-     * @param \EzSystems\RepositoryForms\Event\FormActionEvent $event
+     * @param \EzSystems\EzPlatformContentForms\Event\FormActionEvent $event
      *
      * @throws \eZ\Publish\API\Repository\Exceptions\NotFoundException
      * @throws \eZ\Publish\API\Repository\Exceptions\UnauthorizedException
      */
     public function processCreateDraft(FormActionEvent $event)
     {
-        /** @var $createContentDraft \EzSystems\RepositoryForms\Data\Content\CreateContentDraftData */
+        /** @var $createContentDraft \EzSystems\EzPlatformContentForms\Data\Content\CreateContentDraftData */
         $createContentDraft = $event->getData();
 
         $contentInfo = $this->contentService->loadContentInfo($createContentDraft->contentId);
@@ -210,7 +210,7 @@ class ContentFormProcessor implements EventSubscriberInterface
      * Saves content draft corresponding to $data.
      * Depending on the nature of $data (create or update data), the draft will either be created or simply updated.
      *
-     * @param ContentStruct|\EzSystems\RepositoryForms\Data\Content\ContentCreateData|\EzSystems\RepositoryForms\Data\Content\ContentUpdateData $data
+     * @param ContentStruct|\EzSystems\EzPlatformContentForms\Data\Content\ContentCreateData|\EzSystems\EzPlatformContentForms\Data\Content\ContentUpdateData $data
      * @param $languageCode
      *
      * @return \eZ\Publish\API\Repository\Values\Content\Content
@@ -243,7 +243,7 @@ class ContentFormProcessor implements EventSubscriberInterface
     }
 
     /**
-     * @param \EzSystems\RepositoryForms\Data\Content\ContentUpdateData|\EzSystems\RepositoryForms\Data\Content\ContentCreateData $data
+     * @param \EzSystems\EzPlatformContentForms\Data\Content\ContentUpdateData|\EzSystems\EzPlatformContentForms\Data\Content\ContentCreateData $data
      *
      * @return string
      *
@@ -266,7 +266,7 @@ class ContentFormProcessor implements EventSubscriberInterface
     /**
      * @param \eZ\Publish\API\Repository\Values\Content\Content $content
      * @param \eZ\Publish\API\Repository\Values\Content\Location|null $referrerLocation
-     * @param \EzSystems\RepositoryForms\Data\NewnessCheckable $data
+     * @param \EzSystems\EzPlatformContentForms\Data\NewnessCheckable $data
      *
      * @return \eZ\Publish\API\Repository\Values\Content\Location|null
      *

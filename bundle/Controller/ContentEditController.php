@@ -4,19 +4,19 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryFormsBundle\Controller;
+namespace EzSystems\EzPlatformContentFormsBundle\Controller;
 
 use eZ\Bundle\EzPublishCoreBundle\Controller;
 use eZ\Publish\API\Repository\ContentService;
 use eZ\Publish\API\Repository\ContentTypeService;
-use EzSystems\RepositoryForms\Content\View\ContentCreateDraftView;
-use EzSystems\RepositoryForms\Content\View\ContentCreateSuccessView;
-use EzSystems\RepositoryForms\Content\View\ContentCreateView;
-use EzSystems\RepositoryForms\Content\View\ContentEditSuccessView;
-use EzSystems\RepositoryForms\Content\View\ContentEditView;
-use EzSystems\RepositoryForms\Data\Content\CreateContentDraftData;
-use EzSystems\RepositoryForms\Form\ActionDispatcher\ActionDispatcherInterface;
-use EzSystems\RepositoryForms\Form\Type\Content\ContentDraftCreateType;
+use EzSystems\EzPlatformContentForms\Content\View\ContentCreateDraftView;
+use EzSystems\EzPlatformContentForms\Content\View\ContentCreateSuccessView;
+use EzSystems\EzPlatformContentForms\Content\View\ContentCreateView;
+use EzSystems\EzPlatformContentForms\Content\View\ContentEditSuccessView;
+use EzSystems\EzPlatformContentForms\Content\View\ContentEditView;
+use EzSystems\EzPlatformContentForms\Data\Content\CreateContentDraftData;
+use EzSystems\EzPlatformContentForms\Form\ActionDispatcher\ActionDispatcherInterface;
+use EzSystems\EzPlatformContentForms\Form\Type\Content\ContentDraftCreateType;
 use Symfony\Component\HttpFoundation\Request;
 
 class ContentEditController extends Controller
@@ -43,9 +43,9 @@ class ContentEditController extends Controller
     /**
      * Displays and processes a content creation form. Showing the form does not create a draft in the repository.
      *
-     * @param \EzSystems\RepositoryForms\Content\View\ContentCreateView $view
+     * @param \EzSystems\EzPlatformContentForms\Content\View\ContentCreateView $view
      *
-     * @return \EzSystems\RepositoryForms\Content\View\ContentCreateView
+     * @return \EzSystems\EzPlatformContentForms\Content\View\ContentCreateView
      */
     public function createWithoutDraftAction(ContentCreateView $view): ContentCreateView
     {
@@ -53,9 +53,9 @@ class ContentEditController extends Controller
     }
 
     /**
-     * @param \EzSystems\RepositoryForms\Content\View\ContentCreateSuccessView $view
+     * @param \EzSystems\EzPlatformContentForms\Content\View\ContentCreateSuccessView $view
      *
-     * @return \EzSystems\RepositoryForms\Content\View\ContentCreateSuccessView
+     * @return \EzSystems\EzPlatformContentForms\Content\View\ContentCreateSuccessView
      *
      * @throws \eZ\Publish\API\Repository\Exceptions\BadStateException
      */
@@ -72,7 +72,7 @@ class ContentEditController extends Controller
      * @param int $fromVersionNo
      * @param string $fromLanguage
      *
-     * @return \EzSystems\RepositoryForms\Content\View\ContentCreateDraftView|\Symfony\Component\HttpFoundation\Response
+     * @return \EzSystems\EzPlatformContentForms\Content\View\ContentCreateDraftView|\Symfony\Component\HttpFoundation\Response
      *
      * @throws \eZ\Publish\API\Repository\Exceptions\UnauthorizedException
      * @throws \eZ\Publish\API\Repository\Exceptions\NotFoundException
@@ -122,9 +122,9 @@ class ContentEditController extends Controller
     }
 
     /**
-     * @param \EzSystems\RepositoryForms\Content\View\ContentEditView $view
+     * @param \EzSystems\EzPlatformContentForms\Content\View\ContentEditView $view
      *
-     * @return \EzSystems\RepositoryForms\Content\View\ContentEditView
+     * @return \EzSystems\EzPlatformContentForms\Content\View\ContentEditView
      *
      * @throws \eZ\Publish\API\Repository\Exceptions\BadStateException
      */
@@ -134,9 +134,9 @@ class ContentEditController extends Controller
     }
 
     /**
-     * @param \EzSystems\RepositoryForms\Content\View\ContentEditSuccessView $view
+     * @param \EzSystems\EzPlatformContentForms\Content\View\ContentEditSuccessView $view
      *
-     * @return \EzSystems\RepositoryForms\Content\View\ContentEditSuccessView
+     * @return \EzSystems\EzPlatformContentForms\Content\View\ContentEditSuccessView
      *
      * @throws \eZ\Publish\API\Repository\Exceptions\BadStateException
      */

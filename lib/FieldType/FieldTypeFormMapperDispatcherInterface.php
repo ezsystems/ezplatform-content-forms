@@ -4,9 +4,9 @@
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
-namespace EzSystems\RepositoryForms\FieldType;
+namespace EzSystems\EzPlatformContentForms\FieldType;
 
-use EzSystems\RepositoryForms\Data\Content\FieldData;
+use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
 use Symfony\Component\Form\FormInterface;
 
 /**
@@ -17,7 +17,7 @@ interface FieldTypeFormMapperDispatcherInterface
     /**
      * Adds a new Field mapper for a fieldtype identifier.
      *
-     * @param \EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface
+     * @param \EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface
      * @param string $fieldTypeIdentifier FieldType identifier this mapper is for.
      *
      * @return mixed
@@ -28,7 +28,7 @@ interface FieldTypeFormMapperDispatcherInterface
      * Maps, if a mapper is available for the fieldtype, $data to $form.
      *
      * @param \Symfony\Component\Form\FormInterface $form
-     * @param \EzSystems\RepositoryForms\Data\Content\FieldData $data
+     * @param \EzSystems\EzPlatformContentForms\Data\Content\FieldData $data
      *
      * @throws \InvalidArgumentException If $data is not a FieldData or FieldDefinitionData
      */
