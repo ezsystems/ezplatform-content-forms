@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<phpunit bootstrap="./tests/bootstrap.php"
+<phpunit bootstrap="./bootstrap.php"
          colors="true"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
@@ -11,15 +11,18 @@
         <ini name="error_reporting" value="-1" />
     </php>
     <testsuites>
-        <testsuite name="RepositoryForms tests">
-            <directory suffix="Test.php">./tests/</directory>
+        <testsuite name="ContentForms tests">
+            <directory suffix="Test.php">./src/lib/Tests/</directory>
+        </testsuite>
+        <testsuite name="ContentFormsBundle tests">
+            <directory suffix="Test.php">./src/bundle/Tests</directory>
         </testsuite>
     </testsuites>
 
     <filter>
         <whitelist>
-            <directory>./bundle</directory>
-            <directory>./lib</directory>
+            <directory>./src/bundle</directory>
+            <directory>./src/lib</directory>
         </whitelist>
     </filter>
 
