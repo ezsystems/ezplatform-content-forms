@@ -33,7 +33,7 @@
         "psr-4": {
             "EzSystems\\EzPlatformContentFormsBundle\\": "src/bundle/",
             "EzSystems\\EzPlatformContentForms\\": "src/lib/",
-            "EzSystems\\EzPlatformContentForms\\Features\\": "src/features/"
+            "EzSystems\\EzPlatformContentForms\\Features\\": "features/"
         }
     },
     "autoload-dev": {
