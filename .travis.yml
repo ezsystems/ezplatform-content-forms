@@ -16,10 +16,10 @@ matrix:
     - name: "[PHP 7.3] PHP Unit tests"
       php: 7.3
       env: TEST_CONFIG="phpunit.xml.dist"
-    - name: "[PHP 7.3] Repository-forms tests on Clean P"
+    - name: "[PHP 7.3] Content Forms tests on clean eZ Platform"
       php: 7.3
       env:
-        - BEHAT_OPTS="--mode=behat --profile=repository-forms --non-strict"
+        - BEHAT_OPTS="--mode=behat --profile=content-forms --non-strict"
         - PHP_IMAGE=ezsystems/php:7.3-v1
 
 # test only master (+ Pull requests)

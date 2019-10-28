@@ -1,27 +1,27 @@
 # This file is meant to be imported from ezplatform's behat.yml.dist.
 # All path are relative to the root ezplatform directory.
-repository-forms:
+content-forms:
     suites:
         content_edit:
             paths:
-                - vendor/ezsystems/repository-forms/features/ContentEdit
+                - vendor/ezsystems/ezplatform-content-forms/features/ContentEdit
             contexts:
-                - EzSystems\RepositoryForms\Behat\Context\ContentEditContext
-                - EzSystems\RepositoryForms\Behat\Context\ContentTypeContext
-                - EzSystems\RepositoryForms\Behat\Context\PagelayoutContext
+                - EzSystems\EzPlatformContentForms\Behat\Context\ContentEditContext
+                - EzSystems\EzPlatformContentForms\Behat\Context\ContentTypeContext
+                - EzSystems\EzPlatformContentForms\Behat\Context\PagelayoutContext
                 - EzSystems\Behat\Browser\Context\Hooks
         fieldtype_form:
             paths:
-                - vendor/ezsystems/repository-forms/features/FieldTypeForm
+                - vendor/ezsystems/ezplatform-content-forms/features/FieldTypeForm
             contexts:
-                - EzSystems\RepositoryForms\Behat\Context\ContentTypeContext
-                - EzSystems\RepositoryForms\Behat\Context\FieldTypeFormContext
-                - EzSystems\RepositoryForms\Behat\Context\SelectionFieldTypeFormContext
-        user_registration:
+                - EzSystems\EzPlatformContentForms\Behat\Context\ContentTypeContext
+                - EzSystems\EzPlatformContentForms\Behat\Context\FieldTypeFormContext
+                - EzSystems\EzPlatformContentForms\Behat\Context\SelectionFieldTypeFormContext
+        user_registration: # @todo move to ezplatform-user
             paths:
-                - vendor/ezsystems/repository-forms/features/User/Registration
+                - vendor/ezsystems/ezplatform-content-forms/features/User/Registration
             contexts:
-                - EzSystems\RepositoryForms\Behat\Context\UserRegistrationContext
+                - EzSystems\EzPlatformContentForms\Behat\Context\UserRegistrationContext
                 - Behat\MinkExtension\Context\MinkContext
                 - eZ\Bundle\EzPublishCoreBundle\Features\Context\YamlConfigurationContext
                 - EzSystems\Behat\Browser\Context\Hooks
