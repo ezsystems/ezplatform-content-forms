@@ -46,13 +46,15 @@
         "_ezplatform_branch_for_behat_tests": "master",
         "branch-alias": {
             "dev-master": "1.0.x-dev",
-            "dev-tmp_ci_branch": "1.0.x-dev"
+            "dev-tmp_ci_branch": "1.0.x-dev",
+            "dev-content_forms": "1.0.x-dev"
         }
     },
     "scripts": {
         "fix-cs": "@php ./vendor/bin/php-cs-fixer fix -v --show-progress=estimating"
     },
     "config": {
-        "bin-dir": "bin"
+        "bin-dir": "bin",
+        "github-protocols": ["https"]
     }
 }
