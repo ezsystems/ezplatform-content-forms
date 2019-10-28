@@ -33,6 +33,6 @@ class EzPlatformContentFormsBundle extends Bundle
         $eZExtension->addConfigParser(new UserEdit());
         $eZExtension->addConfigParser(new ContentEditView());
         $eZExtension->addConfigParser(new ContentCreateView());
-        $eZExtension->addDefaultSettings(__DIR__ . '/Resources/config', ['ezpublish_default_settings.yaml']);
+        $eZExtension->addDefaultSettings(__DIR__.'/Resources/config', ['ezpublish_default_settings.yaml']);
     }
 }
