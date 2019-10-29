@@ -8,7 +8,7 @@
     <body>
       <trans-unit id="77dfd2135f4db726c47299bb55be26f7f4525a46" resname="Cancel">
         <source>Cancel</source>
-        <target state="new">Cancel</target>
+        <target>Cancel</target>
         <note>key: Cancel</note>
       </trans-unit>
       <trans-unit id="55f7e3b51a9cf46d7778064398a273bdf8d12ba9" resname="Content Id">
@@ -33,12 +33,12 @@
       </trans-unit>
       <trans-unit id="5656400564f25dcbe129f43deea78952060bee36" resname="Publish">
         <source>Publish</source>
-        <target state="new">Publish</target>
+        <target>Publish</target>
         <note>key: Publish</note>
       </trans-unit>
       <trans-unit id="4f25637a5b7e09ef7a1f54479cae25a4f53b122f" resname="Save draft">
         <source>Save draft</source>
-        <target state="new">Save draft</target>
+        <target>Save draft</target>
         <note>key: Save draft</note>
       </trans-unit>
       <trans-unit id="fb063a81c26c9246dd089025bf8e6ff896058ffc" resname="To language">
