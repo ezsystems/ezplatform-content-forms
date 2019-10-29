@@ -350,7 +350,7 @@ class UserRegistrationContext extends RawMinkContext implements Context, Snippet
      */
     public function addRegistrationTemplatesConfiguration(PyStringNode $string)
     {
-        $this->yamlConfigurationContext->addConfiguration(Yaml::parse($string));
+        $this->yamlConfigurationContext->addConfiguration(Yaml::parse((string) $string));
     }
 
     /**
@@ -360,7 +360,7 @@ class UserRegistrationContext extends RawMinkContext implements Context, Snippet
     {
         $fs = new Filesystem();
         $fs->mkdir(dirname($path));
-        $fs->dumpFile($path, $contents);
+        $fs->dumpFile($path, (string) $contents);
     }
 
     /**
