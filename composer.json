@@ -38,7 +38,7 @@
     "autoload-dev": {
         "psr-4": {
             "EzSystems\\EzPlatformContentForms\\Tests\\": "src/lib/Tests",
-            "EzSystems\\EzPlatformContentFormsBundle\\Tests\\": "src/bundle/Tests",
+            "EzSystems\\EzPlatformContentFormsBundle\\Tests\\": "src/bundle/Tests"
         }
     },
     "extra": {
