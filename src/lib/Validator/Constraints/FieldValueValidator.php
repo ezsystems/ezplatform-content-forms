@@ -61,7 +61,7 @@ class FieldValueValidator extends FieldTypeValidator
     /**
      * Returns the field value to validate.
      */
-    protected function getFieldValue(FieldData $value): Value
+    protected function getFieldValue(FieldData $value): ?Value
     {
         return $value->value;
     }
