@@ -8,10 +8,11 @@ declare(strict_types=1);
 
 namespace EzSystems\EzPlatformContentForms\Validator\Constraints;
 
+use eZ\Publish\API\Repository\Values\ContentType\FieldDefinition;
 use eZ\Publish\API\Repository\Values\ValueObject;
 use eZ\Publish\Core\FieldType\ValidationError;
+use eZ\Publish\SPI\FieldType\Value;
 use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
-use EzSystems\EzPlatformContentForms\Data\FieldDefinitionData;
 use Symfony\Component\Validator\Util\PropertyPath;
 use Symfony\Component\Validator\Constraint;
 
@@ -20,9 +21,15 @@ use Symfony\Component\Validator\Constraint;
  */
 class FieldValueValidator extends FieldTypeValidator
 {
-    public function validate($value, Constraint $constraint)
+    /**
+     * @param \EzSystems\EzPlatformContentForms\Data\Content\FieldData $value
+     * @param \Symfony\Component\Validator\Constraint $constraint
+     *
+     * @throws \eZ\Publish\API\Repository\Exceptions\NotFoundException
+     */
+    public function validate($value, Constraint $constraint): void
     {
-        if (!$value instanceof ValueObject) {
+        if (!$value instanceof FieldData) {
             return;
         }
 
@@ -35,18 +42,15 @@ class FieldValueValidator extends FieldTypeValidator
         $fieldDefinition = $this->getFieldDefinition($value);
         $fieldType = $this->fieldTypeService->getFieldType($fieldTypeIdentifier);
 
-        $validationErrors = [];
-        if (!($value instanceof FieldDefinitionData) && $fieldType->isEmptyValue($fieldValue)) {
-            if ($fieldDefinition->isRequired) {
-                $validationErrors = [
-                    new ValidationError(
-                        "Value for required field definition '%identifier%' with language '%languageCode%' is empty",
-                        null,
-                        ['%identifier%' => $fieldDefinition->identifier, '%languageCode%' => $value->field->languageCode],
-                        'empty'
-                    ),
-                ];
-            }
+        if ($fieldDefinition->isRequired && $fieldType->isEmptyValue($fieldValue)) {
+            $validationErrors = [
+                new ValidationError(
+                    "Value for required field definition '%identifier%' with language '%languageCode%' is empty",
+                    null,
+                    ['%identifier%' => $fieldDefinition->identifier, '%languageCode%' => $value->field->languageCode],
+                    'empty'
+                ),
+            ];
         } else {
             $validationErrors = $fieldType->validateValue($fieldDefinition, $fieldValue);
         }
@@ -56,14 +60,8 @@ class FieldValueValidator extends FieldTypeValidator
 
     /**
      * Returns the field value to validate.
-     *
-     * @param FieldData|ValueObject $value fieldData ValueObject holding the field value to validate
-     *
-     * @throws \InvalidArgumentException if field value cannot be retrieved
-     *
-     * @return \eZ\Publish\SPI\FieldType\Value
      */
-    protected function getFieldValue(ValueObject $value)
+    protected function getFieldValue(FieldData $value): Value
     {
         return $value->value;
     }
@@ -71,14 +69,8 @@ class FieldValueValidator extends FieldTypeValidator
     /**
      * Returns the field definition $value refers to.
      * FieldDefinition object is needed to validate field value against field settings.
-     *
-     * @param FieldData|ValueObject $value ValueObject holding the field value to validate, e.g. FieldDefinitionData.
-     *
-     * @throws \InvalidArgumentException if field definition cannot be retrieved
-     *
-     * @return \eZ\Publish\API\Repository\Values\ContentType\FieldDefinition
      */
-    protected function getFieldDefinition(ValueObject $value)
+    protected function getFieldDefinition(FieldData $value): FieldDefinition
     {
         return $value->fieldDefinition;
     }
@@ -90,12 +82,12 @@ class FieldValueValidator extends FieldTypeValidator
      *
      * @return string
      */
-    protected function getFieldTypeIdentifier(ValueObject $value)
+    protected function getFieldTypeIdentifier(ValueObject $value): string
     {
         return $value->fieldDefinition->fieldTypeIdentifier;
     }
 
-    protected function generatePropertyPath($errorIndex, $errorTarget)
+    protected function generatePropertyPath($errorIndex, $errorTarget): string
     {
         return PropertyPath::append('value', $errorTarget);
     }
