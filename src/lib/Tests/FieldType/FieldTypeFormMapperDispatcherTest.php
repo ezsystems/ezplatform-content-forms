@@ -6,14 +6,12 @@
  */
 declare(strict_types=1);
 
-
 namespace EzSystems\EzPlatformContentForms\Tests\FieldType;
 
 use eZ\Publish\API\Repository\Values\Content\Field;
 use eZ\Publish\Core\Repository\Values\ContentType\FieldDefinition;
 use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
 use EzSystems\EzPlatformContentForms\FieldType\FieldTypeFormMapperDispatcher;
-use EzSystems\EzPlatformContentForms\FieldType\FieldTypeFormMapperDispatcherInterface;
 use EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Form\FormInterface;

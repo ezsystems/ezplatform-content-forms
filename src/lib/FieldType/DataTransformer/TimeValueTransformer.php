@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace EzSystems\EzPlatformContentForms\FieldType\DataTransformer;
 
-use eZ\Publish\API\Repository\Exceptions\InvalidArgumentException;
 use eZ\Publish\Core\FieldType\Time\Value;
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\Form\Exception\TransformationFailedException;

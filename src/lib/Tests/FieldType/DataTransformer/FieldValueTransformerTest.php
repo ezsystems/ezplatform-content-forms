@@ -6,7 +6,6 @@
  */
 declare(strict_types=1);
 
-
 namespace EzSystems\EzPlatformContentForms\Tests\FieldType\DataTransformer;
 
 use eZ\Publish\API\Repository\FieldType;

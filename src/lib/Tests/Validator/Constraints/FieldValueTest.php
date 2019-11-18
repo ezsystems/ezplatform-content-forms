@@ -6,7 +6,6 @@
  */
 declare(strict_types=1);
 
-
 namespace EzSystems\EzPlatformContentForms\Tests\Validator\Constraints;
 
 use EzSystems\EzPlatformContentForms\Validator\Constraints\FieldValue;

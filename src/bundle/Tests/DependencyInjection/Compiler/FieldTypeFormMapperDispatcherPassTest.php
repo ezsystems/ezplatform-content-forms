@@ -6,7 +6,6 @@
  */
 declare(strict_types=1);
 
-
 namespace EzSystems\EzPlatformContentFormsBundle\Tests\DependencyInjection\Compiler;
 
 use EzSystems\EzPlatformContentFormsBundle\DependencyInjection\Compiler\FieldTypeFormMapperDispatcherPass;
