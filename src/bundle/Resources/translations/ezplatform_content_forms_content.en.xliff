@@ -8,47 +8,47 @@
     <body>
       <trans-unit id="77dfd2135f4db726c47299bb55be26f7f4525a46" resname="Cancel">
         <source>Cancel</source>
-        <target>Cancel</target>
+        <target state="new">Cancel</target>
         <note>key: Cancel</note>
       </trans-unit>
       <trans-unit id="55f7e3b51a9cf46d7778064398a273bdf8d12ba9" resname="Content Id">
         <source>Content Id</source>
-        <target>Content Id</target>
+        <target state="new">Content Id</target>
         <note>key: Content Id</note>
       </trans-unit>
       <trans-unit id="bc6a25180a9678a7e2299b8a1070361d462ec9d3" resname="Create and edit draft">
         <source>Create and edit draft</source>
-        <target>Create and edit draft</target>
+        <target state="new">Create and edit draft</target>
         <note>key: Create and edit draft</note>
       </trans-unit>
       <trans-unit id="1b23470f704e53cc7b325e8fdf42ef526a431e6d" resname="From language">
         <source>From language</source>
-        <target>From language</target>
+        <target state="new">From language</target>
         <note>key: From language</note>
       </trans-unit>
       <trans-unit id="6e7c32839481999b9ed6384f9a0a86d9abc5b037" resname="From version">
         <source>From version</source>
-        <target>From version</target>
+        <target state="new">From version</target>
         <note>key: From version</note>
       </trans-unit>
       <trans-unit id="5656400564f25dcbe129f43deea78952060bee36" resname="Publish">
         <source>Publish</source>
-        <target>Publish</target>
+        <target state="new">Publish</target>
         <note>key: Publish</note>
       </trans-unit>
       <trans-unit id="4f25637a5b7e09ef7a1f54479cae25a4f53b122f" resname="Save draft">
         <source>Save draft</source>
-        <target>Save draft</target>
+        <target state="new">Save draft</target>
         <note>key: Save draft</note>
       </trans-unit>
       <trans-unit id="fb063a81c26c9246dd089025bf8e6ff896058ffc" resname="To language">
         <source>To language</source>
-        <target>To language</target>
+        <target state="new">To language</target>
         <note>key: To language</note>
       </trans-unit>
       <trans-unit id="a4a24a08f0de7316a0e9e0a69d0b811a0fe70319" resname="ezplatform.content_forms.content.fields">
         <source>Fields</source>
-        <target>Fields</target>
+        <target state="new">Fields</target>
         <note>key: ezplatform.content_forms.content.fields</note>
       </trans-unit>
     </body>

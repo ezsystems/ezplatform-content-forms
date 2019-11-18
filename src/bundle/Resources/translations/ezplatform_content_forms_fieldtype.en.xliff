@@ -27,8 +27,8 @@
         <note>key: content.field_type.ezauthor.name</note>
       </trans-unit>
       <trans-unit id="79843ce578133501bb420c52cd410a113dcfaefb" resname="content.field_type.ezgmaplocation.address">
-        <source>content.field_type.ezgmaplocation.address</source>
-        <target state="new">content.field_type.ezgmaplocation.address</target>
+        <source>Address</source>
+        <target state="new">Address</target>
         <note>key: content.field_type.ezgmaplocation.address</note>
       </trans-unit>
       <trans-unit id="2fcb1cae76dae0c5ddda6446822bf2d656e84601" resname="content.field_type.ezgmaplocation.latitude">
