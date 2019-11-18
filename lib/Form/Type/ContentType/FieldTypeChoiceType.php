@@ -1,7 +1,6 @@
 <?php
+
 /**
- * This file is part of the eZ RepositoryForms package.
- *
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
@@ -77,6 +76,7 @@ class FieldTypeChoiceType extends AbstractType
      * Generate a human readable name for field type identifier.
      *
      * @param string $fieldTypeIdentifier
+     *
      * @return string
      */
     private function getFieldTypeLabel($fieldTypeIdentifier)

@@ -1,8 +1,6 @@
 <?php
 
 /**
- * This file is part of the eZ RepositoryForms package.
- *
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
@@ -43,7 +41,7 @@ class FieldEditRenderingExtensionTest extends FileSystemTwigIntegrationTestCase
         return __DIR__ . '/_fixtures/field_edit_rendering_functions/';
     }
 
-    public function getFieldDefinitionData($typeIdentifier, $id = null, $settings = array())
+    public function getFieldDefinitionData($typeIdentifier, $id = null, $settings = [])
     {
         return new FieldDefinitionData([
             'fieldDefinition' => new FieldDefinition([

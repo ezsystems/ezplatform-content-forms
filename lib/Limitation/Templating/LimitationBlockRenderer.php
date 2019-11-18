@@ -1,7 +1,6 @@
 <?php
+
 /**
- * This file is part of the eZ RepositoryForms package.
- *
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
@@ -80,6 +79,7 @@ class LimitationBlockRenderer implements LimitationBlockRendererInterface
      * Generates value block name based on Limitation.
      *
      * @param Limitation $limitation
+     *
      * @return string
      */
     protected function getValueBlockName(Limitation $limitation)
@@ -92,7 +92,8 @@ class LimitationBlockRenderer implements LimitationBlockRendererInterface
      *
      * @param string $blockName
      * @param string|\Twig\Template $localTemplate
-     * @return null|\Twig\TemplateWrapper
+     *
+     * @return \Twig\TemplateWrapper|null
      */
     protected function findTemplateWithBlock($blockName, $localTemplate = null)
     {
@@ -125,6 +126,7 @@ class LimitationBlockRenderer implements LimitationBlockRendererInterface
      *
      * @param Limitation $limitation
      * @param array $parameters
+     *
      * @return array
      */
     protected function getValueBlockParameters(Limitation $limitation, array $parameters)
@@ -146,6 +148,7 @@ class LimitationBlockRenderer implements LimitationBlockRendererInterface
      *
      * @param Limitation $limitation
      * @param array $parameters
+     *
      * @return array
      */
     protected function getValueFallbackBlockParameters(Limitation $limitation, array $parameters)

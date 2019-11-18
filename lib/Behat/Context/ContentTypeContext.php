@@ -1,5 +1,7 @@
 <?php
+
 /**
+ * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 namespace EzSystems\RepositoryForms\Behat\Context;
@@ -23,6 +25,7 @@ final class ContentTypeContext extends RawMinkContext implements Context, Snippe
 
     /**
      * Current content type within this context.
+     *
      * @var \eZ\Publish\API\Repository\Values\ContentType\ContentType
      */
     private $currentContentType;

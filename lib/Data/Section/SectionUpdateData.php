@@ -1,7 +1,6 @@
 <?php
+
 /**
- * This file is part of the eZ RepositoryForms package.
- *
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
@@ -16,7 +15,8 @@ use EzSystems\RepositoryForms\Data\NewnessCheckable;
  */
 class SectionUpdateData extends SectionUpdateStruct implements NewnessCheckable
 {
-    use SectionDataTrait, NewnessChecker;
+    use SectionDataTrait;
+    use NewnessChecker;
 
     /**
      * Returns the value of the property which can be considered as the value object identifier.

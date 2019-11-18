@@ -1,8 +1,6 @@
 <?php
 
 /**
- * This file is part of the eZ RepositoryForms package.
- *
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
@@ -60,6 +58,7 @@ class RelationFormMapper extends AbstractRelationFormMapper
 
     /**
      * Fake method to set the translation domain for the extractor.
+     *
      * @param OptionsResolver $resolver
      */
     public function configureOptions(OptionsResolver $resolver)
