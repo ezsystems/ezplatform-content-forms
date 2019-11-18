@@ -1,14 +1,11 @@
 <?php
 
 /**
- * This file is part of the eZ RepositoryForms package.
- *
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
 namespace EzSystems\RepositoryFormsBundle\Tests\DependencyInjection\Compiler;
 
-use EzSystems\RepositoryForms\Limitation\LimitationValueMapperInterface;
 use EzSystems\RepositoryFormsBundle\DependencyInjection\Compiler\FieldTypeFormMapperDispatcherPass;
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractCompilerPassTestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

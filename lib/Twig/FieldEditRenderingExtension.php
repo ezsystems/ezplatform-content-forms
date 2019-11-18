@@ -1,8 +1,6 @@
 <?php
 
 /**
- * This file is part of the eZ RepositoryForms package.
- *
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
@@ -34,7 +32,7 @@ class FieldEditRenderingExtension extends AbstractExtension
 
     public function getFunctions()
     {
-        return array(
+        return [
             new TwigFunction(
                 'ez_render_field_definition_edit',
                 function (Environment $twig, FieldDefinitionData $fieldDefinitionData, array $params = []) {
@@ -44,7 +42,7 @@ class FieldEditRenderingExtension extends AbstractExtension
                 },
                 ['is_safe' => ['html'], 'needs_environment' => true]
             ),
-        );
+        ];
     }
 
     public function renderFieldDefinitionEdit(FieldDefinitionData $fieldDefinitionData, array $params = [])

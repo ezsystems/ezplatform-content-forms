@@ -1,7 +1,6 @@
 <?php
+
 /**
- * This file is part of the eZ RepositoryForms package.
- *
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
@@ -27,6 +26,7 @@ interface LimitationValueMapperRegistryInterface
      * @throws ValueMapperNotFoundException If no mapper exists for $limitationType.
      *
      * @param string $limitationType
+     *
      * @return LimitationValueMapperInterface
      */
     public function getMapper($limitationType);
@@ -35,6 +35,7 @@ interface LimitationValueMapperRegistryInterface
      * Checks if a mapper exists for given Limitation Type.
      *
      * @param string $limitationType
+     *
      * @return bool
      */
     public function hasMapper($limitationType);
