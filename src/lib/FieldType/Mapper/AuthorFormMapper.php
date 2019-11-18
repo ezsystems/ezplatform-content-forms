@@ -19,7 +19,6 @@ use Symfony\Component\Form\FormInterface;
 class AuthorFormMapper implements FieldValueFormMapperInterface
 {
     /**
-    /**
      * @param \Symfony\Component\Form\FormInterface $fieldForm
      * @param \EzSystems\EzPlatformContentForms\Data\Content\FieldData $data
      */

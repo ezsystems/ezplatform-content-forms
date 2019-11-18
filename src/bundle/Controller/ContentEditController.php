@@ -70,7 +70,7 @@ class ContentEditController extends Controller
      * Displays a draft creation form that creates a content draft from an existing content.
      *
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param mixed $contentId
+     * @param int|null $contentId
      * @param int $fromVersionNo
      * @param string $fromLanguage
      *

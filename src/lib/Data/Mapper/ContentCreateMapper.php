@@ -22,7 +22,7 @@ class ContentCreateMapper implements FormDataMapperInterface
     /**
      * Maps a ValueObject from eZ content repository to a data usable as underlying form data (e.g. create/update struct).
      *
-     * @param \eZ\Publish\API\Repository\Values\ContentType\ContentType|ValueObject $contentType
+     * @param \eZ\Publish\API\Repository\Values\ContentType\ContentType|\eZ\Publish\API\Repository\Values\ValueObject $contentType
      * @param array $params
      *
      * @return ContentCreateData

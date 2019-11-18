@@ -23,7 +23,7 @@ class PasswordValidatorTest extends TestCase
     /** @var \eZ\Publish\API\Repository\UserService|\PHPUnit\Framework\MockObject\MockObject */
     private $userService;
 
-    /** @var \PHPUnit\Framework\MockObject\MockObject|\Symfony\Component\Validator\Context\ExecutionContextInterface */
+    /** @var \Symfony\Component\Validator\Context\ExecutionContextInterface|\PHPUnit\Framework\MockObject\MockObject */
     private $executionContext;
 
     /** @var \EzSystems\EzPlatformContentForms\Validator\Constraints\PasswordValidator */

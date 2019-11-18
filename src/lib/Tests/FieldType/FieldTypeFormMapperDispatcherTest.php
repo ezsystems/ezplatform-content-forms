@@ -18,14 +18,10 @@ use Symfony\Component\Form\FormInterface;
 
 class FieldTypeFormMapperDispatcherTest extends TestCase
 {
-    /**
-     * @var FieldTypeFormMapperDispatcherInterface
-     */
+    /** @var \EzSystems\EzPlatformContentForms\FieldType\FieldTypeFormMapperDispatcherInterface */
     private $dispatcher;
 
-    /**
-     * @var \EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface|\PHPUnit\Framework\MockObject\MockObject
-     */
+    /** @var \EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface|\PHPUnit\Framework\MockObject\MockObject */
     private $fieldValueMapperMock;
 
     protected function setUp(): void

@@ -15,39 +15,6 @@ use Symfony\Component\Form\FormInterface;
 
 class SelectionFormMapper implements FieldValueFormMapperInterface
 {
-    /**
-    public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data)
-    {
-        $fieldDefinition = $data->fieldDefinition;
-        $formConfig = $fieldForm->getConfig();
-        $languageCode = $fieldForm->getConfig()->getOption('languageCode');
-
-        $choices = $fieldDefinition->fieldSettings['options'];
-
-        if (!empty($fieldDefinition->fieldSettings['multilingualOptions'][$languageCode])) {
-            $choices = $fieldDefinition->fieldSettings['multilingualOptions'][$languageCode];
-        } elseif (!empty($fieldDefinition->fieldSettings['multilingualOptions'][$fieldDefinition->mainLanguageCode])) {
-            $choices = $fieldDefinition->fieldSettings['multilingualOptions'][$fieldDefinition->mainLanguageCode];
-        }
-
-        $fieldForm
-            ->add(
-                $formConfig->getFormFactory()->createBuilder()
-                    ->create(
-                        'value',
-                        SelectionFieldType::class,
-                        [
-                            'required' => $fieldDefinition->isRequired,
-                            'label' => $fieldDefinition->getName(),
-                            'multiple' => $fieldDefinition->fieldSettings['isMultiple'],
-                            'choices' => array_flip($choices),
-                        ]
-                    )
-                    ->setAutoInitialize(false)
-                    ->getForm()
-            );
-    }
-     */
     public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data)
     {
         $fieldDefinition = $data->fieldDefinition;

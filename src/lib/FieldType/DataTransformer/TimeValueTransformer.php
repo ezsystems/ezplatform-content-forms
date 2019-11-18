@@ -18,33 +18,32 @@ use Symfony\Component\Form\Exception\TransformationFailedException;
 class TimeValueTransformer implements DataTransformerInterface
 {
     /**
-     * @param mixed|Value $value
+     * @param \eZ\Publish\Core\FieldType\Time\Value $value
      *
      * @return int|null
      *
-     * @throws TransformationFailedException
+     * @throws \Symfony\Component\Form\Exception\TransformationFailedException
      */
     public function transform($value)
     {
-        if (null === $value->time) {
-            return null;
-        }
-
         if (!$value instanceof Value) {
             throw new TransformationFailedException(
                 sprintf('Expected a %s', Value::class)
             );
         }
 
+        if (null === $value->time) {
+            return null;
+        }
+
         return $value->time;
     }
 
     /**
-     * @param int|mixed $value
+     * @param int $value
      *
      * @return Value|null
      *
-     * @throws InvalidArgumentException
      * @throws TransformationFailedException
      */
     public function reverseTransform($value)

@@ -350,9 +350,9 @@ class UserRegistrationContext extends RawMinkContext implements Context, Snippet
     /**
      * @Given /^the following user registration templates configuration:$/
      */
-    public function addRegistrationTemplatesConfiguration(PyStringNode $string)
+    public function addRegistrationTemplatesConfiguration(PyStringNode $pyStringNode)
     {
-        $this->yamlConfigurationContext->addConfiguration(Yaml::parse((string) $string));
+        $this->yamlConfigurationContext->addConfiguration(Yaml::parse((string) $pyStringNode));
     }
 
     /**

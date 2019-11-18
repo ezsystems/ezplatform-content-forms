@@ -42,7 +42,7 @@ class UserCancelFormProcessor implements EventSubscriberInterface
 
     public function processCancel(FormActionEvent $event)
     {
-        /** @var UserCreateData|UserUpdateData $data */
+        /** @var UserUpdateData|UserCreateData $data */
         $data = $event->getData();
 
         $locationId = $data->isNew()
