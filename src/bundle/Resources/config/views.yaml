@@ -1,0 +1,67 @@
+services:
+    _defaults:
+        public: false
+        autowire: true
+        autoconfigure: true
+
+    # ContentEditView
+    EzSystems\EzPlatformContentForms\Content\View\Builder\ContentEditViewBuilder:
+        arguments:
+            - '@ezpublish.api.repository'
+            - '@ezpublish.view.configurator'
+            - '@ezpublish.view.view_parameters.injector.dispatcher'
+            - '$content_edit.templates.edit$'
+            - '@ezplatform.content_forms.action_dispatcher.content'
+
+    EzSystems\EzPlatformContentForms\Content\View\Provider\ContentEditView\Configured:
+        arguments:
+            - '@ezplatform.repository_forms.content_edit_view.matcher_factory'
+        tags:
+            - { name: ezpublish.view_provider, type: EzSystems\EzPlatformContentForms\Content\View\ContentEditView, priority: 10 }
+
+    ezplatform.repository_forms.content_edit_view.matcher_factory:
+        class: '%ezpublish.view.matcher_factory.class%'
+        arguments:
+            - '@eZ\Bundle\EzPublishCoreBundle\Matcher\ViewMatcherRegistry'
+            - '@ezpublish.api.repository'
+            - 'eZ\Publish\Core\MVC\Symfony\Matcher\ContentBased'
+        calls:
+            - [setMatchConfig, ['$content_edit_view$']]
+
+    EzSystems\EzPlatformContentForms\Content\View\Filter\ContentEditViewFilter:
+        arguments:
+            - '@ezpublish.api.service.content'
+            - '@ezpublish.api.service.content_type'
+        tags:
+            - { name: kernel.event_subscriber }
+
+    # ContentCreateView
+    EzSystems\EzPlatformContentForms\Content\View\Builder\ContentCreateViewBuilder:
+        arguments:
+            - '@ezpublish.api.repository'
+            - '@ezpublish.view.configurator'
+            - '@ezpublish.view.view_parameters.injector.dispatcher'
+            - '$content_edit.templates.create$'
+            - '@ezplatform.content_forms.action_dispatcher.content'
+
+    EzSystems\EzPlatformContentForms\Content\View\Provider\ContentCreateView\Configured:
+        arguments:
+            - '@ezplatform.repository_forms.content_create_view.matcher_factory'
+        tags:
+            - {name: ezpublish.view_provider, type: 'EzSystems\EzPlatformContentForms\Content\View\ContentCreateView', priority: 10}
+
+    ezplatform.repository_forms.content_create_view.matcher_factory:
+        class: '%ezpublish.view.matcher_factory.class%'
+        arguments:
+            - '@eZ\Bundle\EzPublishCoreBundle\Matcher\ViewMatcherRegistry'
+            - '@ezpublish.api.repository'
+            - 'eZ\Publish\Core\MVC\Symfony\Matcher\ContentBased'
+        calls:
+            - [setMatchConfig, ['$content_create_view$']]
+
+    EzSystems\EzPlatformContentForms\Content\View\Filter\ContentCreateViewFilter:
+        arguments:
+            - '@ezpublish.api.service.location'
+            - '@ezpublish.api.service.content_type'
+        tags:
+            - { name: kernel.event_subscriber }

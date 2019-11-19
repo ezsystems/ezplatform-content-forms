@@ -1,0 +1,154 @@
+imports:
+    - {resource: fieldtypes.yaml}
+    - {resource: form_types.yaml}
+    - {resource: views.yaml}
+
+parameters:
+    ezplatform.content_forms.field_type_form_mapper.dispatcher.class: EzSystems\EzPlatformContentForms\FieldType\FieldTypeFormMapperDispatcher
+    ezplatform.content_forms.field.form_type.class: EzSystems\EzPlatformContentForms\Form\Type\Content\ContentFieldType
+
+    ezplatform.content_forms.validator.field_value.class: EzSystems\EzPlatformContentForms\Validator\Constraints\FieldValueValidator
+
+    ezplatform.content_forms.action_dispatcher.base.class: EzSystems\EzPlatformContentForms\Form\ActionDispatcher\AbstractActionDispatcher
+    ezplatform.content_forms.action_dispatcher.content.class: EzSystems\EzPlatformContentForms\Form\ActionDispatcher\ContentDispatcher
+    ezplatform.content_forms.action_dispatcher.user.class: EzSystems\EzPlatformContentForms\Form\ActionDispatcher\UserDispatcher
+    ezplatform.content_forms.form_processor.content.class: EzSystems\EzPlatformContentForms\Form\Processor\ContentFormProcessor
+    ezplatform.content_forms.form_processor.user_create.class: EzSystems\EzPlatformContentForms\Form\Processor\User\UserCreateFormProcessor
+    ezplatform.content_forms.form_processor.user_update.class: EzSystems\EzPlatformContentForms\Form\Processor\User\UserUpdateFormProcessor
+    ezplatform.content_forms.form_processor.user_cancel.class: EzSystems\EzPlatformContentForms\Form\Processor\User\UserCancelFormProcessor
+
+    ezplatform.content_forms.controller.content_edit.class: EzSystems\EzPlatformContentFormsBundle\Controller\ContentEditController
+    ezplatform.content_forms.controller.user_register.class: EzSystems\EzPlatformContentFormsBundle\Controller\UserRegisterController
+    ezplatform.content_forms.controller.user.class: EzSystems\EzPlatformContentFormsBundle\Controller\UserController
+
+    ezplatform.content_forms.view_templates_listener.class: EzSystems\EzPlatformContentForms\EventListener\ViewTemplatesListener
+
+    ezplatform.content_forms.user_content_type_identifier: "user"
+
+services:
+    ezplatform.content_forms.field_type_form_mapper.dispatcher:
+        class: "%ezplatform.content_forms.field_type_form_mapper.dispatcher.class%"
+
+    ezplatform.content_forms.field.form_type:
+        class: "%ezplatform.content_forms.field.form_type.class%"
+        arguments: ["@ezplatform.content_forms.field_type_form_mapper.dispatcher"]
+        tags:
+            - { name: form.type, alias: ezplatform_content_forms_content_field }
+
+    # Validators
+    ezplatform.content_forms.validator.field_type.abstract:
+        class: EzSystems\EzPlatformContentForms\Validator\Constraints\FieldTypeValidator
+        arguments: ["@ezpublish.api.service.field_type"]
+        abstract: true
+
+    EzSystems\EzPlatformContentForms\Validator\Constraints\PasswordValidator:
+        arguments:
+            $userService: '@ezpublish.api.service.user'
+        tags:
+            - { name: validator.constraint_validator }
+
+    EzSystems\EzPlatformContentForms\Validator\Constraints\UserAccountPasswordValidator:
+        arguments:
+            $userService: '@ezpublish.api.service.user'
+        tags:
+            - { name: validator.constraint_validator }
+
+    ezplatform.content_forms.validator.field_value:
+        parent: ezplatform.content_forms.validator.field_type.abstract
+        class: "%ezplatform.content_forms.validator.field_value.class%"
+        tags:
+            - { name: validator.constraint_validator, alias: ezplatform.content_forms.validator.field_value }
+
+    # Action dispatchers
+    ezplatform.content_forms.action_dispatcher.base:
+        class: "%ezplatform.content_forms.action_dispatcher.base.class%"
+        abstract: true
+        calls:
+            - [setEventDispatcher, ["@event_dispatcher"]]
+
+    ezplatform.content_forms.action_dispatcher.content:
+        class: "%ezplatform.content_forms.action_dispatcher.content.class%"
+        parent: ezplatform.content_forms.action_dispatcher.base
+
+    ezplatform.content_forms.action_dispatcher.user:
+        class: "%ezplatform.content_forms.action_dispatcher.user.class%"
+        parent: ezplatform.content_forms.action_dispatcher.base
+
+    # Form processors
+    ezplatform.content_forms.form_processor.content:
+        class: '%ezplatform.content_forms.form_processor.content.class%'
+        arguments:
+            - '@ezpublish.api.service.content'
+            - '@ezpublish.api.service.location'
+            - '@router'
+        tags:
+            - { name: kernel.event_subscriber }
+
+    ezplatform.content_forms.form_processor.user_create:
+        class: "%ezplatform.content_forms.form_processor.user_create.class%"
+        arguments:
+            - '@ezpublish.api.service.user'
+            - '@router'
+        tags:
+            - { name: kernel.event_subscriber }
+
+    ezplatform.content_forms.form_processor.user_update:
+        class: "%ezplatform.content_forms.form_processor.user_update.class%"
+        arguments:
+            - '@ezpublish.api.service.user'
+            - '@ezpublish.api.service.content'
+            - '@router'
+        tags:
+            - { name: kernel.event_subscriber }
+
+    ezplatform.content_forms.form_processor.user:
+        class: "%ezplatform.content_forms.form_processor.user_cancel.class%"
+        arguments:
+            - '@router'
+        tags:
+            - { name: kernel.event_subscriber }
+
+    EzSystems\EzPlatformContentForms\Form\Processor\SystemUrlRedirectProcessor:
+        autowire: true
+        autoconfigure: true
+
+    # Controllers
+    ezplatform.content_forms.controller.content_edit:
+        public: true
+        class: "%ezplatform.content_forms.controller.content_edit.class%"
+        arguments:
+            - "@ezpublish.api.service.content_type"
+            - "@ezpublish.api.service.content"
+            - "@ezplatform.content_forms.action_dispatcher.content"
+        parent: ezpublish.controller.base
+        tags:
+              - { name: controller.service_arguments }
+
+    ezplatform.content_forms.controller.user:
+        class: "%ezplatform.content_forms.controller.user.class%"
+        arguments:
+            - "@ezpublish.api.service.content_type"
+            - "@ezpublish.api.service.user"
+            - "@ezpublish.api.service.location"
+            - "@ezpublish.api.service.language"
+            - "@ezplatform.content_forms.action_dispatcher.user"
+            - '@eZ\Publish\API\Repository\PermissionResolver'
+        parent: ezpublish.controller.base
+        tags:
+              - { name: controller.service_arguments }
+
+    ez_content_edit:
+        alias: ezplatform.content_forms.controller.content_edit
+        public: true
+
+    ezplatform.content_forms.view_templates_listener:
+        class: "%ezplatform.content_forms.view_templates_listener.class%"
+        tags:
+            - { name: kernel.event_subscriber }
+        calls:
+            - [setViewTemplate, ['EzSystems\EzPlatformContentForms\User\View\UserCreateView', "$user_edit.templates.create$"]]
+            - [setViewTemplate, ['EzSystems\EzPlatformContentForms\User\View\UserUpdateView', "$user_edit.templates.update$"]]
+            - [setViewTemplate, ['EzSystems\EzPlatformContentForms\Content\View\ContentCreateDraftView', "$content_edit.templates.create_draft$"]]
+            - [setPagelayout, ["$pagelayout$"]]
+
+    EzSystems\EzPlatformContentForms\ConfigResolver\MaxUploadSize: ~

@@ -1,0 +1,11 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    EzSystems\EzPlatformContentForms\Form\Type\SwitcherType: ~
+
+    EzSystems\EzPlatformContentForms\Form\Type\FieldType\BinaryBaseFieldType: ~
+
+    EzSystems\EzPlatformContentForms\Form\Type\LocationType: ~

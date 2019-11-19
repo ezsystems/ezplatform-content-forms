@@ -1,7 +1,7 @@
-# Symfony forms content edit
+# Symfony Forms content edit
 
 ## Synopsis
-repository-forms supports creating content with and without an intermediate draft. This describes
+EzPlatform Content Forms supports creating content with and without an intermediate draft. This describes
 editing with drafts.
 
 Editing content implies creating a new version of an existing content, rendering a form with the
@@ -28,7 +28,7 @@ will be issued.
 `ContentFormProcessor::processCreateDraft()` uses a `ContentCreateDraftType` Form.
 It manipulates a `ContentCreateDraftData` object that has the parameters to create the draft.
 The actual creation of the draft is delegated to the FormProcessor API, by firing a
-`RepositoryFormEvents::CONTENT_CREATE_DRAFT`.
+`ContentFormEvents::CONTENT_CREATE_DRAFT`.
 
 
 ### Editing a draft

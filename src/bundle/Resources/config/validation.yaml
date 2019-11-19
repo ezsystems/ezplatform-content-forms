@@ -1,0 +1,35 @@
+EzSystems\EzPlatformContentForms\Data\Content\ContentCreateData:
+    properties:
+        fieldsData:
+            - Valid: ~
+
+EzSystems\EzPlatformContentForms\Data\Content\ContentUpdateData:
+    properties:
+        fieldsData:
+            - Valid: ~
+
+EzSystems\EzPlatformContentForms\Data\User\UserCreateData:
+    properties:
+        login:
+            - NotBlank: ~
+        email:
+            - NotBlank: ~
+        password:
+            - NotBlank: ~
+        fieldsData:
+            - Valid: ~
+
+EzSystems\EzPlatformContentForms\Data\User\UserUpdateData:
+    properties:
+        fieldsData:
+            - Valid: ~
+
+EzSystems\EzPlatformContentForms\Data\User\UserAccountFieldData:
+    properties:
+        username:
+            - Valid: ~
+            - NotBlank: ~
+
+EzSystems\EzPlatformContentForms\Data\Content\FieldData:
+    constraints:
+        - EzSystems\EzPlatformContentForms\Validator\Constraints\FieldValue: ~

@@ -1,0 +1,10 @@
+parameters:
+    ezsettings.default.content_edit.templates.edit: '@@EzPlatformContentForms/Content/content_edit.html.twig'
+    ezsettings.default.content_edit.templates.create: '@@EzPlatformContentForms/Content/content_edit.html.twig'
+    ezsettings.default.content_edit.templates.create_draft: '@@EzPlatformContentForms/Content/content_create_draft.html.twig'
+
+    ezsettings.default.user_edit.templates.update: '@@EzPlatformContentForms/Content/content_edit.html.twig'
+    ezsettings.default.user_edit.templates.create: '@@EzPlatformContentForms/Content/content_edit.html.twig'
+
+    ezsettings.default.content_edit_view: {}
+    ezsettings.default.content_create_view: {}
