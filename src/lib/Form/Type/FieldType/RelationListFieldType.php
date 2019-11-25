@@ -10,6 +10,7 @@ namespace EzSystems\EzPlatformContentForms\Form\Type\FieldType;
 
 use eZ\Publish\API\Repository\ContentService;
 use eZ\Publish\API\Repository\ContentTypeService;
+use eZ\Publish\API\Repository\Exceptions\UnauthorizedException;
 use eZ\Publish\API\Repository\Values\Content\Location;
 use eZ\Publish\Core\FieldType\RelationList\Value;
 use EzSystems\EzPlatformContentForms\FieldType\DataTransformer\RelationListValueTransformer;
@@ -74,12 +75,22 @@ class RelationListFieldType extends AbstractType
         }
 
         foreach ($data->destinationContentIds as $contentId) {
-            $contentInfo = $this->contentService->loadContentInfo($contentId);
-            $contentType = $this->contentTypeService->loadContentType($contentInfo->contentTypeId);
+            $contentInfo = null;
+            $contentType = null;
+            $unauthorized = false;
+
+            try {
+                $contentInfo = $this->contentService->loadContentInfo($contentId);
+                $contentType = $this->contentTypeService->loadContentType($contentInfo->contentTypeId);
+            } catch (UnauthorizedException $e) {
+                $unauthorized = true;
+            }
 
             $view->vars['relations'][$contentId] = [
                 'contentInfo' => $contentInfo,
                 'contentType' => $contentType,
+                'unauthorized' => $unauthorized,
+                'contentId' => $contentId,
             ];
         }
     }
