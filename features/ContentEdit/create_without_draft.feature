@@ -13,7 +13,7 @@ Scenario: Create a folder without a draft
       And I press "Publish"
      Then I am on the View of the Content that was published
 
-@broken
+@javascript
 Scenario: Content validation errors are reported back
     Given that there is a Content Type with any kind of constraints on a Field Definition
       And that I have permission to create content of this type
