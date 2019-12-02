@@ -13,6 +13,7 @@ use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\MinkExtension\Context\MinkContext;
 use eZ\Publish\API\Repository\Values\ContentType\FieldDefinitionCreateStruct;
+use EzSystems\Behat\Core\Environment\EnvironmentConstants;
 
 final class ContentEditContext extends MinkContext implements Context, SnippetAcceptingContext
 {
@@ -119,6 +120,13 @@ final class ContentEditContext extends MinkContext implements Context, SnippetAc
             ),
             'abc'
         );
+
+        if (EnvironmentConstants::isEnterprise()) {
+            // in Enterprise Edition there are Workflow related form fields required
+            $this->fillField('ezplatform_content_forms_content_edit_workflow_name', 'WorkfowName');
+            $this->fillField('ezplatform_content_forms_content_edit_workflow_transition', 'WorkfowTransition');
+            $this->fillField('ezplatform_content_forms_content_edit_workflow_comment', 'WorkfowComment');
+        }
     }
 
     /**
