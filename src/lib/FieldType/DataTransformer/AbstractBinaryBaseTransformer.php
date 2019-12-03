@@ -61,7 +61,7 @@ abstract class AbstractBinaryBaseTransformer
     public function getReverseTransformedValue($value)
     {
         if (!is_array($value)) {
-            throw new TransformationFailedException(sprintf('Expected a array got %s', gettype($value)));
+            throw new TransformationFailedException(sprintf('Received %s instead of an array', gettype($value)));
         }
 
         if ($value['remove']) {
