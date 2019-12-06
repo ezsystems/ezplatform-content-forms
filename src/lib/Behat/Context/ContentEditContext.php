@@ -126,6 +126,7 @@ final class ContentEditContext extends MinkContext implements Context, SnippetAc
             $this->fillField('ezplatform_content_forms_content_edit_workflow_name', 'WorkfowName');
             $this->fillField('ezplatform_content_forms_content_edit_workflow_transition', 'WorkfowTransition');
             $this->fillField('ezplatform_content_forms_content_edit_workflow_comment', 'WorkfowComment');
+            $this->fillField('ezplatform_content_forms_content_edit_workflow_reviewer', '14'); // "admin" user ID
         }
     }
 
