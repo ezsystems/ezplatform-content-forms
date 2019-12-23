@@ -36,3 +36,8 @@ class FieldData extends ValueObject
         return $this->fieldDefinition->fieldTypeIdentifier;
     }
 }
+
+class_alias(
+    FieldData::class,
+    \EzSystems\RepositoryForms\Data\Content\FieldData::class
+);

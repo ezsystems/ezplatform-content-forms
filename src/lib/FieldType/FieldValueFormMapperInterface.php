@@ -22,3 +22,8 @@ interface FieldValueFormMapperInterface
      */
     public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data);
 }
+
+class_alias(
+    FieldValueFormMapperInterface::class,
+    \EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface::class
+);
