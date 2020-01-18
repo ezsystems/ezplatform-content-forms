@@ -133,6 +133,7 @@ services:
             - "@ezpublish.api.service.language"
             - "@ezplatform.content_forms.action_dispatcher.user"
             - '@eZ\Publish\API\Repository\PermissionResolver'
+            - '@eZ\Publish\Core\MVC\Symfony\Locale\UserLanguagePreferenceProvider'
         parent: ezpublish.controller.base
         tags:
               - { name: controller.service_arguments }
