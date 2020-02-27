@@ -126,7 +126,8 @@ class ContentFormProcessor implements EventSubscriberInterface
         $event->setPayload('is_new', $draft->contentInfo->isDraft());
 
         $redirectUrl = $form['redirectUrlAfterPublish']->getData() ?: $this->router->generate(
-            '_ezpublishLocation', [
+            '_ez_content_view', [
+                'contentId' => $content->id,
                 'locationId' => $content->contentInfo->mainLocationId,
             ]
         );
@@ -146,9 +147,12 @@ class ContentFormProcessor implements EventSubscriberInterface
         $data = $event->getData();
 
         if ($data->isNew()) {
+            $parentLocation = $this->locationService->loadLocation($data->getLocationStructs()[0]->parentLocationId);
             $response = new RedirectResponse($this->router->generate(
-                '_ezpublishLocation',
-                ['locationId' => $data->getLocationStructs()[0]->parentLocationId]
+                '_ez_content_view', [
+                    'contentId' => $parentLocation->contentId,
+                    'locationId' => $parentLocation->id,
+                ]
             ));
             $event->setResponse($response);
 
@@ -165,15 +169,19 @@ class ContentFormProcessor implements EventSubscriberInterface
         if (1 === count($this->contentService->loadVersions($contentInfo))) {
             $parentLocation = $this->locationService->loadParentLocationsForDraftContent($versionInfo)[0];
             $redirectionLocationId = $parentLocation->id;
+            $redirectionContentId = $parentLocation->contentId;
             $this->contentService->deleteContent($contentInfo);
         } else {
             $redirectionLocationId = $contentInfo->mainLocationId;
+            $redirectionContentId = $contentInfo->id;
             $this->contentService->deleteVersion($versionInfo);
         }
 
         $url = $this->router->generate(
-            '_ezpublishLocation',
-            ['locationId' => $redirectionLocationId],
+            '_ez_content_view', [
+                'contentId' => $redirectionContentId,
+                'locationId' => $redirectionLocationId,
+            ],
             UrlGeneratorInterface::ABSOLUTE_URL
         );
 
