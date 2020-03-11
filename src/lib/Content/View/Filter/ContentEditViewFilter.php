@@ -75,9 +75,9 @@ class ContentEditViewFilter implements EventSubscriberInterface
         $request = $event->getRequest();
         $languageCode = $request->attributes->get('language');
         $contentDraft = $this->contentService->loadContent(
-            $request->attributes->has('contentId') ? $request->attributes->getInt('contentId') : null,
+            $request->attributes->getInt('contentId'),
             [$languageCode], // @todo: rename to languageCode in 3.0
-            $request->attributes->has('versionNo') ? $request->attributes->getInt('versionNo') : null
+            $request->attributes->getInt('versionNo')
         );
 
         $contentType = $this->contentTypeService->loadContentType(
