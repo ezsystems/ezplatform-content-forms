@@ -79,7 +79,9 @@ class ContentCreateViewFilter implements EventSubscriberInterface
             $request->attributes->get('contentTypeIdentifier'),
             $this->languagePreferenceProvider->getPreferredLanguages()
         );
-        $location = $this->locationService->loadLocation($request->attributes->get('parentLocationId'));
+        $location = $this->locationService->loadLocation(
+            $request->attributes->getInt('parentLocationId')
+        );
 
         $contentCreateData = $this->resolveContentCreateData($contentType, $location, $languageCode);
         $form = $this->resolveContentCreateForm(
