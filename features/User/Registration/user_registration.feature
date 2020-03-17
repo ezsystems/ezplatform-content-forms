@@ -33,6 +33,7 @@ Scenario: The user group where registered users are created can be customized
      When I register a user account
      Then the user is created in this user group
 
+@broken
 Scenario: The user registration templates can be customized
     Given I do have the user/register policy
       And the following user registration templates configuration:
