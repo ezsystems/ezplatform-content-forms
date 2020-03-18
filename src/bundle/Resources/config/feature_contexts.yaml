@@ -1,0 +1,21 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+
+    EzSystems\EzPlatformContentForms\Behat\Context\ContentTypeContext:
+        arguments:
+            $permissionResolver: '@=service("ezpublish.api.repository").getPermissionResolver()'
+            $contentTypeService: '@ezpublish.api.service.content_type'
+
+    EzSystems\EzPlatformContentForms\Behat\Context\PagelayoutContext:
+        arguments:
+            $configResolver: '@ezpublish.config.resolver'
+
+    EzSystems\EzPlatformContentForms\Behat\Context\UserRegistrationContext:
+        arguments:
+            $permissionResolver: '@=service("ezpublish.api.repository").getPermissionResolver()'
+            $roleService: '@ezpublish.api.service.role'
+            $userService: '@ezpublish.api.service.user'
+            $contentTypeService: '@ezpublish.api.service.content_type'

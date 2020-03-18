@@ -40,10 +40,6 @@ final class ContentTypeContext extends RawMinkContext implements Context, Snippe
      */
     private $adminUserId = 14;
 
-    /**
-     * @injectService $permissionResolver @eZ\Publish\API\Repository\PermissionResolver
-     * @injectService $contentTypeService @ezpublish.api.service.content_type
-     */
     public function __construct(PermissionResolver $permissionResolver, ContentTypeService $contentTypeService)
     {
         $permissionResolver->setCurrentUserReference(new UserReference($this->adminUserId));

@@ -19,5 +19,10 @@ class EzPlatformContentFormsExtension extends Extension
     {
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yaml');
+
+        $environment = $container->getParameter('kernel.environment');
+        if (in_array($environment, ['behat', 'test'])) {
+            $loader->load('feature_contexts.yaml');
+        }
     }
 }
