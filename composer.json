@@ -21,6 +21,7 @@
         "jms/translation-bundle": "^1.5"
     },
     "require-dev": {
+        "ezsystems/doctrine-dbal-schema": "^1.0@dev",
         "phpunit/phpunit": "^8.2",
         "matthiasnoback/symfony-dependency-injection-test": "^4.0",
         "behat/behat": "^3.5",
