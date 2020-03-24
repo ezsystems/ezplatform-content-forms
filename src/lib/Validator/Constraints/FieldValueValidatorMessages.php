@@ -26,6 +26,8 @@ class FieldValueValidatorMessages implements TranslationContainerInterface
     {
         return [
             new Message("User login '%login%' already in use. Enter a unique login.", 'validators'),
+            new Message("Email '%email%' is used by another user. You must enter a unique email.", 'validators'),
+            new Message('Invalid login format.', 'validators'),
         ];
     }
 }
