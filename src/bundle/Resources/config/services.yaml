@@ -143,6 +143,8 @@ services:
 
     ezplatform.content_forms.view_templates_listener:
         class: "%ezplatform.content_forms.view_templates_listener.class%"
+        arguments:
+            $configResolver: '@ezpublish.config.resolver'
         tags:
             - { name: kernel.event_subscriber }
 
