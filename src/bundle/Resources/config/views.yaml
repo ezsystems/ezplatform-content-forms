@@ -24,8 +24,14 @@ services:
             - '@eZ\Bundle\EzPublishCoreBundle\Matcher\ViewMatcherRegistry'
             - '@ezpublish.api.repository'
             - 'eZ\Publish\Core\MVC\Symfony\Matcher\ContentBased'
-        calls:
-            - [setMatchConfig, ['$content_edit_view$']]
+
+    ezplatform.repository_forms.content_edit_view.matcher_factory.dynamically_configured:
+        class: eZ\Publish\Core\MVC\Symfony\Matcher\DynamicallyConfiguredMatcherFactoryDecorator
+        decorates: ezplatform.repository_forms.content_edit_view.matcher_factory
+        arguments:
+            $innerConfigurableMatcherFactory: '@ezplatform.repository_forms.content_edit_view.matcher_factory.dynamically_configured.inner'
+            $configResolver: '@ezpublish.config.resolver'
+            $parameterName: content_edit_view
 
     EzSystems\EzPlatformContentForms\Content\View\Filter\ContentEditViewFilter:
         arguments:
@@ -54,8 +60,14 @@ services:
             - '@eZ\Bundle\EzPublishCoreBundle\Matcher\ViewMatcherRegistry'
             - '@ezpublish.api.repository'
             - 'eZ\Publish\Core\MVC\Symfony\Matcher\ContentBased'
-        calls:
-            - [setMatchConfig, ['$content_create_view$']]
+
+    ezplatform.repository_forms.content_create_view.matcher_factory.dynamically_configured:
+        class: eZ\Publish\Core\MVC\Symfony\Matcher\DynamicallyConfiguredMatcherFactoryDecorator
+        decorates: ezplatform.repository_forms.content_create_view.matcher_factory
+        arguments:
+            $innerConfigurableMatcherFactory: '@ezplatform.repository_forms.content_create_view.matcher_factory.dynamically_configured.inner'
+            $configResolver: '@ezpublish.config.resolver'
+            $parameterName: content_create_view
 
     EzSystems\EzPlatformContentForms\Content\View\Filter\ContentCreateViewFilter:
         arguments:
