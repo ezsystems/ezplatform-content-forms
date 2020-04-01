@@ -10,7 +10,6 @@ services:
             - '@ezpublish.api.repository'
             - '@ezpublish.view.configurator'
             - '@ezpublish.view.view_parameters.injector.dispatcher'
-            - '$content_edit.templates.edit$'
             - '@ezplatform.content_forms.action_dispatcher.content'
 
     EzSystems\EzPlatformContentForms\Content\View\Provider\ContentEditView\Configured:

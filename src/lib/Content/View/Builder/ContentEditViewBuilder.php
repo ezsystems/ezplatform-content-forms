@@ -15,6 +15,7 @@ use eZ\Publish\API\Repository\Values\Content\Language;
 use eZ\Publish\API\Repository\Values\Content\Location;
 use eZ\Publish\API\Repository\Values\ContentType\ContentType;
 use eZ\Publish\Core\Base\Exceptions\InvalidArgumentException;
+use eZ\Publish\Core\MVC\ConfigResolverInterface;
 use eZ\Publish\Core\MVC\Symfony\Locale\UserLanguagePreferenceProviderInterface;
 use eZ\Publish\Core\MVC\Symfony\View\Builder\ViewBuilder;
 use eZ\Publish\Core\MVC\Symfony\View\Configurator;
@@ -39,37 +40,29 @@ class ContentEditViewBuilder implements ViewBuilder
     /** @var \eZ\Publish\Core\MVC\Symfony\View\ParametersInjector */
     private $viewParametersInjector;
 
-    /** @var string */
-    private $defaultTemplate;
-
     /** @var \EzSystems\EzPlatformContentForms\Form\ActionDispatcher\ActionDispatcherInterface */
     private $contentActionDispatcher;
 
     /** @var \eZ\Publish\Core\MVC\Symfony\Locale\UserLanguagePreferenceProviderInterface */
     private $languagePreferenceProvider;
 
-    /**
-     * @param \eZ\Publish\API\Repository\Repository $repository
-     * @param \eZ\Publish\Core\MVC\Symfony\View\Configurator $viewConfigurator
-     * @param \eZ\Publish\Core\MVC\Symfony\View\ParametersInjector $viewParametersInjector
-     * @param string $defaultTemplate
-     * @param \EzSystems\EzPlatformContentForms\Form\ActionDispatcher\ActionDispatcherInterface $contentActionDispatcher
-     * @param \eZ\Publish\Core\MVC\Symfony\Locale\UserLanguagePreferenceProviderInterface $languagePreferenceProvider
-     */
+    /** @var \eZ\Publish\Core\MVC\ConfigResolverInterface */
+    private $configResolver;
+
     public function __construct(
         Repository $repository,
         Configurator $viewConfigurator,
         ParametersInjector $viewParametersInjector,
-        string $defaultTemplate,
         ActionDispatcherInterface $contentActionDispatcher,
-        UserLanguagePreferenceProviderInterface $languagePreferenceProvider
+        UserLanguagePreferenceProviderInterface $languagePreferenceProvider,
+        ConfigResolverInterface $configResolver
     ) {
         $this->repository = $repository;
         $this->viewConfigurator = $viewConfigurator;
         $this->viewParametersInjector = $viewParametersInjector;
-        $this->defaultTemplate = $defaultTemplate;
         $this->contentActionDispatcher = $contentActionDispatcher;
         $this->languagePreferenceProvider = $languagePreferenceProvider;
+        $this->configResolver = $configResolver;
     }
 
     public function matches($argument)
@@ -90,8 +83,7 @@ class ContentEditViewBuilder implements ViewBuilder
      */
     public function buildView(array $parameters)
     {
-        // @todo improve default templates injection
-        $view = new ContentEditView($this->defaultTemplate);
+        $view = new ContentEditView($this->configResolver->getParameter('content_edit.templates.edit'));
 
         $language = $this->resolveLanguage($parameters);
         $location = $this->resolveLocation($parameters);
