@@ -143,12 +143,9 @@ services:
 
     ezplatform.content_forms.view_templates_listener:
         class: "%ezplatform.content_forms.view_templates_listener.class%"
+        arguments:
+            $configResolver: '@ezpublish.config.resolver'
         tags:
             - { name: kernel.event_subscriber }
-        calls:
-            - [setViewTemplate, ['EzSystems\EzPlatformContentForms\User\View\UserCreateView', "$user_edit.templates.create$"]]
-            - [setViewTemplate, ['EzSystems\EzPlatformContentForms\User\View\UserUpdateView', "$user_edit.templates.update$"]]
-            - [setViewTemplate, ['EzSystems\EzPlatformContentForms\Content\View\ContentCreateDraftView', "$content_edit.templates.create_draft$"]]
-            - [setPagelayout, ["$pagelayout$"]]
 
     EzSystems\EzPlatformContentForms\ConfigResolver\MaxUploadSize: ~
