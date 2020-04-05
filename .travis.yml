@@ -19,11 +19,19 @@ matrix:
     - name: "[PHP 7.3] PHP Unit tests"
       php: 7.3
       env: TEST_CONFIG="phpunit.xml.dist"
+    - name: "[PHP 7.4] PHP Unit tests"
+      php: 7.4
+      env: TEST_CONFIG="phpunit.xml.dist"
     - name: "[PHP 7.3] Content Forms tests on clean eZ Platform"
       php: 7.3
       env:
         - BEHAT_OPTS="--mode=behat --profile=content-forms --tags=~@broken --non-strict"
         - PHP_IMAGE=ezsystems/php:7.3-v1
+    - name: "[PHP 7.4] Content Forms tests on clean eZ Platform"
+      php: 7.4
+      env:
+        - BEHAT_OPTS="--mode=behat --profile=content-forms --tags=~@broken --non-strict"
+        - PHP_IMAGE=ezsystems/php:7.4-v1
 
 # test only master (+ Pull requests)
 branches:
