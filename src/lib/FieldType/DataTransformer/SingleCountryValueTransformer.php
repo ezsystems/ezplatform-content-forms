@@ -36,6 +36,10 @@ class SingleCountryValueTransformer implements DataTransformerInterface
             return null;
         }
 
+        if (empty($value->countries)) {
+            return null;
+        }
+
         return current($value->countries)['Alpha2'];
     }
 
