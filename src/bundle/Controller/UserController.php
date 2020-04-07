@@ -18,6 +18,7 @@ use eZ\Publish\API\Repository\PermissionResolver;
 use eZ\Publish\API\Repository\UserService;
 use eZ\Publish\Core\Base\Exceptions\InvalidArgumentException;
 use eZ\Publish\Core\Base\Exceptions\InvalidArgumentType;
+use eZ\Publish\Core\MVC\Symfony\Locale\UserLanguagePreferenceProviderInterface;
 use EzSystems\EzPlatformContentForms\Data\Mapper\UserCreateMapper;
 use EzSystems\EzPlatformContentForms\Data\Mapper\UserUpdateMapper;
 use EzSystems\EzPlatformContentForms\Form\ActionDispatcher\ActionDispatcherInterface;
@@ -55,13 +56,17 @@ class UserController extends Controller
     /** @var \eZ\Publish\API\Repository\PermissionResolver */
     private $permissionResolver;
 
+    /** @var \eZ\Publish\Core\MVC\Symfony\Locale\UserLanguagePreferenceProviderInterface */
+    private $userLanguagePreferenceProvider;
+
     public function __construct(
         ContentTypeService $contentTypeService,
         UserService $userService,
         LocationService $locationService,
         LanguageService $languageService,
         ActionDispatcherInterface $userActionDispatcher,
-        PermissionResolver $permissionResolver
+        PermissionResolver $permissionResolver,
+        UserLanguagePreferenceProviderInterface $userLanguagePreferenceProvider
     ) {
         $this->contentTypeService = $contentTypeService;
         $this->userService = $userService;
@@ -69,6 +74,7 @@ class UserController extends Controller
         $this->languageService = $languageService;
         $this->userActionDispatcher = $userActionDispatcher;
         $this->permissionResolver = $permissionResolver;
+        $this->userLanguagePreferenceProvider = $userLanguagePreferenceProvider;
     }
 
     /**
@@ -98,7 +104,10 @@ class UserController extends Controller
         int $parentLocationId,
         Request $request
     ) {
-        $contentType = $this->contentTypeService->loadContentTypeByIdentifier($contentTypeIdentifier);
+        $contentType = $this->contentTypeService->loadContentTypeByIdentifier(
+            $contentTypeIdentifier,
+            $this->userLanguagePreferenceProvider->getPreferredLanguages()
+        );
         $location = $this->locationService->loadLocation($parentLocationId);
         $language = $this->languageService->loadLanguage($language);
         $parentGroup = $this->userService->loadUserGroup($location->contentId);
@@ -156,7 +165,10 @@ class UserController extends Controller
         if (!$this->permissionResolver->canUser('content', 'edit', $user)) {
             throw new CoreUnauthorizedException('content', 'edit', ['userId' => $contentId]);
         }
-        $contentType = $this->contentTypeService->loadContentType($user->contentInfo->contentTypeId);
+        $contentType = $this->contentTypeService->loadContentType(
+            $user->contentInfo->contentTypeId,
+            $this->userLanguagePreferenceProvider->getPreferredLanguages()
+        );
 
         $userUpdate = (new UserUpdateMapper())->mapToFormData($user, $contentType, [
             'languageCode' => $language,
