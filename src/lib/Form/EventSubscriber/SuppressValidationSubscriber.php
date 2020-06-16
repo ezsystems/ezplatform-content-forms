@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace EzSystems\EzPlatformContentForms\Form\EventSubscriber;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\Form\Event\PostSubmitEvent;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 
@@ -20,7 +21,10 @@ class SuppressValidationSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            FormEvents::POST_SUBMIT => ['suppressValidationOnCancel', 900],
+            FormEvents::POST_SUBMIT => [
+                ['suppressValidationOnCancel', 900],
+                ['suppressValidationOnSaveDraft', 900],
+            ],
         ];
     }
 
@@ -30,6 +34,17 @@ class SuppressValidationSubscriber implements EventSubscriberInterface
 
         if ($form->get('cancel')->isClicked()) {
             $event->stopPropagation();
+        }
+    }
+
+    public function suppressValidationOnSaveDraft(PostSubmitEvent $event)
+    {
+        $form = $event->getForm();
+
+        if ($form->has('saveDraft')) {
+            if ($form->get('saveDraft')->isClicked()) {
+                $event->stopPropagation();
+            }
         }
     }
 }

@@ -86,7 +86,7 @@ class ContentFormProcessor implements EventSubscriberInterface
 
         $formConfig = $form->getConfig();
         $languageCode = $formConfig->getOption('languageCode');
-        $draft = $this->saveDraft($data, $languageCode);
+        $draft = $this->saveDraft($data, $languageCode, []);
         $referrerLocation = $event->getOption('referrerLocation');
         $contentLocation = $this->resolveLocation($draft, $referrerLocation, $data);
 
@@ -232,7 +232,7 @@ class ContentFormProcessor implements EventSubscriberInterface
      * @throws \eZ\Publish\API\Repository\Exceptions\UnauthorizedException
      * @throws \eZ\Publish\Core\Base\Exceptions\InvalidArgumentException
      */
-    private function saveDraft(ContentStruct $data, $languageCode)
+    private function saveDraft(ContentStruct $data, string $languageCode, ?array $fieldIdentifiersToValidate = null)
     {
         $mainLanguageCode = $this->resolveMainLanguageCode($data);
         foreach ($data->fieldsData as $fieldDefIdentifier => $fieldData) {
@@ -244,9 +244,9 @@ class ContentFormProcessor implements EventSubscriberInterface
         }
 
         if ($data->isNew()) {
-            $contentDraft = $this->contentService->createContent($data, $data->getLocationStructs());
+            $contentDraft = $this->contentService->createContent($data, $data->getLocationStructs(), $fieldIdentifiersToValidate);
         } else {
-            $contentDraft = $this->contentService->updateContent($data->contentDraft->getVersionInfo(), $data);
+            $contentDraft = $this->contentService->updateContent($data->contentDraft->getVersionInfo(), $data, $fieldIdentifiersToValidate);
         }
 
         return $contentDraft;
