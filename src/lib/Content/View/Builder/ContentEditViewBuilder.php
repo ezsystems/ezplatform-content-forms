@@ -93,7 +93,7 @@ class ContentEditViewBuilder extends AbstractContentViewBuilder implements ViewB
         if ($parameters['validate'] && !$form->isSubmitted()) {
             $validationErrors = $this->contentService->validate(
                 $content->getVersionInfo(), [
-                    'content' => $content
+                    'content' => $content,
                 ]
             );
 
