@@ -92,7 +92,10 @@ class ContentEditViewFilter implements EventSubscriberInterface
             $contentDraft
         );
 
-        $event->getParameters()->add(['form' => $form->handleRequest($request)]);
+        $event->getParameters()->add([
+            'form' => $form->handleRequest($request),
+            'validate' => (bool)$request->get('validate', false),
+        ]);
     }
 
     /**

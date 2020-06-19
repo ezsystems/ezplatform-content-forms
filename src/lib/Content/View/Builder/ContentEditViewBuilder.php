@@ -17,6 +17,7 @@ use eZ\Publish\Core\Base\Exceptions\InvalidArgumentException;
 use eZ\Publish\Core\MVC\Symfony\View\Builder\ViewBuilder;
 use EzSystems\EzPlatformContentForms\Content\View\ContentEditSuccessView;
 use EzSystems\EzPlatformContentForms\Content\View\ContentEditView;
+use Symfony\Component\Form\FormError;
 
 /**
  * Builds ContentEditView objects.
@@ -86,6 +87,22 @@ class ContentEditViewBuilder extends AbstractContentViewBuilder implements ViewB
                 $view->setLocation($location);
 
                 return $view;
+            }
+        }
+
+        if ($parameters['validate'] && !$form->isSubmitted()) {
+            $validationErrors = $this->contentService->validate(
+                $content->getVersionInfo(), [
+                    'content' => $content
+                ]
+            );
+
+            foreach ($validationErrors as $fieldIdentifier => $validationErrorLanguages) {
+                foreach ($validationErrorLanguages as $languageCode => $validationError) {
+                    $form->get('fieldsData')->get($fieldIdentifier)->get('value')->addError(new FormError(
+                        (string)$validationError->getTranslatableMessage()
+                    ));
+                }
             }
         }
 
