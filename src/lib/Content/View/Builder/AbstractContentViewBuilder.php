@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace EzSystems\EzPlatformContentForms\Content\View\Builder;
 
+use eZ\Publish\API\Repository\ContentService;
 use eZ\Publish\API\Repository\Repository;
 use eZ\Publish\API\Repository\Values\Content\Language;
 use eZ\Publish\API\Repository\Values\Content\Location;
@@ -46,6 +47,9 @@ abstract class AbstractContentViewBuilder
     /** @var \eZ\Publish\Core\Helper\FieldsGroups\FieldsGroupsList */
     private $fieldsGroupsList;
 
+    /** @var \eZ\Publish\API\Repository\ContentService */
+    protected $contentService;
+
     public function __construct(
         Repository $repository,
         Configurator $viewConfigurator,
@@ -53,7 +57,8 @@ abstract class AbstractContentViewBuilder
         ActionDispatcherInterface $contentActionDispatcher,
         UserLanguagePreferenceProviderInterface $languagePreferenceProvider,
         ConfigResolverInterface $configResolver,
-        FieldsGroupsList $fieldsGroupsList
+        FieldsGroupsList $fieldsGroupsList,
+        ContentService $contentService
     ) {
         $this->repository = $repository;
         $this->viewConfigurator = $viewConfigurator;
@@ -62,6 +67,7 @@ abstract class AbstractContentViewBuilder
         $this->languagePreferenceProvider = $languagePreferenceProvider;
         $this->configResolver = $configResolver;
         $this->fieldsGroupsList = $fieldsGroupsList;
+        $this->contentService = $contentService;
     }
 
     /**
