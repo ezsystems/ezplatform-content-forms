@@ -9,3 +9,5 @@ services:
     EzSystems\EzPlatformContentForms\Form\Type\FieldType\BinaryBaseFieldType: ~
 
     EzSystems\EzPlatformContentForms\Form\Type\LocationType: ~
+
+    EzSystems\EzPlatformContentForms\Form\Type\Content\FieldCollectionType: ~

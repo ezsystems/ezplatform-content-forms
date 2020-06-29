@@ -34,12 +34,15 @@ class BaseContentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fieldsData', CollectionType::class, [
+            ->add('fieldsData', FieldCollectionType::class, [
                 'entry_type' => ContentFieldType::class,
                 'label' => /** @Desc("Fields") */ 'ezplatform.content_forms.content.fields',
                 'entry_options' => [
                     'languageCode' => $options['languageCode'],
                     'mainLanguageCode' => $options['mainLanguageCode'],
+                    'content' => $options['content'],
+                    'contentCreateStruct' => $options['contentCreateStruct'],
+                    'contentUpdateStruct' => $options['contentUpdateStruct'],
                 ],
             ])
             ->add('redirectUrlAfterPublish', HiddenType::class, [

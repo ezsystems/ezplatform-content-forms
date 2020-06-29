@@ -44,6 +44,9 @@ class ContentFieldType extends AbstractType
     {
         $resolver
             ->setDefaults([
+                'content' => null,
+                'contentCreateStruct' => null,
+                'contentUpdateStruct' => null,
                 'data_class' => FieldData::class,
                 'translation_domain' => 'ezplatform_content_forms_content',
             ])

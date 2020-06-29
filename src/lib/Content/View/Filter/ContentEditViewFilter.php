@@ -136,6 +136,8 @@ class ContentEditViewFilter implements EventSubscriberInterface
             [
                 'languageCode' => $languageCode,
                 'mainLanguageCode' => $content->contentInfo->mainLanguageCode,
+                'content' => $content,
+                'contentUpdateStruct' => $contentUpdate,
                 'drafts_enabled' => true,
             ]
         );

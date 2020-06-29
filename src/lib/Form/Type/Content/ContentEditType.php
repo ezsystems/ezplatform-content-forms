@@ -60,6 +60,9 @@ class ContentEditType extends AbstractType
     {
         $resolver
             ->setDefaults([
+                'content' => null,
+                'contentCreateStruct' => null,
+                'contentUpdateStruct' => null,
                 'drafts_enabled' => false,
                 'data_class' => ContentStruct::class,
                 'translation_domain' => 'ezplatform_content_forms_content',
