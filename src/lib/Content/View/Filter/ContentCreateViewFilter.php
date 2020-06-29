@@ -128,6 +128,7 @@ class ContentCreateViewFilter implements EventSubscriberInterface
         return $this->formFactory->create(ContentEditType::class, $contentCreateData, [
             'languageCode' => $languageCode,
             'mainLanguageCode' => $languageCode,
+            'contentCreateStruct' => $contentCreateData,
             'drafts_enabled' => true,
         ]);
     }
