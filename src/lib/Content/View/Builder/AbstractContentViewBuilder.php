@@ -122,13 +122,22 @@ abstract class AbstractContentViewBuilder
             /** @var \EzSystems\EzPlatformContentForms\Data\Content\FieldData $fieldData */
             $fieldData = $fieldForm->getViewData();
 
-            $fieldGroup = $this->fieldsGroupsList->getFieldGroupTranslated(
+            $fieldGroup = $this->fieldsGroupsList->getFieldGroup(
                 $fieldData->fieldDefinition
             );
 
             $groupedFields[$fieldGroup][] = $fieldForm->getName();
         }
 
-        return $groupedFields;
+        $fieldsGroups = $this->fieldsGroupsList->getGroups();
+        $groupedFieldsList = [];
+
+        foreach ($fieldsGroups as $fieldsGroupIdentifier => $fieldsGroupName) {
+            if (array_key_exists($fieldsGroupIdentifier, $groupedFields)) {
+                $groupedFieldsList[$fieldsGroupName] = $groupedFields[$fieldsGroupIdentifier];
+            }
+        }
+
+        return $groupedFieldsList;
     }
 }
