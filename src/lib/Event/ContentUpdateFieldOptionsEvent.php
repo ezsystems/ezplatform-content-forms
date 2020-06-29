@@ -3,7 +3,7 @@
 namespace EzSystems\EzPlatformContentForms\Event;
 
 use eZ\Publish\API\Repository\Values\Content\Content;
-use EzSystems\EzPlatformContentForms\Data\Content\ContentUpdateData;
+use eZ\Publish\API\Repository\Values\Content\ContentUpdateStruct;
 use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Contracts\EventDispatcher\Event;
@@ -13,8 +13,8 @@ final class ContentUpdateFieldOptionsEvent extends Event
     /** @var \eZ\Publish\API\Repository\Values\Content\Content */
     private $content;
 
-    /** @var \EzSystems\EzPlatformContentForms\Data\Content\ContentUpdateData */
-    private $contentUpdateData;
+    /** @var \eZ\Publish\API\Repository\Values\Content\ContentUpdateStruct */
+    private $contentUpdateStruct;
 
     /** @var \Symfony\Component\Form\FormInterface */
     private $parentForm;
@@ -27,13 +27,13 @@ final class ContentUpdateFieldOptionsEvent extends Event
 
     public function __construct(
         Content $content,
-        ContentUpdateData $contentUpdateData,
+        ContentUpdateStruct $contentUpdateStruct,
         FormInterface $parentForm,
         FieldData $fieldData,
         array $options
     ) {
         $this->content = $content;
-        $this->contentUpdateData = $contentUpdateData;
+        $this->contentUpdateStruct = $contentUpdateStruct;
         $this->parentForm = $parentForm;
         $this->fieldData = $fieldData;
         $this->options = $options;
@@ -44,9 +44,9 @@ final class ContentUpdateFieldOptionsEvent extends Event
         return $this->content;
     }
 
-    public function getContentUpdateData(): ContentUpdateData
+    public function getContentUpdateStruct(): ContentUpdateStruct
     {
-        return $this->contentUpdateData;
+        return $this->contentUpdateStruct;
     }
 
     public function getParentForm(): FormInterface

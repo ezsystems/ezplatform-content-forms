@@ -2,15 +2,15 @@
 
 namespace EzSystems\EzPlatformContentForms\Event;
 
-use EzSystems\EzPlatformContentForms\Data\Content\ContentCreateData;
+use eZ\Publish\API\Repository\Values\Content\ContentCreateStruct;
 use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Contracts\EventDispatcher\Event;
 
 final class ContentCreateFieldOptionsEvent extends Event
 {
-    /** @var \EzSystems\EzPlatformContentForms\Data\Content\ContentCreateData */
-    private $contentCreateData;
+    /** @var \eZ\Publish\API\Repository\Values\Content\ContentCreateStruct */
+    private $contentCreateStruct;
 
     /** @var \Symfony\Component\Form\FormInterface */
     private $parentForm;
@@ -22,20 +22,20 @@ final class ContentCreateFieldOptionsEvent extends Event
     private $options;
 
     public function __construct(
-        ContentCreateData $contentCreateData,
+        ContentCreateStruct $contentCreateStruct,
         FormInterface $parentForm,
         FieldData $fieldData,
         array $options
     ) {
-        $this->contentCreateData = $contentCreateData;
+        $this->contentCreateStruct = $contentCreateStruct;
         $this->parentForm = $parentForm;
         $this->fieldData = $fieldData;
         $this->options = $options;
     }
 
-    public function getContentCreateData(): ContentCreateData
+    public function getContentCreateStruct(): ContentCreateStruct
     {
-        return $this->contentCreateData;
+        return $this->contentCreateStruct;
     }
 
     public function getParentForm(): FormInterface
