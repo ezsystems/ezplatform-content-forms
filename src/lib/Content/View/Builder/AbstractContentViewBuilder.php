@@ -129,12 +129,20 @@ abstract class AbstractContentViewBuilder
             $groupedFields[$fieldGroup][] = $fieldForm->getName();
         }
 
-        $fieldsGroups = $this->fieldsGroupsList->getGroups();
+        return $this->sortGroupedFields($groupedFields);
+    }
+
+    /**
+     * Makes sure fields groups order in the same like in YAML definition.
+     */
+    private function sortGroupedFields(array $groupedFields): array
+    {
         $groupedFieldsList = [];
 
-        foreach ($fieldsGroups as $fieldsGroupIdentifier => $fieldsGroupName) {
-            if (array_key_exists($fieldsGroupIdentifier, $groupedFields)) {
-                $groupedFieldsList[$fieldsGroupName] = $groupedFields[$fieldsGroupIdentifier];
+        $fieldsGroups = $this->fieldsGroupsList->getGroups();
+        foreach ($fieldsGroups as $fieldGroupIdentifier => $fieldGroupName) {
+            if (array_key_exists($fieldGroupIdentifier, $groupedFields)) {
+                $groupedFieldsList[$fieldGroupName] = $groupedFields[$fieldGroupIdentifier];
             }
         }
 
