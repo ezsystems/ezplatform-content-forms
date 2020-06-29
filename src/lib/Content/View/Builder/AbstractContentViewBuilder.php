@@ -122,13 +122,30 @@ abstract class AbstractContentViewBuilder
             /** @var \EzSystems\EzPlatformContentForms\Data\Content\FieldData $fieldData */
             $fieldData = $fieldForm->getViewData();
 
-            $fieldGroup = $this->fieldsGroupsList->getFieldGroupTranslated(
+            $fieldGroup = $this->fieldsGroupsList->getFieldGroup(
                 $fieldData->fieldDefinition
             );
 
             $groupedFields[$fieldGroup][] = $fieldForm->getName();
         }
 
-        return $groupedFields;
+        return $this->sortGroupedFields($groupedFields);
+    }
+
+    /**
+     * Makes sure fields groups order in the same like in YAML definition.
+     */
+    private function sortGroupedFields(array $groupedFields): array
+    {
+        $groupedFieldsList = [];
+
+        $fieldsGroups = $this->fieldsGroupsList->getGroups();
+        foreach ($fieldsGroups as $fieldGroupIdentifier => $fieldGroupName) {
+            if (array_key_exists($fieldGroupIdentifier, $groupedFields)) {
+                $groupedFieldsList[$fieldGroupName] = $groupedFields[$fieldGroupIdentifier];
+            }
+        }
+
+        return $groupedFieldsList;
     }
 }
