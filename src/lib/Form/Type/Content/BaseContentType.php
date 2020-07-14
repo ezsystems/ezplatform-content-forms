@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace EzSystems\EzPlatformContentForms\Form\Type\Content;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
@@ -34,12 +33,15 @@ class BaseContentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fieldsData', CollectionType::class, [
+            ->add('fieldsData', FieldCollectionType::class, [
                 'entry_type' => ContentFieldType::class,
                 'label' => /** @Desc("Fields") */ 'ezplatform.content_forms.content.fields',
                 'entry_options' => [
                     'languageCode' => $options['languageCode'],
                     'mainLanguageCode' => $options['mainLanguageCode'],
+                    'content' => $options['content'] ?? null,
+                    'contentCreateStruct' => $options['contentCreateStruct'] ?? null,
+                    'contentUpdateStruct' => $options['contentUpdateStruct'] ?? null,
                 ],
             ])
             ->add('redirectUrlAfterPublish', HiddenType::class, [

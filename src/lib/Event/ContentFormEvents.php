@@ -54,4 +54,14 @@ final class ContentFormEvents
      * Triggered when canceling a user edition.
      */
     const USER_CANCEL = 'user.edit.cancel';
+
+    /**
+     * Triggered when resolving Field Type options for content edit form.
+     */
+    const CONTENT_EDIT_FIELD_OPTIONS = 'content.edit.field.options';
+
+    /**
+     * Triggered when resolving Field Type options for content create form.
+     */
+    const CONTENT_CREATE_FIELD_OPTIONS = 'content.create.field.options';
 }

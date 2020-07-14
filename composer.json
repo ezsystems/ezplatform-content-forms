@@ -50,7 +50,7 @@
         }
     },
     "scripts": {
-        "fix-cs": "@php ./vendor/bin/php-cs-fixer fix -v --show-progress=estimating"
+        "fix-cs": "@php ./bin/php-cs-fixer fix -v --show-progress=estimating"
     },
     "config": {
         "bin-dir": "bin"
