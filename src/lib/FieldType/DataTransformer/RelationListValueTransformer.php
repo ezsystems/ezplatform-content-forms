@@ -37,6 +37,7 @@ class RelationListValueTransformer implements DataTransformerInterface
 
         $destinationContentIds = explode(',', $value);
         $destinationContentIds = array_map('trim', $destinationContentIds);
+        $destinationContentIds = array_map('intval', $destinationContentIds);
 
         return new Value($destinationContentIds);
     }
