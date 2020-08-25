@@ -99,7 +99,7 @@ class ImageAssetFieldType extends AbstractType
         if ($view->vars['value']['destinationContentId']) {
             try {
                 $content = $this->contentService->loadContent(
-                    $view->vars['value']['destinationContentId']
+                    (int)$view->vars['value']['destinationContentId']
                 );
 
                 if (!$content->contentInfo->isTrashed()) {
