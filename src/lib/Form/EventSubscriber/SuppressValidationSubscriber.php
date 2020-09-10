@@ -24,6 +24,7 @@ class SuppressValidationSubscriber implements EventSubscriberInterface
             FormEvents::POST_SUBMIT => [
                 ['suppressValidationOnCancel', 900],
                 ['suppressValidationOnSaveDraft', 900],
+                ['suppressValidationOnAutosaveDraft', 900],
             ],
         ];
     }
@@ -45,6 +46,15 @@ class SuppressValidationSubscriber implements EventSubscriberInterface
             if ($form->get('saveDraft')->isClicked()) {
                 $event->stopPropagation();
             }
+        }
+    }
+
+    public function suppressValidationOnAutosaveDraft(PostSubmitEvent $event)
+    {
+        $form = $event->getForm();
+
+        if ($form->has('autosave') && $form->get('autosave')->isClicked()) {
+            $event->stopPropagation();
         }
     }
 }

@@ -6,11 +6,6 @@
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
     </header>
     <body>
-      <trans-unit id="77dfd2135f4db726c47299bb55be26f7f4525a46" resname="Cancel">
-        <source>Cancel</source>
-        <target state="new">Cancel</target>
-        <note>key: Cancel</note>
-      </trans-unit>
       <trans-unit id="55f7e3b51a9cf46d7778064398a273bdf8d12ba9" resname="Content Id">
         <source>Content Id</source>
         <target state="new">Content Id</target>
@@ -36,20 +31,25 @@
         <target state="new">Publish</target>
         <note>key: Publish</note>
       </trans-unit>
-      <trans-unit id="4f25637a5b7e09ef7a1f54479cae25a4f53b122f" resname="Save draft">
-        <source>Save draft</source>
-        <target state="new">Save draft</target>
-        <note>key: Save draft</note>
-      </trans-unit>
       <trans-unit id="fb063a81c26c9246dd089025bf8e6ff896058ffc" resname="To language">
         <source>To language</source>
         <target state="new">To language</target>
         <note>key: To language</note>
       </trans-unit>
+      <trans-unit id="4fd0653c4f2aef3b19a3c145bbdc5f4740715a09" resname="cancel">
+        <source>Cancel</source>
+        <target state="new">Cancel</target>
+        <note>key: cancel</note>
+      </trans-unit>
       <trans-unit id="a4a24a08f0de7316a0e9e0a69d0b811a0fe70319" resname="ezplatform.content_forms.content.fields">
         <source>Fields</source>
         <target state="new">Fields</target>
         <note>key: ezplatform.content_forms.content.fields</note>
+      </trans-unit>
+      <trans-unit id="5e57af45228218466691ac7a14d46cfe34a697ab" resname="save_draft">
+        <source>Save draft</source>
+        <target state="new">Save draft</target>
+        <note>key: save_draft</note>
       </trans-unit>
     </body>
   </file>

@@ -10,6 +10,7 @@ namespace EzSystems\EzPlatformContentForms\Form\Type\Content;
 
 use eZ\Publish\API\Repository\Values\Content\ContentStruct;
 use EzSystems\EzPlatformContentForms\Form\EventSubscriber\SuppressValidationSubscriber;
+use JMS\TranslationBundle\Annotation\Desc;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -45,12 +46,20 @@ class ContentEditType extends AbstractType
         if ($options['drafts_enabled']) {
             $builder
                 ->add('saveDraft', SubmitType::class, [
-                    'label' => 'Save draft',
+                    'label' => /** @Desc("Save draft") */ 'save_draft',
                     'attr' => ['formnovalidate' => 'formnovalidate'],
                 ])
                 ->add('cancel', SubmitType::class, [
-                    'label' => 'Cancel',
+                    'label' => /** @Desc("Cancel") */ 'cancel',
                     'attr' => ['formnovalidate' => 'formnovalidate'],
+                ])
+                ->add('autosave', SubmitType::class, [
+                    'label' => /** @Desc("Autosave") */ 'autosave',
+                    'attr' => [
+                        'hidden' => true,
+                        'formnovalidate' => 'formnovalidate',
+                    ],
+                    'translation_domain' => 'content_edit',
                 ]);
             $builder->addEventSubscriber(new SuppressValidationSubscriber());
         }
