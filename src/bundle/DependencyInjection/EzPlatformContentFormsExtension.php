@@ -10,12 +10,13 @@ namespace EzSystems\EzPlatformContentFormsBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
-class EzPlatformContentFormsExtension extends Extension
+class EzPlatformContentFormsExtension extends Extension implements PrependExtensionInterface
 {
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yaml');
@@ -24,5 +25,26 @@ class EzPlatformContentFormsExtension extends Extension
         if (in_array($environment, ['behat', 'test'])) {
             $loader->load('feature_contexts.yaml');
         }
+    }
+
+    public function prepend(ContainerBuilder $container): void
+    {
+        $this->prependJMSTranslation($container);
+    }
+
+    private function prependJMSTranslation(ContainerBuilder $container): void
+    {
+        $container->prependExtensionConfig('jms_translation', [
+            'configs' => [
+                'ezplatform_content_forms' => [
+                    'dirs' => [
+                        __DIR__ . '/../../../src/',
+                    ],
+                    'output_dir' => __DIR__ . '/../Resources/translations/',
+                    'output_format' => 'xliff',
+                    'excluded_dirs' => ['Behat', 'Tests', 'node_modules'],
+                ],
+            ],
+        ]);
     }
 }
