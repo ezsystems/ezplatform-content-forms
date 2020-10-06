@@ -13,8 +13,8 @@ use eZ\Publish\API\Repository\Values\ValueObject;
 use eZ\Publish\Core\FieldType\ValidationError;
 use eZ\Publish\SPI\FieldType\Value;
 use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
-use Symfony\Component\Validator\Util\PropertyPath;
 use Symfony\Component\Validator\Constraint;
+use Symfony\Component\Validator\Util\PropertyPath;
 
 /**
  * Base class for field value validators.
@@ -89,6 +89,10 @@ class FieldValueValidator extends FieldTypeValidator
 
     protected function generatePropertyPath($errorIndex, $errorTarget): string
     {
-        return PropertyPath::append('value', $errorTarget);
+        $basePath = 'value';
+
+        return $errorTarget === null
+            ? $basePath
+            : PropertyPath::append($basePath, $errorTarget);
     }
 }
