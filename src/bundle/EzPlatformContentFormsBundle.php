@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace EzSystems\EzPlatformContentFormsBundle;
 
 use EzSystems\EzPlatformContentFormsBundle\DependencyInjection\Compiler\FieldTypeFormMapperDispatcherPass;
-use EzSystems\EzPlatformContentFormsBundle\DependencyInjection\Compiler\ViewBuilderRegistryPass;
 use EzSystems\EzPlatformContentFormsBundle\DependencyInjection\Configuration\Parser\ContentCreateView;
 use EzSystems\EzPlatformContentFormsBundle\DependencyInjection\Configuration\Parser\ContentEdit;
 use EzSystems\EzPlatformContentFormsBundle\DependencyInjection\Configuration\Parser\ContentEditView;
@@ -23,7 +22,6 @@ class EzPlatformContentFormsBundle extends Bundle
     {
         parent::build($container);
         $container->addCompilerPass(new FieldTypeFormMapperDispatcherPass());
-        $container->addCompilerPass(new ViewBuilderRegistryPass());
 
         $eZExtension = $container->getExtension('ezpublish');
         $eZExtension->addConfigParser(new ContentEdit());

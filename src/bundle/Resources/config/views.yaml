@@ -11,6 +11,8 @@ services:
             - '@ezpublish.view.configurator'
             - '@ezpublish.view.view_parameters.injector.dispatcher'
             - '@ezplatform.content_forms.action_dispatcher.content'
+        tags:
+            - { name: ibexa.view_builder }
 
     EzSystems\EzPlatformContentForms\Content\View\Provider\ContentEditView\Configured:
         arguments:
@@ -47,6 +49,8 @@ services:
             - '@ezpublish.view.configurator'
             - '@ezpublish.view.view_parameters.injector.dispatcher'
             - '@ezplatform.content_forms.action_dispatcher.content'
+        tags:
+            - { name: ibexa.view_builder }
 
     EzSystems\EzPlatformContentForms\Content\View\Provider\ContentCreateView\Configured:
         arguments:
