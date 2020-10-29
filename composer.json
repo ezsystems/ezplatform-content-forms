@@ -5,7 +5,7 @@
     "type": "ezplatform-bundle",
     "require": {
         "php": "^7.3",
-        "ezsystems/ezplatform-kernel": "^1.2@dev",
+        "ezsystems/ezplatform-kernel": "~1.2.0@dev",
         "symfony/dependency-injection": "^5.0",
         "symfony/http-kernel": "^5.0",
         "symfony/http-foundation": "^5.0",
@@ -43,7 +43,7 @@
     },
     "extra": {
         "_ezplatform_branch_for_behat_tests_comment_": "ezplatform branch to use to run Behat tests",
-        "_ezplatform_branch_for_behat_tests": "master",
+        "_ezplatform_branch_for_behat_tests": "3.2",
         "branch-alias": {
             "dev-master": "1.2.x-dev",
             "dev-tmp_ci_branch": "1.2.x-dev"
