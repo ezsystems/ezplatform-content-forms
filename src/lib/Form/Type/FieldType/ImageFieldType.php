@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace EzSystems\EzPlatformContentForms\Form\Type\FieldType;
 
+use EzSystems\EzPlatformContentForms\Form\Type\JsonArrayType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -43,6 +44,10 @@ class ImageFieldType extends AbstractType
                     'label' => /** @Desc("Alternative text") */ 'content.field_type.ezimage.alternative_text',
                     'required' => false,
                 ]
+            )
+            ->add(
+                'additionalData',
+                JsonArrayType::class
             );
     }
 

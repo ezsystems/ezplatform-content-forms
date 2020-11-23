@@ -32,7 +32,10 @@ class ImageValueTransformer extends AbstractBinaryBaseTransformer implements Dat
 
         return array_merge(
             $this->getDefaultProperties(),
-            ['alternativeText' => $value->alternativeText]
+            [
+                'alternativeText' => $value->alternativeText,
+                'additionalData' => $value->additionalData,
+            ]
         );
     }
 
@@ -53,6 +56,7 @@ class ImageValueTransformer extends AbstractBinaryBaseTransformer implements Dat
         }
 
         $valueObject->alternativeText = $value['alternativeText'];
+        $valueObject->additionalData = $value['additionalData'];
 
         return $valueObject;
     }
