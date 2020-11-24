@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace EzSystems\EzPlatformContentForms\Form\Transformer;
 
 use Symfony\Component\Form\DataTransformerInterface;
+use Symfony\Component\Form\Exception\TransformationFailedException;
 
 final class JsonToArrayTransformer implements DataTransformerInterface
 {
@@ -18,11 +19,30 @@ final class JsonToArrayTransformer implements DataTransformerInterface
             return '';
         }
 
-        return json_encode($value, JSON_THROW_ON_ERROR);
+        try {
+            $encoded = json_encode($value, JSON_THROW_ON_ERROR);
+        } catch (\JsonException $exception) {
+            throw new TransformationFailedException(
+                $exception->getMessage(),
+                $exception->getCode(),
+                $exception
+            );
+        }
+
+        return $encoded;
     }
 
     public function reverseTransform($value)
     {
-        return json_decode($value, true, 512, JSON_THROW_ON_ERROR);
+        try {
+            $decoded = json_decode($value, true, 512, JSON_THROW_ON_ERROR);
+        } catch (\JsonException $exception) {
+            throw new TransformationFailedException(
+                $exception->getMessage(),
+                $exception->getCode(),
+                $exception
+            );
+        }
+        return $decoded;
     }
 }
