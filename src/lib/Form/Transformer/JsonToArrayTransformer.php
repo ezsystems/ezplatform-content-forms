@@ -20,7 +20,7 @@ final class JsonToArrayTransformer implements DataTransformerInterface
         }
 
         try {
-            $encoded = json_encode($value, JSON_THROW_ON_ERROR);
+            $encoded = json_encode((object) $value, JSON_THROW_ON_ERROR);
         } catch (\JsonException $exception) {
             throw new TransformationFailedException(
                 $exception->getMessage(),
