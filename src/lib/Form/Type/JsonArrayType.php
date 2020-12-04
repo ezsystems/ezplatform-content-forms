@@ -12,26 +12,12 @@ use EzSystems\EzPlatformContentForms\Form\Transformer\JsonToArrayTransformer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class JsonArrayType extends AbstractType
 {
     public function getParent()
     {
         return HiddenType::class;
-    }
-
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults([
-            // hidden fields cannot have a required attribute
-            'required' => false,
-            // Pass errors to the parent
-            'error_bubbling' => true,
-            // Allow to send array as json
-            'compound' => true,
-            'allow_extra_fields' => true,
-        ]);
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
