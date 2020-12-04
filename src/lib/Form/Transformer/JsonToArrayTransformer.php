@@ -34,6 +34,9 @@ final class JsonToArrayTransformer implements DataTransformerInterface
 
     public function reverseTransform($value)
     {
+        if ($value === null) {
+            return [];
+        }
         try {
             $decoded = json_decode($value, true, 512, JSON_THROW_ON_ERROR);
         } catch (\JsonException $exception) {
