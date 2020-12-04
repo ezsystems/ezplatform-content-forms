@@ -37,6 +37,11 @@ final class JsonToArrayTransformer implements DataTransformerInterface
         if ($value === null) {
             return [];
         }
+
+        if (is_array($value)) {
+            return $value;
+        }
+
         try {
             $decoded = json_decode($value, true, 512, JSON_THROW_ON_ERROR);
         } catch (\JsonException $exception) {
