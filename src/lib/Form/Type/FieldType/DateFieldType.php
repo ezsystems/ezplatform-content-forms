@@ -12,12 +12,25 @@ use EzSystems\EzPlatformContentForms\FieldType\DataTransformer\DateValueTransfor
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormView;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * Form Type representing ezdate field type.
  */
 class DateFieldType extends AbstractType
 {
+    private const EDIT_VIEWS = ['ezplatform.content.draft.edit', 'ezplatform.content.translate'];
+
+    /** @var \Symfony\Component\HttpFoundation\RequestStack */
+    private $requestStack;
+
+    public function __construct(RequestStack $requestStack)
+    {
+        $this->requestStack = $requestStack;
+    }
+
     public function getName()
     {
         return $this->getBlockPrefix();
@@ -37,5 +50,11 @@ class DateFieldType extends AbstractType
     {
         $builder
             ->addModelTransformer(new DateValueTransformer());
+    }
+
+    public function buildView(FormView $view, FormInterface $form, array $options)
+    {
+        $request = $this->requestStack->getCurrentRequest();
+        $view->vars['isEditView'] = \in_array($request->attributes->get('_route'), self::EDIT_VIEWS);
     }
 }
