@@ -5,7 +5,7 @@
     "type": "ezplatform-bundle",
     "require": {
         "php": "^7.3",
-        "ezsystems/ezplatform-kernel": "~1.2.0@dev",
+        "ezsystems/ezplatform-kernel": "~1.2.0",
         "symfony/dependency-injection": "^5.0",
         "symfony/http-kernel": "^5.0",
         "symfony/http-foundation": "^5.0",
@@ -21,7 +21,7 @@
         "jms/translation-bundle": "^1.5"
     },
     "require-dev": {
-        "ezsystems/doctrine-dbal-schema": "^1.0@dev",
+        "ezsystems/doctrine-dbal-schema": "^1.0",
         "phpunit/phpunit": "^8.2",
         "matthiasnoback/symfony-dependency-injection-test": "^4.0",
         "behat/behat": "^3.5",
