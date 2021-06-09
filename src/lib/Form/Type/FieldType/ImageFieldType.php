@@ -42,7 +42,7 @@ class ImageFieldType extends AbstractType
                 TextType::class,
                 [
                     'label' => /** @Desc("Alternative text") */ 'content.field_type.ezimage.alternative_text',
-                    'required' => false,
+                    'required' => $options['is_alternative_text_required'],
                 ]
             )
             ->add(
@@ -53,6 +53,11 @@ class ImageFieldType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(['translation_domain' => 'ezplatform_content_forms_fieldtype']);
+        $resolver->setDefaults([
+            'translation_domain' => 'ezplatform_content_forms_fieldtype',
+            'is_alternative_text_required' => false,
+        ]);
+
+        $resolver->setAllowedTypes('is_alternative_text_required', 'bool');
     }
 }
