@@ -12,6 +12,8 @@ use EzSystems\EzPlatformContentForms\Form\Type\JsonArrayType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -49,6 +51,13 @@ class ImageFieldType extends AbstractType
                 'additionalData',
                 JsonArrayType::class
             );
+    }
+
+    public function buildView(FormView $view, FormInterface $form, array $options)
+    {
+        $view->vars += [
+            'is_alternative_text_required' => $options['is_alternative_text_required'],
+        ];
     }
 
     public function configureOptions(OptionsResolver $resolver)
