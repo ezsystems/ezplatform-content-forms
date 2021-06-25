@@ -31,6 +31,7 @@ class ImageFormMapper implements FieldValueFormMapperInterface
         $fieldDefinition = $data->fieldDefinition;
         $formConfig = $fieldForm->getConfig();
         $fieldType = $this->fieldTypeService->getFieldType($fieldDefinition->fieldTypeIdentifier);
+        $isAlternativeTextRequired = $fieldDefinition->validatorConfiguration['AlternativeTextValidator']['required'] ?? false;
 
         $fieldForm
             ->add(
@@ -41,6 +42,7 @@ class ImageFormMapper implements FieldValueFormMapperInterface
                         [
                             'required' => $fieldDefinition->isRequired,
                             'label' => $fieldDefinition->getName(),
+                            'is_alternative_text_required' => $isAlternativeTextRequired,
                         ]
                     )
                     ->addModelTransformer(new ImageValueTransformer($fieldType, $data->value, Value::class))
