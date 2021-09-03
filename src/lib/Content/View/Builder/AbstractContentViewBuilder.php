@@ -13,13 +13,12 @@ use eZ\Publish\API\Repository\Repository;
 use eZ\Publish\API\Repository\Values\Content\Language;
 use eZ\Publish\API\Repository\Values\Content\Location;
 use eZ\Publish\Core\Base\Exceptions\InvalidArgumentException;
-use eZ\Publish\Core\Helper\FieldsGroups\FieldsGroupsList;
 use eZ\Publish\Core\MVC\ConfigResolverInterface;
 use eZ\Publish\Core\MVC\Symfony\Locale\UserLanguagePreferenceProviderInterface;
 use eZ\Publish\Core\MVC\Symfony\View\Configurator;
 use eZ\Publish\Core\MVC\Symfony\View\ParametersInjector;
 use EzSystems\EzPlatformContentForms\Form\ActionDispatcher\ActionDispatcherInterface;
-use Symfony\Component\Form\Form;
+use Ibexa\Contracts\ContentForms\Content\Form\Provider\GroupedContentFormFieldsProviderInterface;
 
 /*
  * @internal
@@ -44,8 +43,8 @@ abstract class AbstractContentViewBuilder
     /** @var \eZ\Publish\Core\MVC\ConfigResolverInterface */
     protected $configResolver;
 
-    /** @var \eZ\Publish\Core\Helper\FieldsGroups\FieldsGroupsList */
-    private $fieldsGroupsList;
+    /** @var \Ibexa\Contracts\ContentForms\Content\Form\Provider\GroupedContentFormFieldsProviderInterface */
+    protected $groupedContentFormFieldsProvider;
 
     /** @var \eZ\Publish\API\Repository\ContentService */
     protected $contentService;
@@ -57,7 +56,7 @@ abstract class AbstractContentViewBuilder
         ActionDispatcherInterface $contentActionDispatcher,
         UserLanguagePreferenceProviderInterface $languagePreferenceProvider,
         ConfigResolverInterface $configResolver,
-        FieldsGroupsList $fieldsGroupsList,
+        GroupedContentFormFieldsProviderInterface $groupedContentFormFieldsProvider,
         ContentService $contentService
     ) {
         $this->repository = $repository;
@@ -66,7 +65,7 @@ abstract class AbstractContentViewBuilder
         $this->contentActionDispatcher = $contentActionDispatcher;
         $this->languagePreferenceProvider = $languagePreferenceProvider;
         $this->configResolver = $configResolver;
-        $this->fieldsGroupsList = $fieldsGroupsList;
+        $this->groupedContentFormFieldsProvider = $groupedContentFormFieldsProvider;
         $this->contentService = $contentService;
     }
 
@@ -110,42 +109,5 @@ abstract class AbstractContentViewBuilder
 
         throw new InvalidArgumentException('Language',
             'No language information provided. Are you missing language or languageCode parameters?');
-    }
-
-    protected function getGroupedFields(Form $form): array
-    {
-        $fieldsDataForm = $form->get('fieldsData');
-        $groupedFields = [];
-
-        /** @var \Symfony\Component\Form\Form $fieldForm */
-        foreach ($fieldsDataForm as $fieldForm) {
-            /** @var \EzSystems\EzPlatformContentForms\Data\Content\FieldData $fieldData */
-            $fieldData = $fieldForm->getViewData();
-
-            $fieldGroup = $this->fieldsGroupsList->getFieldGroup(
-                $fieldData->fieldDefinition
-            );
-
-            $groupedFields[$fieldGroup][] = $fieldForm->getName();
-        }
-
-        return $this->sortGroupedFields($groupedFields);
-    }
-
-    /**
-     * Makes sure fields groups order in the same like in YAML definition.
-     */
-    private function sortGroupedFields(array $groupedFields): array
-    {
-        $groupedFieldsList = [];
-
-        $fieldsGroups = $this->fieldsGroupsList->getGroups();
-        foreach ($fieldsGroups as $fieldGroupIdentifier => $fieldGroupName) {
-            if (array_key_exists($fieldGroupIdentifier, $groupedFields)) {
-                $groupedFieldsList[$fieldGroupName] = $groupedFields[$fieldGroupIdentifier];
-            }
-        }
-
-        return $groupedFieldsList;
     }
 }

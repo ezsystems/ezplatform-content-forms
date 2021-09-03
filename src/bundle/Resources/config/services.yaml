@@ -150,3 +150,10 @@ services:
             - { name: kernel.event_subscriber }
 
     EzSystems\EzPlatformContentForms\ConfigResolver\MaxUploadSize: ~
+
+    Ibexa\Contracts\ContentForms\Content\Form\Provider\GroupedContentFormFieldsProviderInterface:
+        '@Ibexa\ContentForms\Content\Form\Provider\GroupedContentFormFieldsProvider'
+
+    Ibexa\ContentForms\Content\Form\Provider\GroupedContentFormFieldsProvider:
+        arguments:
+            $fieldsGroupsList: '@ezpublish.fields_groups.list'
