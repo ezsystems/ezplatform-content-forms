@@ -165,17 +165,16 @@ class ContentFormProcessor implements EventSubscriberInterface
 
         $event->setPayload('content', $content);
 
-        // if there is only one version you have to remove whole content instead of a version itself
         if (1 === count($this->contentService->loadVersions($contentInfo))) {
             $parentLocation = $this->locationService->loadParentLocationsForDraftContent($versionInfo)[0];
             $redirectionLocationId = $parentLocation->id;
             $redirectionContentId = $parentLocation->contentId;
-            $this->contentService->deleteContent($contentInfo);
         } else {
             $redirectionLocationId = $contentInfo->mainLocationId;
             $redirectionContentId = $contentInfo->id;
-            $this->contentService->deleteVersion($versionInfo);
         }
+
+        $this->contentService->deleteVersion($versionInfo);
 
         $url = $this->router->generate(
             '_ez_content_view', [
