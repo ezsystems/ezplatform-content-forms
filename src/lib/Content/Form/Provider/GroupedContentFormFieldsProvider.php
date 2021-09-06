@@ -21,9 +21,6 @@ final class GroupedContentFormFieldsProvider implements GroupedContentFormFields
         $this->fieldsGroupsList = $fieldsGroupsList;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getGroupedFields(array $fieldsDataForm): array
     {
         $groupedFields = [];
@@ -39,13 +36,16 @@ final class GroupedContentFormFieldsProvider implements GroupedContentFormFields
             $groupedFields[$fieldGroup][] = $fieldForm->getName();
         }
 
-        return $this->sortGroupedFields($groupedFields);
+        return $this->renameGroupsNames($groupedFields);
     }
 
     /**
-     * Makes sure fields groups order in the same like in YAML definition.
+     * Renames fieldGroupIdentifier with fieldGroupName as a group name.
+     *
+     * @phpstan-var array<string, array<int, string>> $groupedFields Array of field names grouped by fieldGroupIdentifier.
+     * @phpstan-return array<string, array<int, string>> Array of field names grouped by fieldGroupName.
      */
-    private function sortGroupedFields(array $groupedFields): array
+    private function renameGroupsNames(array $groupedFields): array
     {
         $groupedFieldsList = [];
 
