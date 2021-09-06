@@ -42,7 +42,7 @@ final class GroupedContentFormFieldsProvider implements GroupedContentFormFields
     /**
      * Renames fieldGroupIdentifier with fieldGroupName as a group name.
      *
-     * @phpstan-var array<string, array<int, string>> $groupedFields Array of field names grouped by fieldGroupIdentifier.
+     * @phpstan-param array<string, array<int, string>> $groupedFields Array of field names grouped by fieldGroupIdentifier.
      * @phpstan-return array<string, array<int, string>> Array of field names grouped by fieldGroupName.
      */
     private function renameGroupsNames(array $groupedFields): array

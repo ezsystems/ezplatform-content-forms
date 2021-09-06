@@ -16,5 +16,3 @@ interface GroupedContentFormFieldsProviderInterface
      */
     public function getGroupedFields(array $fieldsDataForm): array;
 }
-
-class_alias(GroupedContentFormFieldsProviderInterface::class, 'EzSystems\EzPlatformContentForms\Content\Form\Provider\GroupedContentFormFieldsProviderInterface');

@@ -83,9 +83,9 @@ class GroupedContentFormFieldsProviderTest extends TestCase
     }
 
     /**
-     * @return mixed|\PHPUnit\Framework\MockObject\MockObject|\Symfony\Component\Form\FormInterface
+     * @return \Symfony\Component\Form\FormInterface
      */
-    protected function getFormMockWithFieldData(
+    private function getFormMockWithFieldData(
         string $fieldDefIdentifier,
         string $fieldTypeIdentifier
     ) {
@@ -94,7 +94,7 @@ class GroupedContentFormFieldsProviderTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
         $formMock
-            ->expects($this->any())
+            ->expects($this->once())
             ->method('getViewData')
             ->willReturn(new FieldData([
                 'field' => new Field(['fieldDefIdentifier' => $fieldDefIdentifier]),
@@ -102,7 +102,7 @@ class GroupedContentFormFieldsProviderTest extends TestCase
                 'value' => new Value('value'),
             ]));
         $formMock
-            ->expects($this->any())
+            ->expects($this->once())
             ->method('getName')
             ->willReturn($fieldDefIdentifier);
 
