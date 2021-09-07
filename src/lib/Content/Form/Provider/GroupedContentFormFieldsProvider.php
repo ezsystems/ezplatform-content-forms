@@ -23,39 +23,18 @@ final class GroupedContentFormFieldsProvider implements GroupedContentFormFields
 
     public function getGroupedFields(array $fieldsDataForm): array
     {
+        $fieldsGroups = $this->fieldsGroupsList->getGroups();
         $groupedFields = [];
 
         foreach ($fieldsDataForm as $fieldForm) {
             /** @var \EzSystems\EzPlatformContentForms\Data\Content\FieldData $fieldData */
             $fieldData = $fieldForm->getViewData();
+            $fieldGroupIdentifier = $this->fieldsGroupsList->getFieldGroup($fieldData->fieldDefinition);
+            $fieldGroupName = $fieldsGroups[$fieldGroupIdentifier] ?? $this->fieldsGroupsList->getDefaultGroup();
 
-            $fieldGroup = $this->fieldsGroupsList->getFieldGroup(
-                $fieldData->fieldDefinition
-            );
-
-            $groupedFields[$fieldGroup][] = $fieldForm->getName();
+            $groupedFields[$fieldGroupName][] = $fieldForm->getName();
         }
 
-        return $this->renameGroupsNames($groupedFields);
-    }
-
-    /**
-     * Renames fieldGroupIdentifier with fieldGroupName as a group name.
-     *
-     * @phpstan-param array<string, array<int, string>> $groupedFields Array of field names grouped by fieldGroupIdentifier.
-     * @phpstan-return array<string, array<int, string>> Array of field names grouped by fieldGroupName.
-     */
-    private function renameGroupsNames(array $groupedFields): array
-    {
-        $groupedFieldsList = [];
-
-        $fieldsGroups = $this->fieldsGroupsList->getGroups();
-        foreach ($fieldsGroups as $fieldGroupIdentifier => $fieldGroupName) {
-            if (array_key_exists($fieldGroupIdentifier, $groupedFields)) {
-                $groupedFieldsList[$fieldGroupName] = $groupedFields[$fieldGroupIdentifier];
-            }
-        }
-
-        return $groupedFieldsList;
+        return $groupedFields;
     }
 }

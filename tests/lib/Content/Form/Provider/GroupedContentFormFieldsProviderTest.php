@@ -17,40 +17,26 @@ use Ibexa\ContentForms\Content\Form\Provider\GroupedContentFormFieldsProvider;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Form\FormInterface;
 
-class GroupedContentFormFieldsProviderTest extends TestCase
+final class GroupedContentFormFieldsProviderTest extends TestCase
 {
-    public function testGetGroupedFields()
+    public function testGetGroupedFields(): void
     {
-        $fieldsGroupsListMock = $this->getMockBuilder(FieldsGroupsList::class)->getMock();
+        $fieldsGroupsListMock = $this->createMock(FieldsGroupsList::class);
         $fieldsGroupsListMock
-            ->expects($this->at(0))
+            ->expects($this->exactly(3))
             ->method('getFieldGroup')
-            ->withAnyParameters()
-            ->willReturn('group_1');
-
-        $fieldsGroupsListMock
-            ->expects($this->at(1))
-            ->method('getFieldGroup')
-            ->withAnyParameters()
-            ->willReturn('group_2');
-
-        $fieldsGroupsListMock
-            ->expects($this->at(2))
-            ->method('getFieldGroup')
-            ->withAnyParameters()
-            ->willReturn('group_2');
+            ->withConsecutive()
+            ->willReturnOnConsecutiveCalls('group_1', 'group_2', 'group_2');
 
         $fieldsGroupsListMock
             ->expects($this->once())
             ->method('getGroups')
-            ->withAnyParameters()
             ->willReturn([
                 'group_1' => 'Group 1',
                 'group_2' => 'Group 2',
             ]);
 
         $subject = new GroupedContentFormFieldsProvider($fieldsGroupsListMock);
-
 
         $form1 = $this->getFormMockWithFieldData(
             'first_field',
@@ -76,7 +62,7 @@ class GroupedContentFormFieldsProviderTest extends TestCase
             "Group 2" => [
                 0 => "second_field",
                 1 => "third_field",
-            ]
+            ],
         ];
 
         $this->assertEquals($expected, $result);
