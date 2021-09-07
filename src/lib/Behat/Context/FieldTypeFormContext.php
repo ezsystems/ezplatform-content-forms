@@ -150,11 +150,11 @@ final class FieldTypeFormContext extends RawMinkContext implements SnippetAccept
             $inputId = $inputElement->getAttribute('id');
             $label = $this->getSession()->getPage()->find('css', sprintf('label[for=%s]', $inputId))->getText();
 
-            $actualInputFields[] = ['type' => $type, 'label' => $label];
+            $actualInputFields[] = ['label' => $label, 'type' => $type];
         }
 
-        foreach ($expectedInputFields = $table->getColumnsHash() as $inputField) {
-            Assertion::assertContains($inputField, $actualInputFields);
+        foreach ($table->getColumnsHash() as $expectedField) {
+            Assertion::assertContains($expectedField, $actualInputFields);
         }
     }
 

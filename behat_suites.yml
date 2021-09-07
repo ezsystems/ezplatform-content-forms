@@ -9,7 +9,6 @@ content-forms:
                 - EzSystems\EzPlatformContentForms\Behat\Context\ContentEditContext
                 - EzSystems\EzPlatformContentForms\Behat\Context\ContentTypeContext
                 - EzSystems\EzPlatformContentForms\Behat\Context\PagelayoutContext
-                - EzSystems\Behat\Browser\Context\Hooks
         fieldtype_form:
             paths:
                 - vendor/ezsystems/ezplatform-content-forms/features/FieldTypeForm
@@ -24,4 +23,3 @@ content-forms:
                 - EzSystems\EzPlatformContentForms\Behat\Context\UserRegistrationContext
                 - Behat\MinkExtension\Context\MinkContext
                 - eZ\Bundle\EzPublishCoreBundle\Features\Context\YamlConfigurationContext
-                - EzSystems\Behat\Browser\Context\Hooks
