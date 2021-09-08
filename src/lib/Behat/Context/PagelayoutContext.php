@@ -12,8 +12,6 @@ use Behat\Behat\Context\Context;
 use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\MinkExtension\Context\RawMinkContext;
 use eZ\Publish\Core\MVC\ConfigResolverInterface;
-use EzSystems\Behat\Core\Environment\EnvironmentConstants;
-use EzSystems\Behat\Core\Environment\InstallType;
 use PHPUnit\Framework\Assert as Assertion;
 
 class PagelayoutContext extends RawMinkContext implements Context, SnippetAcceptingContext
@@ -52,20 +50,8 @@ class PagelayoutContext extends RawMinkContext implements Context, SnippetAccept
 
     public function getPageLayout(): string
     {
-        $installType = EnvironmentConstants::getInstallType();
-        switch ($installType) {
-            case InstallType::PLATFORM:
-            case InstallType::ENTERPRISE:
-                return $this->configResolver->hasParameter('page_layout')
-                    ? $this->configResolver->getParameter('page_layout', null, 'site')
-                    : $this->configResolver->getParameter('pagelayout', null, 'site');
-            case InstallType::PLATFORM_DEMO:
-            case InstallType::ENTERPRISE_DEMO:
-                return $this->configResolver->hasParameter('page_layout')
-                    ? str_replace('@ezdesign', 'templates/themes/tastefulplanet', $this->configResolver->getParameter('page_layout', null, 'site'))
-                    : str_replace('@ezdesign', 'templates/themes/tastefulplanet', $this->configResolver->getParameter('pagelayout', null, 'site'));
-            default:
-                throw new \Exception('Unrecognised installation type');
-        }
+        return $this->configResolver->hasParameter('page_layout')
+                ? $this->configResolver->getParameter('page_layout', null, 'site')
+                : $this->configResolver->getParameter('pagelayout', null, 'site');
     }
 }

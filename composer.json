@@ -24,6 +24,7 @@
     "require-dev": {
         "ibexa/ci-scripts": "^0.1@dev",
         "ezsystems/doctrine-dbal-schema": "^1.0@dev",
+        "ezsystems/behatbundle": "^8.3@dev",
         "phpunit/phpunit": "^8.2",
         "matthiasnoback/symfony-dependency-injection-test": "^4.0",
         "behat/behat": "^3.5",
@@ -49,6 +50,6 @@
         }
     },
     "scripts": {
-        "fix-cs": "@php ./bin/php-cs-fixer fix -v --show-progress=estimating"
+        "fix-cs": "php-cs-fixer fix -v --show-progress=estimating"
     }
 }
