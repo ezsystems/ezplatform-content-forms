@@ -170,12 +170,12 @@ class ContentFormProcessor implements EventSubscriberInterface
             $parentLocation = $this->locationService->loadParentLocationsForDraftContent($versionInfo)[0];
             $redirectionLocationId = $parentLocation->id;
             $redirectionContentId = $parentLocation->contentId;
-            $this->contentService->deleteContent($contentInfo);
         } else {
             $redirectionLocationId = $contentInfo->mainLocationId;
             $redirectionContentId = $contentInfo->id;
-            $this->contentService->deleteVersion($versionInfo);
         }
+
+        $this->contentService->deleteVersion($versionInfo);
 
         $url = $this->router->generate(
             '_ez_content_view', [
