@@ -35,13 +35,17 @@
         "psr-4": {
             "EzSystems\\EzPlatformContentFormsBundle\\": "src/bundle/",
             "EzSystems\\EzPlatformContentForms\\": "src/lib/",
-            "EzSystems\\EzPlatformContentForms\\Features\\": "features/"
+            "EzSystems\\EzPlatformContentForms\\Features\\": "features/",
+            "Ibexa\\ContentForms\\": "src/lib/",
+            "Ibexa\\Bundle\\ContentForms\\": "src/bundle/",
+            "Ibexa\\Contracts\\ContentForms\\": "src/contracts/"
         }
     },
     "autoload-dev": {
         "psr-4": {
             "EzSystems\\EzPlatformContentForms\\Tests\\": "src/lib/Tests",
-            "EzSystems\\EzPlatformContentFormsBundle\\Tests\\": "src/bundle/Tests"
+            "EzSystems\\EzPlatformContentFormsBundle\\Tests\\": "src/bundle/Tests",
+            "Ibexa\\Tests\\ContentForms\\": "tests/lib/"
         }
     },
     "extra": {

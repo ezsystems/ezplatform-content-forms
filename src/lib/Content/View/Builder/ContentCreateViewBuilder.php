@@ -72,7 +72,9 @@ class ContentCreateViewBuilder extends AbstractContentViewBuilder implements Vie
             'language' => $language,
             'parent_location' => $location,
             'form' => $form->createView(),
-            'grouped_fields' => $this->getGroupedFields($form),
+            'grouped_fields' => $this->groupedContentFormFieldsProvider->getGroupedFields(
+                $form->get('fieldsData')->all()
+            ),
         ]);
 
         $this->viewParametersInjector->injectViewParameters($view, $parameters);
