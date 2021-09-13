@@ -16,6 +16,9 @@
         <testsuite name="ContentFormsBundle tests">
             <directory suffix="Test.php">./tests/bundle</directory>
         </testsuite>
+        <testsuite name="Ibexa ContentForms tests">
+            <directory suffix="Test.php">./tests/</directory>
+        </testsuite>
     </testsuites>
 
     <filter>

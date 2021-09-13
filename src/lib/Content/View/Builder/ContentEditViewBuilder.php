@@ -117,7 +117,9 @@ class ContentEditViewBuilder extends AbstractContentViewBuilder implements ViewB
             'language' => $language,
             'content_type' => $contentType,
             'form' => $form->createView(),
-            'grouped_fields' => $this->getGroupedFields($form),
+            'grouped_fields' => $this->groupedContentFormFieldsProvider->getGroupedFields(
+                $form->get('fieldsData')->all()
+            ),
         ]);
 
         $this->viewParametersInjector->injectViewParameters($view, $parameters);
