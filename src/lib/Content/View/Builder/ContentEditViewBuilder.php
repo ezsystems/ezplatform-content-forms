@@ -98,10 +98,16 @@ class ContentEditViewBuilder extends AbstractContentViewBuilder implements ViewB
             );
 
             foreach ($validationErrors as $fieldIdentifier => $validationErrorLanguages) {
-                foreach ($validationErrorLanguages as $languageCode => $validationError) {
-                    $form->get('fieldsData')->get($fieldIdentifier)->get('value')->addError(new FormError(
-                        (string)$validationError->getTranslatableMessage()
-                    ));
+                $fieldValueElement = $form->get('fieldsData')->get($fieldIdentifier)->get('value');
+                foreach ($validationErrorLanguages as $languageCode => $validationErrors) {
+                    if (is_array($validationErrors) === false) {
+                        $validationErrors = [$validationErrors];
+                    }
+                    foreach ($validationErrors as $validationError) {
+                        $fieldValueElement->addError(new FormError(
+                            (string)$validationError->getTranslatableMessage()
+                        ));
+                    }
                 }
             }
         }
