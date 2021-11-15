@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace EzSystems\EzPlatformContentForms\Form\Type\FieldType;
 
 use eZ\Publish\API\Repository\FieldTypeService;
+use eZ\Publish\Core\MVC\ConfigResolverInterface;
 use EzSystems\EzPlatformContentForms\FieldType\DataTransformer\FieldValueTransformer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -23,10 +24,15 @@ class UrlFieldType extends AbstractType
 {
     /** @var FieldTypeService */
     protected $fieldTypeService;
+    /**
+     * @var ConfigResolverInterface
+     */
+    private $configResolver;
 
-    public function __construct(FieldTypeService $fieldTypeService)
+    public function __construct(FieldTypeService $fieldTypeService, ConfigResolverInterface $configResolver)
     {
         $this->fieldTypeService = $fieldTypeService;
+        $this->configResolver = $configResolver;
     }
 
     public function getName()
@@ -48,6 +54,7 @@ class UrlFieldType extends AbstractType
                 [
                     'label' => /** @Desc("URL") */ 'content.field_type.ezurl.link',
                     'required' => $options['required'],
+                    'default_protocol' => $this->configResolver->getParameter('ezurl_default_protocol'),
                 ]
             )
             ->add(

@@ -8,3 +8,4 @@ parameters:
 
     ezsettings.default.content_edit_view: {}
     ezsettings.default.content_create_view: {}
+    ezsettings.default.ezurl_default_protocol: 'http'
