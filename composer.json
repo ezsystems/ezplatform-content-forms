@@ -4,7 +4,7 @@
     "license": "GPL-2.0-only",
     "type": "ezplatform-bundle",
     "require": {
-        "php": "^7.3",
+        "php": "^7.3 || ^8.0",
         "ext-json": "*",
         "ezsystems/ezplatform-kernel": "^1.3@dev",
         "symfony/dependency-injection": "^5.0",
