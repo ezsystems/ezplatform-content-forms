@@ -134,6 +134,7 @@ services:
             - "@ezplatform.content_forms.action_dispatcher.user"
             - '@eZ\Publish\API\Repository\PermissionResolver'
             - '@eZ\Publish\Core\MVC\Symfony\Locale\UserLanguagePreferenceProvider'
+            - '@Ibexa\ContentForms\Content\Form\Provider\GroupedContentFormFieldsProvider'
         parent: ezpublish.controller.base
         tags:
               - { name: controller.service_arguments }
