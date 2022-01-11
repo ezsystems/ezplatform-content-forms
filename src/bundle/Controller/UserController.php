@@ -61,7 +61,7 @@ class UserController extends Controller
     private $userLanguagePreferenceProvider;
 
     /** @var \Ibexa\Contracts\ContentForms\Content\Form\Provider\GroupedContentFormFieldsProviderInterface */
-    protected $groupedContentFormFieldsProvider;
+    private $groupedContentFormFieldsProvider;
 
     public function __construct(
         ContentTypeService $contentTypeService,
