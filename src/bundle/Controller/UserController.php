@@ -26,6 +26,7 @@ use EzSystems\EzPlatformContentForms\Form\Type\User\UserCreateType;
 use EzSystems\EzPlatformContentForms\Form\Type\User\UserUpdateType;
 use EzSystems\EzPlatformContentForms\User\View\UserCreateView;
 use EzSystems\EzPlatformContentForms\User\View\UserUpdateView;
+use Ibexa\Contracts\ContentForms\Content\Form\Provider\GroupedContentFormFieldsProviderInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\OptionsResolver\Exception\AccessException;
@@ -59,6 +60,9 @@ class UserController extends Controller
     /** @var \eZ\Publish\Core\MVC\Symfony\Locale\UserLanguagePreferenceProviderInterface */
     private $userLanguagePreferenceProvider;
 
+    /** @var \Ibexa\Contracts\ContentForms\Content\Form\Provider\GroupedContentFormFieldsProviderInterface */
+    private $groupedContentFormFieldsProvider;
+
     public function __construct(
         ContentTypeService $contentTypeService,
         UserService $userService,
@@ -66,7 +70,8 @@ class UserController extends Controller
         LanguageService $languageService,
         ActionDispatcherInterface $userActionDispatcher,
         PermissionResolver $permissionResolver,
-        UserLanguagePreferenceProviderInterface $userLanguagePreferenceProvider
+        UserLanguagePreferenceProviderInterface $userLanguagePreferenceProvider,
+        GroupedContentFormFieldsProviderInterface $groupedContentFormFieldsProvider
     ) {
         $this->contentTypeService = $contentTypeService;
         $this->userService = $userService;
@@ -75,6 +80,7 @@ class UserController extends Controller
         $this->userActionDispatcher = $userActionDispatcher;
         $this->permissionResolver = $permissionResolver;
         $this->userLanguagePreferenceProvider = $userLanguagePreferenceProvider;
+        $this->groupedContentFormFieldsProvider = $groupedContentFormFieldsProvider;
     }
 
     /**
@@ -135,6 +141,9 @@ class UserController extends Controller
                 'parent_location' => $location,
                 'content_type' => $contentType,
                 'parent_group' => $parentGroup,
+                'grouped_fields' => $this->groupedContentFormFieldsProvider->getGroupedFields(
+                    $form->get('fieldsData')->all()
+                ),
             ]
         );
     }
@@ -218,6 +227,9 @@ class UserController extends Controller
                 'user' => $user,
                 'location' => $location,
                 'parent_location' => $parentLocation,
+                'grouped_fields' => $this->groupedContentFormFieldsProvider->getGroupedFields(
+                    $form->get('fieldsData')->all()
+                ),
             ]
         );
     }
