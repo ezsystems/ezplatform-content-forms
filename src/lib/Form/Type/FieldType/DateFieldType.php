@@ -21,7 +21,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
  */
 class DateFieldType extends AbstractType
 {
-    private const EDIT_VIEWS = ['ezplatform.content.draft.edit', 'ezplatform.content.translate'];
+    private const EDIT_VIEWS = ['ezplatform.content.draft.edit', 'ezplatform.content.translate', 'ibexa.content.translate_with_location'];
 
     /** @var \Symfony\Component\HttpFoundation\RequestStack */
     private $requestStack;
