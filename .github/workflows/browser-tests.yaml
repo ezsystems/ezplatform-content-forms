@@ -14,6 +14,7 @@ jobs:
         with:
             project-edition: 'oss'
             project-version: '^3.3.x-dev'
-            test-suite:  '--mode=behat --profile=content-forms --tags=~@broken --non-strict'
+            test-suite:  '--mode=standard --profile=content-forms --tags=~@broken --non-strict'
+            test-setup-phase-1: '--mode=standard --profile=setup-content-forms'
         secrets:
             SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

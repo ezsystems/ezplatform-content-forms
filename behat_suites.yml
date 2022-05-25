@@ -1,5 +1,15 @@
 # This file is meant to be imported from ezplatform's behat.yml.dist.
 # All path are relative to the root ezplatform directory.
+
+setup-content-forms:
+    suites:
+        setup:
+            paths:
+                - vendor/ezsystems/ezplatform-content-forms/features/User/Setup
+            contexts:
+                - EzSystems\EzPlatformContentForms\Behat\Context\UserRegistrationContext
+                - eZ\Bundle\EzPublishCoreBundle\Features\Context\YamlConfigurationContext
+
 content-forms:
     suites:
         content_edit:
