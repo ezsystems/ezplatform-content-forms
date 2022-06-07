@@ -18,20 +18,8 @@ Scenario: A new user account can be registered from "/register"
       And the user account has been created
 
 Scenario: The user group where registered users are created can be customized
-    Given a User Group
-      And the following user registration group configuration:
-      """
-      ezpublish:
-        system:
-          default:
-            user_registration:
-              group_id: <userGroupContentId>
-          site_group:
-            user_registration:
-              group_id: <userGroupContentId>
-      """
      When I register a user account
-     Then the user is created in this user group
+     Then the user is created in  "TestUserGroup" user group
 
 @broken
 Scenario: The user registration templates can be customized

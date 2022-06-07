@@ -286,12 +286,12 @@ class UserRegistrationContext extends RawMinkContext implements Context, Snippet
     }
 
     /**
-     * @Given /^a User Group$/
+     * @Given a User Group :userGroupName
      */
-    public function createUserGroup()
+    public function createUserGroup(string $userGroupName)
     {
         $groupCreateStruct = $this->userService->newUserGroupCreateStruct(self::$language);
-        $groupCreateStruct->setField('name', uniqid('User registration group ', true));
+        $groupCreateStruct->setField('name', $userGroupName);
         $this->customUserGroup = $this->userService->createUserGroup(
             $groupCreateStruct,
             $this->userService->loadUserGroup(self::$groupId)
@@ -327,16 +327,16 @@ class UserRegistrationContext extends RawMinkContext implements Context, Snippet
     }
 
     /**
-     * @Then /^the user is created in this user group$/
+     * @Then /^the user is created in :userGroupName user group$/
      */
-    public function theUserIsCreatedInThisUserGroup()
+    public function theUserIsCreatedInThisUserGroup(string $userGroupName)
     {
         $user = $this->userService->loadUserByLogin($this->registrationUsername);
         $userGroups = $this->userService->loadUserGroupsOfUser($user);
 
         Assertion::assertEquals(
-            $this->customUserGroup->id,
-            $userGroups[0]->id
+            $userGroupName,
+            $userGroups[0]->getName()
         );
     }
 
