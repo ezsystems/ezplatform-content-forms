@@ -12,7 +12,6 @@ use eZ\Publish\API\Repository\Values\ContentType\FieldDefinition;
 use eZ\Publish\Core\FieldType\User\Value as ApiUserValue;
 use EzSystems\EzPlatformContentForms\Data\Content\ContentUpdateData;
 use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
-use EzSystems\EzPlatformContentForms\Data\ContentTranslationData;
 use EzSystems\EzPlatformContentForms\Data\User\UserAccountFieldData;
 use EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface;
 use EzSystems\EzPlatformContentForms\Form\Type\FieldType\UserAccountFieldType;
