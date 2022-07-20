@@ -10,6 +10,7 @@ namespace EzSystems\EzPlatformContentForms\FieldType\Mapper;
 
 use eZ\Publish\API\Repository\Values\ContentType\FieldDefinition;
 use eZ\Publish\Core\FieldType\User\Value as ApiUserValue;
+use EzSystems\EzPlatformContentForms\Data\Content\ContentUpdateData;
 use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
 use EzSystems\EzPlatformContentForms\Data\ContentTranslationData;
 use EzSystems\EzPlatformContentForms\Data\User\UserAccountFieldData;
@@ -46,7 +47,12 @@ final class UserAccountFieldValueFormMapper implements FieldValueFormMapperInter
         $formConfig = $fieldForm->getConfig();
         $rootForm = $fieldForm->getRoot()->getRoot();
         $formIntent = $rootForm->getConfig()->getOption('intent');
-        $isTranslation = $rootForm->getData() instanceof ContentTranslationData;
+        $formData = $rootForm->getData();
+        $isTranslation = $formData instanceof ContentUpdateData;
+        if ($isTranslation) {
+            return;
+        }
+
         $formBuilder = $formConfig->getFormFactory()->createBuilder()
             ->create('value', UserAccountFieldType::class, [
                 'required' => true,
@@ -57,11 +63,7 @@ final class UserAccountFieldValueFormMapper implements FieldValueFormMapperInter
                 ],
             ]);
 
-        if ($isTranslation) {
-            $formBuilder->addModelTransformer($this->getModelTransformerForTranslation($fieldDefinition));
-        } else {
-            $formBuilder->addModelTransformer($this->getModelTransformer());
-        }
+        $formBuilder->addModelTransformer($this->getModelTransformer());
 
         $formBuilder->setAutoInitialize(false);
 
