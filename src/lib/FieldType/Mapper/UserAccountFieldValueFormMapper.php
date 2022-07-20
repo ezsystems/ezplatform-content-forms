@@ -58,7 +58,7 @@ final class UserAccountFieldValueFormMapper implements FieldValueFormMapperInter
                 'label' => $fieldDefinition->getName(),
                 'intent' => $formIntent,
                 'constraints' => [
-                    new UserAccountPassword(['contentType' => $rootForm->getData()->contentType]),
+                    new UserAccountPassword(['contentType' => $formData->contentType]),
                 ],
             ]);
 
