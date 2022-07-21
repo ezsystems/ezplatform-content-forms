@@ -47,8 +47,7 @@ final class UserAccountFieldValueFormMapper implements FieldValueFormMapperInter
         $rootForm = $fieldForm->getRoot()->getRoot();
         $formIntent = $rootForm->getConfig()->getOption('intent');
         $formData = $rootForm->getData();
-        $isTranslation = $formData instanceof ContentUpdateData;
-        if ($isTranslation) {
+        if ($formData instanceof ContentUpdateData) {
             return;
         }
 
