@@ -21,8 +21,7 @@ class EzPlatformContentFormsExtension extends Extension implements PrependExtens
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yaml');
 
-        $environment = $container->getParameter('kernel.environment');
-        if (in_array($environment, ['behat', 'test'])) {
+        if ($this->shouldLoadTestServices($container)) {
             $loader->load('feature_contexts.yaml');
         }
     }
@@ -46,5 +45,11 @@ class EzPlatformContentFormsExtension extends Extension implements PrependExtens
                 ],
             ],
         ]);
+    }
+
+    private function shouldLoadTestServices(ContainerBuilder $container): bool
+    {
+        return $container->hasParameter('ibexa.testing.browser.enabled')
+            && true === $container->getParameter('ibexa.testing.browser.enabled');
     }
 }
