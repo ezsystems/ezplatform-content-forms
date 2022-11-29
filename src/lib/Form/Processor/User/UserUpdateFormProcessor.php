@@ -81,6 +81,14 @@ class UserUpdateFormProcessor implements EventSubscriberInterface
         $data->contentUpdateStruct = $this->contentService->newContentUpdateStruct();
 
         foreach ($data->fieldsData as $fieldDefIdentifier => $fieldData) {
+            if (
+                !$fieldData->fieldDefinition->isTranslatable
+                && $data->user->contentInfo->mainLanguageCode !== $languageCode
+            ) {
+                // Skip updating not translatable fields when editing not main language
+
+                continue;
+            }
             $data->contentUpdateStruct->setField($fieldDefIdentifier, $fieldData->value, $languageCode);
         }
     }
