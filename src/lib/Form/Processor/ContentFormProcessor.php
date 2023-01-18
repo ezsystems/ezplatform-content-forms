@@ -117,6 +117,7 @@ class ContentFormProcessor implements EventSubscriberInterface
         /** @var \EzSystems\EzPlatformContentForms\Data\Content\ContentCreateData|\EzSystems\EzPlatformContentForms\Data\Content\ContentUpdateData $data */
         $data = $event->getData();
         $form = $event->getForm();
+        $referrerLocation = $event->getOption('referrerLocation');
 
         $draft = $this->saveDraft($data, $form->getConfig()->getOption('languageCode'));
         $versionInfo = $draft->versionInfo;
@@ -128,7 +129,9 @@ class ContentFormProcessor implements EventSubscriberInterface
         $redirectUrl = $form['redirectUrlAfterPublish']->getData() ?: $this->router->generate(
             '_ez_content_view', [
                 'contentId' => $content->id,
-                'locationId' => $content->contentInfo->mainLocationId,
+                'locationId' => !empty($referrerLocation)
+                    ? $referrerLocation->id
+                    : $content->contentInfo->mainLocationId,
             ]
         );
 
