@@ -126,7 +126,9 @@ class ContentFormProcessor implements EventSubscriberInterface
         $event->setPayload('content', $content);
         $event->setPayload('is_new', $draft->contentInfo->isDraft());
 
-        $locationId = $referrerLocation !== null ? $referrerLocation->id : $content->contentInfo->mainLocationId;
+        $locationId = $referrerLocation !== null && $data instanceof ContentUpdateData
+            ? $referrerLocation->id
+            : $content->contentInfo->mainLocationId;
 
         $redirectUrl = $form['redirectUrlAfterPublish']->getData() ?: $this->router->generate(
             '_ez_content_view', [
