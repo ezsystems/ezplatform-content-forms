@@ -45,7 +45,7 @@ class PagelayoutContext extends RawMinkContext implements Context, SnippetAccept
         $pageLayout = $this->getPageLayout();
 
         $searchedPattern = sprintf(self::TWIG_DEBUG_STOP_REGEX, preg_quote($pageLayout, null));
-        Assertion::assertRegExp($searchedPattern, $this->getSession()->getPage()->getOuterHtml());
+        Assertion::assertMatchesRegularExpression($searchedPattern, $this->getSession()->getPage()->getOuterHtml());
     }
 
     public function getPageLayout(): string
