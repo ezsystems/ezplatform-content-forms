@@ -43,26 +43,32 @@ class ContentEditType extends AbstractType
         $builder
             ->add('publish', SubmitType::class, ['label' => 'Publish']);
 
-        if ($options['drafts_enabled']) {
-            $builder
-                ->add('saveDraft', SubmitType::class, [
-                    'label' => /** @Desc("Save draft") */ 'save_draft',
-                    'attr' => ['formnovalidate' => 'formnovalidate'],
-                ])
-                ->add('cancel', SubmitType::class, [
-                    'label' => /** @Desc("Cancel") */ 'cancel',
-                    'attr' => ['formnovalidate' => 'formnovalidate'],
-                ])
-                ->add('autosave', SubmitType::class, [
-                    'label' => /** @Desc("Autosave") */ 'autosave',
-                    'attr' => [
-                        'hidden' => true,
-                        'formnovalidate' => 'formnovalidate',
-                    ],
-                    'translation_domain' => 'content_edit',
-                ]);
-            $builder->addEventSubscriber(new SuppressValidationSubscriber());
+        if (!$options['drafts_enabled']) {
+            return;
         }
+
+        $builder
+            ->add('saveDraft', SubmitType::class, [
+                'label' => /** @Desc("Save draft") */ 'save_draft',
+                'attr' => ['formnovalidate' => 'formnovalidate'],
+            ])
+            ->add('cancel', SubmitType::class, [
+                'label' => /** @Desc("Cancel") */ 'cancel',
+                'attr' => ['formnovalidate' => 'formnovalidate'],
+            ]);
+
+        if (!($options['autosave_disabled'] ?? false)) {
+            $builder->add('autosave', SubmitType::class, [
+                'label' => /** @Desc("Autosave") */ 'autosave',
+                'attr' => [
+                    'hidden' => true,
+                    'formnovalidate' => 'formnovalidate',
+                ],
+                'translation_domain' => 'content_edit',
+            ]);
+        }
+
+        $builder->addEventSubscriber(new SuppressValidationSubscriber());
     }
 
     public function configureOptions(OptionsResolver $resolver)
@@ -73,6 +79,7 @@ class ContentEditType extends AbstractType
                 'contentCreateStruct' => null,
                 'contentUpdateStruct' => null,
                 'drafts_enabled' => false,
+                'autosave_disabled' => false,
                 'data_class' => ContentStruct::class,
                 'translation_domain' => 'ezplatform_content_forms_content',
                 'intent' => 'update',
