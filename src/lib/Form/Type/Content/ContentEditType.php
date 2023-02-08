@@ -57,7 +57,7 @@ class ContentEditType extends AbstractType
                 'attr' => ['formnovalidate' => 'formnovalidate'],
             ]);
 
-        if (!($options['autosave_disabled'] ?? false)) {
+        if (!$options['autosave_disabled']) {
             $builder->add('autosave', SubmitType::class, [
                 'label' => /** @Desc("Autosave") */ 'autosave',
                 'attr' => [
