@@ -57,7 +57,7 @@ class ContentEditType extends AbstractType
                 'attr' => ['formnovalidate' => 'formnovalidate'],
             ]);
 
-        if (!$options['autosave_disabled']) {
+        if ($options['autosave_enabled']) {
             $builder->add('autosave', SubmitType::class, [
                 'label' => /** @Desc("Autosave") */ 'autosave',
                 'attr' => [
@@ -79,7 +79,7 @@ class ContentEditType extends AbstractType
                 'contentCreateStruct' => null,
                 'contentUpdateStruct' => null,
                 'drafts_enabled' => false,
-                'autosave_disabled' => false,
+                'autosave_enabled' => true,
                 'data_class' => ContentStruct::class,
                 'translation_domain' => 'ezplatform_content_forms_content',
                 'intent' => 'update',

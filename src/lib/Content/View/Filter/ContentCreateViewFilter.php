@@ -87,7 +87,7 @@ class ContentCreateViewFilter implements EventSubscriberInterface
         $form = $this->resolveContentCreateForm(
             $contentCreateData,
             $languageCode,
-            true
+            false
         );
 
         $event->getParameters()->add(['form' => $form->handleRequest($request)]);
@@ -125,14 +125,14 @@ class ContentCreateViewFilter implements EventSubscriberInterface
     private function resolveContentCreateForm(
         ContentCreateData $contentCreateData,
         string $languageCode,
-        bool $autosaveDisabled = false
+        bool $autosaveEnabled = true
     ): FormInterface {
         return $this->formFactory->create(ContentEditType::class, $contentCreateData, [
             'languageCode' => $languageCode,
             'mainLanguageCode' => $languageCode,
             'contentCreateStruct' => $contentCreateData,
             'drafts_enabled' => true,
-            'autosave_disabled' => $autosaveDisabled,
+            'autosave_enabled' => $autosaveEnabled,
         ]);
     }
 }
