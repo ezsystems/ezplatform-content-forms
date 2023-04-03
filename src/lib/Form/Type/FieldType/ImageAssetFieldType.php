@@ -105,7 +105,9 @@ class ImageAssetFieldType extends AbstractType
                 if (!$content->contentInfo->isTrashed()) {
                     $view->vars['destination_content'] = $content;
                 }
-            } catch (NotFoundException | UnauthorizedException $exception) {
+            } catch (UnauthorizedException $e) {
+            } catch (NotFoundException $e) {
+                $form->setData(null);
             }
         }
 

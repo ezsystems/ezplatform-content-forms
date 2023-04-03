@@ -10,6 +10,7 @@ namespace EzSystems\EzPlatformContentForms\Form\Type\FieldType;
 
 use eZ\Publish\API\Repository\ContentService;
 use eZ\Publish\API\Repository\ContentTypeService;
+use eZ\Publish\API\Repository\Exceptions\NotFoundException;
 use eZ\Publish\API\Repository\Exceptions\UnauthorizedException;
 use eZ\Publish\API\Repository\Values\Content\Location;
 use eZ\Publish\Core\FieldType\RelationList\Value;
@@ -84,6 +85,8 @@ class RelationListFieldType extends AbstractType
                 $contentType = $this->contentTypeService->loadContentType($contentInfo->contentTypeId);
             } catch (UnauthorizedException $e) {
                 $unauthorized = true;
+            } catch (NotFoundException $e) {
+                continue;
             }
 
             $view->vars['relations'][$contentId] = [
