@@ -85,8 +85,6 @@ class RelationListFieldType extends AbstractType
                 $contentType = $this->contentTypeService->loadContentType($contentInfo->contentTypeId);
             } catch (UnauthorizedException $e) {
                 $unauthorized = true;
-            } catch (NotFoundException $e) {
-                continue;
             }
 
             $view->vars['relations'][$contentId] = [
