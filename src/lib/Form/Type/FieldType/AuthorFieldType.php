@@ -70,7 +70,7 @@ class AuthorFieldType extends AbstractType
         $builder
             ->add('authors', AuthorCollectionType::class, [])
             ->addViewTransformer($this->getViewTransformer())
-            ->addEventListener(FormEvents::POST_SUBMIT, [$this, 'filterOutEmptyAuthors']);
+            ->addEventListener(FormEvents::POST_SET_DATA, [$this, 'filterOutEmptyAuthors']);
     }
 
     /**
