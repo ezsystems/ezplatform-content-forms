@@ -74,18 +74,26 @@ class ContentEditViewFilter implements EventSubscriberInterface
 
         $request = $event->getRequest();
         $languageCode = $request->attributes->get('language');
+        $contentId = $request->attributes->getInt('contentId');
         $contentDraft = $this->contentService->loadContent(
-            $request->attributes->getInt('contentId'),
+            $contentId,
             [$languageCode], // @todo: rename to languageCode in 3.0
             $request->attributes->getInt('versionNo')
         );
+        $currentContent = $this->contentService->loadContent($contentId);
+        $currentFields = $currentContent->getFields();
 
         $contentType = $this->contentTypeService->loadContentType(
             $contentDraft->contentInfo->contentTypeId,
             $this->languagePreferenceProvider->getPreferredLanguages()
         );
 
-        $contentUpdate = $this->resolveContentEditData($contentDraft, $languageCode, $contentType);
+        $contentUpdate = $this->resolveContentEditData(
+            $contentDraft,
+            $languageCode,
+            $contentType,
+            $currentFields,
+        );
         $form = $this->resolveContentEditForm(
             $contentUpdate,
             $languageCode,
@@ -99,22 +107,20 @@ class ContentEditViewFilter implements EventSubscriberInterface
     }
 
     /**
-     * @param \eZ\Publish\API\Repository\Values\Content\Content $content
-     * @param string $languageCode
-     * @param \eZ\Publish\API\Repository\Values\ContentType\ContentType $contentType
-     *
-     * @return \EzSystems\EzPlatformContentForms\Data\Content\ContentUpdateData
+     * @param array<\eZ\Publish\API\Repository\Values\Content\Field> $currentFields
      */
     private function resolveContentEditData(
         Content $content,
         string $languageCode,
-        ContentType $contentType
+        ContentType $contentType,
+        array $currentFields
     ): ContentUpdateData {
         $contentUpdateMapper = new ContentUpdateMapper();
 
         return $contentUpdateMapper->mapToFormData($content, [
             'languageCode' => $languageCode,
             'contentType' => $contentType,
+            'currentFields' => $currentFields,
         ]);
     }
 
