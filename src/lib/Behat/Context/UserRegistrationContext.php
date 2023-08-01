@@ -305,8 +305,8 @@ class UserRegistrationContext extends RawMinkContext implements Context, Snippet
     {
         $extraConfigurationString = str_replace(
             '<userGroupContentId>',
-            $this->customUserGroup->id,
-            $extraConfigurationString
+            (string)$this->customUserGroup->id,
+            $extraConfigurationString->getRaw()
         );
 
         $this->yamlConfigurationContext->addConfiguration(Yaml::parse($extraConfigurationString));
