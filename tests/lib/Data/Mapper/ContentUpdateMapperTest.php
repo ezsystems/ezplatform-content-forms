@@ -21,7 +21,7 @@ use eZ\Publish\Core\Repository\Values\ContentType\FieldDefinitionCollection;
 use EzSystems\EzPlatformContentForms\Data\Mapper\ContentUpdateMapper;
 use PHPUnit\Framework\TestCase;
 
-class ContentUpdateMapperTest extends TestCase
+final class ContentUpdateMapperTest extends TestCase
 {
     public function testMapToFormData(): void
     {
