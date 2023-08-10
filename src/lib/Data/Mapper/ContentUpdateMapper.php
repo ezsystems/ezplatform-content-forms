@@ -31,17 +31,23 @@ class ContentUpdateMapper implements FormDataMapperInterface
 
         $params = $optionsResolver->resolve($params);
         $languageCode = $params['languageCode'];
+        $currentFields = $params['currentFields'];
+        $mappedCurrentFields = array_column($currentFields, null, 'fieldDefIdentifier');
 
         $data = new ContentUpdateData(['contentDraft' => $contentDraft]);
         $data->initialLanguageCode = $languageCode;
 
         $fields = $contentDraft->getFieldsByLanguage($languageCode);
+
         foreach ($params['contentType']->fieldDefinitions as $fieldDef) {
+            $isNonTranslatable = $fieldDef->isTranslatable === false;
             $field = $fields[$fieldDef->identifier];
             $data->addFieldData(new FieldData([
                 'fieldDefinition' => $fieldDef,
                 'field' => $field,
-                'value' => $field->value,
+                'value' => $isNonTranslatable
+                    ? $mappedCurrentFields[$fieldDef->identifier]->value
+                    : $field->value,
             ]));
         }
 
@@ -51,7 +57,7 @@ class ContentUpdateMapper implements FormDataMapperInterface
     private function configureOptions(OptionsResolver $optionsResolver)
     {
         $optionsResolver
-            ->setRequired(['languageCode', 'contentType'])
+            ->setRequired(['languageCode', 'contentType', 'currentFields'])
             ->setAllowedTypes('contentType', ContentType::class);
     }
 }
