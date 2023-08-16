@@ -45,7 +45,7 @@ class ContentUpdateMapper implements FormDataMapperInterface
             $data->addFieldData(new FieldData([
                 'fieldDefinition' => $fieldDef,
                 'field' => $field,
-                'value' => $isNonTranslatable
+                'value' => $isNonTranslatable && isset($mappedCurrentFields[$fieldDef->identifier])
                     ? $mappedCurrentFields[$fieldDef->identifier]->value
                     : $field->value,
             ]));
