@@ -39,7 +39,58 @@ final class ContentUpdateMapperTest extends TestCase
                 'value' => $expectedShortName = 'Nontranslateable short name',
             ]),
         ];
-        $content = new Content([
+
+        $newName = 'GER name';
+        $newShortName = '';
+        $content = $this->getContent($newName, $newShortName, 'ger-DE');
+
+        $data = (new ContentUpdateMapper())->mapToFormData($content, [
+            'languageCode' => 'ger-DE',
+            'contentType' => $this->getContentType(),
+            'currentFields' => $currentFields,
+        ]);
+
+        $fieldsData = $data->fieldsData;
+
+        self::assertSame($newName, $fieldsData['name']->value);
+        self::assertSame($expectedShortName, $fieldsData['short_name']->value);
+    }
+
+    public function testMapToFormDataWithTheSameLanguage(): void
+    {
+        $currentFields = [
+            new APIField([
+                'fieldDefIdentifier' => 'name',
+                'fieldTypeIdentifier' => 'ezstring',
+                'languageCode' => 'eng-GB',
+                'value' => 'Name',
+            ]),
+            new APIField([
+                'fieldDefIdentifier' => 'short_name',
+                'fieldTypeIdentifier' => 'ezstring',
+                'languageCode' => 'eng-GB',
+                'value' => 'Short name',
+            ]),
+        ];
+
+        $newName = 'New name';
+        $newShortName = 'New short name';
+        $content = $this->getContent($newName, $newShortName, 'eng-GB');
+
+        $data = (new ContentUpdateMapper())->mapToFormData($content, [
+            'languageCode' => 'eng-GB',
+            'contentType' => $this->getContentType(),
+            'currentFields' => $currentFields,
+        ]);
+
+        $fieldsData = $data->fieldsData;
+
+        self::assertSame($newName, $fieldsData['name']->value);
+        self::assertSame($newShortName, $fieldsData['short_name']->value);
+    }
+
+    private function getContent(string $name, string $shortName, string $languageCode): Content {
+        return new Content([
             'versionInfo' => new VersionInfo([
                 'contentInfo' => new ContentInfo([
                     'remoteId' => 'foo',
@@ -63,46 +114,40 @@ final class ContentUpdateMapperTest extends TestCase
                     ]),
                 ]),
             ]),
-            'contentType' => $contentType = new ContentType([
-                'identifier' => 'folder',
-                'fieldDefinitions' => new FieldDefinitionCollection([
-                    new FieldDefinition([
-                        'identifier' => 'name',
-                        'isTranslatable' => true,
-                        'defaultValue' => '',
-                    ]),
-                    new FieldDefinition([
-                        'identifier' => 'short_name',
-                        'isTranslatable' => false,
-                        'defaultValue' => '',
-                    ]),
-                ]),
-            ]),
+            'contentType' => $this->getContentType(),
             'internalFields' => [
                 new APIField([
                     'fieldDefIdentifier' => 'name',
                     'fieldTypeIdentifier' => 'ezstring',
-                    'languageCode' => 'ger-DE',
-                    'value' => $expectedName = 'GER name',
+                    'languageCode' => $languageCode,
+                    'value' => $name,
                 ]),
                 new APIField([
                     'fieldDefIdentifier' => 'short_name',
                     'fieldTypeIdentifier' => 'ezstring',
-                    'languageCode' => 'ger-DE',
-                    'value' => '',
+                    'languageCode' => $languageCode,
+                    'value' => $shortName,
                 ]),
             ],
         ]);
+    }
 
-        $data = (new ContentUpdateMapper())->mapToFormData($content, [
-            'languageCode' => 'ger-DE',
-            'contentType' => $contentType,
-            'currentFields' => $currentFields,
+    private function getContentType(): ContentType
+    {
+        return new ContentType([
+            'identifier' => 'folder',
+            'fieldDefinitions' => new FieldDefinitionCollection([
+                new FieldDefinition([
+                    'identifier' => 'name',
+                    'isTranslatable' => true,
+                    'defaultValue' => '',
+                ]),
+                new FieldDefinition([
+                    'identifier' => 'short_name',
+                    'isTranslatable' => false,
+                    'defaultValue' => '',
+                ]),
+            ]),
         ]);
-
-        $fieldsData = $data->fieldsData;
-
-        self::assertSame($expectedName, $fieldsData['name']->value);
-        self::assertSame($expectedShortName, $fieldsData['short_name']->value);
     }
 }
