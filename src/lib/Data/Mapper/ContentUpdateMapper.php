@@ -50,8 +50,8 @@ class ContentUpdateMapper implements FormDataMapperInterface
                 'fieldDefinition' => $fieldDef,
                 'field' => $field,
                 'value' => $shouldUseCurrentFieldValue
-                        ? $mappedCurrentFields[$fieldDef->identifier]->value
-                        : $field->value,
+                    ? $mappedCurrentFields[$fieldDef->identifier]->value
+                    : $field->value,
             ]));
         }
 
