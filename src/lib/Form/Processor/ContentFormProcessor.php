@@ -204,8 +204,8 @@ class ContentFormProcessor implements EventSubscriberInterface
         /** @var $createContentDraft \EzSystems\EzPlatformContentForms\Data\Content\CreateContentDraftData */
         $createContentDraft = $event->getData();
 
-        $contentInfo = $this->contentService->loadContentInfo($createContentDraft->contentId);
-        $versionInfo = $this->contentService->loadVersionInfo($contentInfo, $createContentDraft->fromVersionNo);
+        $contentInfo = $this->contentService->loadContentInfo((int)$createContentDraft->contentId);
+        $versionInfo = $this->contentService->loadVersionInfo($contentInfo, (int)$createContentDraft->fromVersionNo);
         $contentDraft = $this->contentService->createContentDraft($contentInfo, $versionInfo);
         $referrerLocation = $event->getOption('referrerLocation');
 
