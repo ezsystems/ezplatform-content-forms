@@ -74,6 +74,9 @@ class ContentEditType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver
+            ->setDefined(['intent'])
+            ->setAllowedTypes('intent', 'string')
+            ->setAllowedValues('intent', ['register', 'update', 'create', 'translate'])
             ->setDefaults([
                 'content' => null,
                 'contentCreateStruct' => null,

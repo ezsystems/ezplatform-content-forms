@@ -29,7 +29,3 @@ EzSystems\EzPlatformContentForms\Data\User\UserAccountFieldData:
         username:
             - Valid: ~
             - NotBlank: ~
-
-EzSystems\EzPlatformContentForms\Data\Content\FieldData:
-    constraints:
-        - EzSystems\EzPlatformContentForms\Validator\Constraints\FieldValue: ~

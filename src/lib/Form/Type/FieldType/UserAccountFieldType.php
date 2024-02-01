@@ -67,6 +67,6 @@ class UserAccountFieldType extends AbstractType
                 'translation_domain' => 'ezplatform_content_forms_fieldtype',
             ])
             ->setRequired(['intent'])
-            ->setAllowedValues('intent', ['register', 'create', 'update']);
+            ->setAllowedValues('intent', ['register', 'create', 'update', 'translate']);
     }
 }

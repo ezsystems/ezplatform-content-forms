@@ -42,6 +42,18 @@ class FieldValueValidator extends FieldTypeValidator
         $fieldDefinition = $this->getFieldDefinition($value);
         $fieldType = $this->fieldTypeService->getFieldType($fieldTypeIdentifier);
 
+        if (
+            false === $fieldDefinition->isTranslatable
+            && isset($constraint->payload['intent'])
+            && $constraint->payload['intent'] === 'translate'
+        ) {
+            // In content translation mode and the field is not translatable.
+            // Validation has to be skipped or it'll violate constraints on
+            // some field i.e. ezuser
+
+            return;
+        }
+
         if ($fieldDefinition->isRequired && $fieldType->isEmptyValue($fieldValue)) {
             $validationErrors = [
                 new ValidationError(

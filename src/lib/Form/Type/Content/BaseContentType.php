@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace EzSystems\EzPlatformContentForms\Form\Type\Content;
 
+use EzSystems\EzPlatformContentForms\Validator\Constraints\FieldValue;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -42,6 +43,9 @@ class BaseContentType extends AbstractType
                     'content' => $options['content'] ?? null,
                     'contentCreateStruct' => $options['contentCreateStruct'] ?? null,
                     'contentUpdateStruct' => $options['contentUpdateStruct'] ?? null,
+                    'constraints' => [
+                        new FieldValue(null, null, ['intent' => $options['intent']]),
+                    ],
                 ],
             ])
             ->add('redirectUrlAfterPublish', HiddenType::class, [
@@ -59,7 +63,12 @@ class BaseContentType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver
-            ->setDefaults(['translation_domain' => 'ezplatform_content_forms_content'])
+            ->setDefined(['intent'])
+            ->setAllowedTypes('intent', 'string')
+            ->setDefaults([
+                'translation_domain' => 'ezplatform_content_forms_content',
+                'intent' => 'update',
+            ])
             ->setRequired(['languageCode', 'mainLanguageCode']);
     }
 }
